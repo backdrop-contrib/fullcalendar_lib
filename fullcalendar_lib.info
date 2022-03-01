@@ -1,0 +1,4 @@
+name = FullCalendar Library
+description = Provides a recent Fullcalendar library
+backdrop = 1.x
+type = module
