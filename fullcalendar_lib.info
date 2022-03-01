@@ -1,4 +1,4 @@
-name = FullCalendar Library
-description = Provides a recent Fullcalendar library
+name = Fullcalendar Library
+description = Integrates a recent FullCalendar library (5.x).
 backdrop = 1.x
 type = module
