@@ -20,7 +20,9 @@ The [Fullcalendar](https://backdropcms.org/project/fullcalendar) module also
 
 ## Related modules
 
-- TBD
+- [Fullcalendar Views NG](https://backdropcms.org/project/fullcalendar_views)
+- [Resource Timeslots](https://backdropcms.org/project/resource_timeslots)
+ (since version 1.x-1.2.0)
 
 ## Issues
 
