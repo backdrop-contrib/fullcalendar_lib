@@ -1,6 +1,6 @@
 # Fullcalendar Library
 
-Wraps [Fullcalendar 5.x](https://fullcalendar.io) as a reusable library.
+Wraps [Fullcalendar 6.x](https://fullcalendar.io) as a reusable library.
 
 This module does nothing on its own, you only have to install it, if another
  module requires it.
