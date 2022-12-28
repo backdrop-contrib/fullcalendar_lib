@@ -1,5 +1,5 @@
 /*!
-FullCalendar Core v6.0.1
+FullCalendar Core v6.0.2
 Docs & License: https://fullcalendar.io
 (c) 2022 Adam Shaw
 */
@@ -554,6 +554,16 @@ var FullCalendar = (function (exports) {
                 if (obj0[key] !== obj1[key]) {
                     return false;
                 }
+            }
+        }
+        return true;
+    }
+    const HANDLER_RE = /^on[A-Z]/;
+    function isNonHandlerPropsEqual(obj0, obj1) {
+        const keys = getUnequalProps(obj0, obj1);
+        for (let key of keys) {
+            if (!HANDLER_RE.test(key)) {
+                return false;
             }
         }
         return true;
@@ -5134,7 +5144,7 @@ var FullCalendar = (function (exports) {
     ContentInjector.addPropsEquality({
         elClasses: isArraysEqual,
         elStyle: isPropsEqual,
-        elAttrs: isPropsEqual,
+        elAttrs: isNonHandlerPropsEqual,
         renderProps: isPropsEqual,
     });
     // Util
@@ -6399,10 +6409,10 @@ var FullCalendar = (function (exports) {
         constructor() {
             super(...arguments);
             this.handleEl = (el) => {
+                this.el = el;
                 if (el) {
                     setElSeg(el, this.props.seg);
                 }
-                // TODO: when null, should unset to avoid memory leaks?
             };
         }
         render() {
@@ -6436,6 +6446,11 @@ var FullCalendar = (function (exports) {
                     ...seg.eventRange.ui.classNames,
                     ...(props.elClasses || []),
                 ], renderProps: renderProps, generatorName: "eventContent", generator: options.eventContent || props.defaultGenerator, classNameGenerator: options.eventClassNames, didMount: options.eventDidMount, willUnmount: options.eventWillUnmount })));
+        }
+        componentDidUpdate(prevProps) {
+            if (this.el && this.props.seg !== prevProps.seg) {
+                setElSeg(this.el, this.props.seg);
+            }
         }
     }
 
@@ -9587,7 +9602,7 @@ var FullCalendar = (function (exports) {
         return sliceEventStore(props.eventStore, props.eventUiBases, props.dateProfile.activeRange, allDay ? props.nextDayThreshold : null).fg;
     }
 
-    const version = '6.0.1';
+    const version = '6.0.2';
 
     exports.Calendar = Calendar;
     exports.Internal = internal;
