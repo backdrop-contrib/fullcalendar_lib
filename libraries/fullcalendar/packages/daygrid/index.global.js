@@ -1,5 +1,5 @@
 /*!
-FullCalendar Day Grid Plugin v6.0.2
+FullCalendar Day Grid Plugin v6.0.3
 Docs & License: https://fullcalendar.io/docs/month-view
 (c) 2022 Adam Shaw
 */
@@ -601,7 +601,7 @@ FullCalendar.DayGrid = (function (exports, core, internal$1, preact) {
             return preact.createElement(preact.Fragment, {}, ...nodes);
         }
         updateSizing(isExternalSizingChange) {
-            let { props, frameElRefs } = this;
+            let { props, state, frameElRefs } = this;
             if (!props.forPrint &&
                 props.clientWidth !== null // positioning ready?
             ) {
@@ -609,10 +609,14 @@ FullCalendar.DayGrid = (function (exports, core, internal$1, preact) {
                     let frameEls = props.cells.map((cell) => frameElRefs.currentMap[cell.key]);
                     if (frameEls.length) {
                         let originEl = this.rootElRef.current;
-                        this.setState({
-                            framePositions: new internal$1.PositionCache(originEl, frameEls, true, // isHorizontal
-                            false),
-                        });
+                        let newPositionCache = new internal$1.PositionCache(originEl, frameEls, true, // isHorizontal
+                        false);
+                        if (!state.framePositions || !state.framePositions.similarTo(newPositionCache)) {
+                            this.setState({
+                                framePositions: new internal$1.PositionCache(originEl, frameEls, true, // isHorizontal
+                                false),
+                            });
+                        }
                     }
                 }
                 const oldInstanceHeights = this.state.eventInstanceHeights;

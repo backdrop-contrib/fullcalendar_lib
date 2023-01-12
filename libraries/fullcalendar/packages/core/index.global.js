@@ -1,5 +1,5 @@
 /*!
-FullCalendar Core v6.0.2
+FullCalendar Core v6.0.3
 Docs & License: https://fullcalendar.io
 (c) 2022 Adam Shaw
 */
@@ -2757,6 +2757,24 @@ var FullCalendar = (function (exports) {
         getHeight(topIndex) {
             return this.bottoms[topIndex] - this.tops[topIndex];
         }
+        similarTo(otherCache) {
+            return similarNumArrays(this.tops || [], otherCache.tops || []) &&
+                similarNumArrays(this.bottoms || [], otherCache.bottoms || []) &&
+                similarNumArrays(this.lefts || [], otherCache.lefts || []) &&
+                similarNumArrays(this.rights || [], otherCache.rights || []);
+        }
+    }
+    function similarNumArrays(a, b) {
+        const len = a.length;
+        if (len !== b.length) {
+            return false;
+        }
+        for (let i = 0; i < len; i++) {
+            if (Math.round(a[i]) !== Math.round(b[i])) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /* eslint max-classes-per-file: "off" */
@@ -6685,10 +6703,15 @@ var FullCalendar = (function (exports) {
     class MoreLinkContainer extends BaseComponent {
         constructor() {
             super(...arguments);
-            this.linkElRef = y();
             this.state = {
                 isPopoverOpen: false,
                 popoverId: getUniqueDomId(),
+            };
+            this.handleLinkEl = (linkEl) => {
+                this.linkEl = linkEl;
+                if (this.props.elRef) {
+                    setRef(this.props.elRef, linkEl);
+                }
             };
             this.handleClick = (ev) => {
                 let { props, context } = this;
@@ -6743,13 +6766,13 @@ var FullCalendar = (function (exports) {
                     view: viewApi,
                 };
                 return (h(p, null,
-                    Boolean(props.moreCnt) && (h(ContentContainer, { elTag: props.elTag || 'a', elRef: this.linkElRef, elClasses: [
+                    Boolean(props.moreCnt) && (h(ContentContainer, { elTag: props.elTag || 'a', elRef: this.handleLinkEl, elClasses: [
                             ...(props.elClasses || []),
                             'fc-more-link',
-                        ], elAttrs: Object.assign(Object.assign(Object.assign({}, props.elAttrs), createAriaClickAttrs(this.handleClick)), { title: hint, 'aria-expanded': state.isPopoverOpen, 'aria-controls': state.isPopoverOpen ? state.popoverId : '' }), renderProps: renderProps, generatorName: "moreLinkContent", generator: options.moreLinkContent || props.defaultGenerator || renderMoreLinkInner, classNameGenerator: options.moreLinkClassNames, didMount: options.moreLinkDidMount, willUnmount: options.moreLinkWillUnmount }, props.children)),
+                        ], elStyle: props.elStyle, elAttrs: Object.assign(Object.assign(Object.assign({}, props.elAttrs), createAriaClickAttrs(this.handleClick)), { title: hint, 'aria-expanded': state.isPopoverOpen, 'aria-controls': state.isPopoverOpen ? state.popoverId : '' }), renderProps: renderProps, generatorName: "moreLinkContent", generator: options.moreLinkContent || props.defaultGenerator || renderMoreLinkInner, classNameGenerator: options.moreLinkClassNames, didMount: options.moreLinkDidMount, willUnmount: options.moreLinkWillUnmount }, props.children)),
                     state.isPopoverOpen && (h(MorePopover, { id: state.popoverId, startDate: range.start, endDate: range.end, dateProfile: props.dateProfile, todayRange: props.todayRange, extraDateSpan: props.extraDateSpan, parentEl: this.parentEl, alignmentEl: props.alignmentElRef ?
                             props.alignmentElRef.current :
-                            this.linkElRef.current, alignGridTop: props.alignGridTop, onClose: this.handlePopoverClose }, props.popoverContent()))));
+                            this.linkEl, alignGridTop: props.alignGridTop, onClose: this.handlePopoverClose }, props.popoverContent()))));
             }));
         }
         componentDidMount() {
@@ -6759,8 +6782,8 @@ var FullCalendar = (function (exports) {
             this.updateParentEl();
         }
         updateParentEl() {
-            if (this.linkElRef.current) {
-                this.parentEl = elementClosest(this.linkElRef.current, '.fc-view-harness');
+            if (this.linkEl) {
+                this.parentEl = elementClosest(this.linkEl, '.fc-view-harness');
             }
         }
     }
@@ -9602,7 +9625,7 @@ var FullCalendar = (function (exports) {
         return sliceEventStore(props.eventStore, props.eventUiBases, props.dateProfile.activeRange, allDay ? props.nextDayThreshold : null).fg;
     }
 
-    const version = '6.0.2';
+    const version = '6.0.3';
 
     exports.Calendar = Calendar;
     exports.Internal = internal;

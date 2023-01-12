@@ -1,5 +1,5 @@
 /*!
-FullCalendar Time Grid Plugin v6.0.2
+FullCalendar Time Grid Plugin v6.0.3
 Docs & License: https://fullcalendar.io/docs/timegrid-view
 (c) 2022 Adam Shaw
 */
