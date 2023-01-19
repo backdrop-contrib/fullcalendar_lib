@@ -1,5 +1,5 @@
 /*!
-FullCalendar Bootstrap 4 Plugin v6.0.2
+FullCalendar Bootstrap 4 Plugin v6.0.3
 Docs & License: https://fullcalendar.io/docs/bootstrap4
 (c) 2022 Adam Shaw
 */

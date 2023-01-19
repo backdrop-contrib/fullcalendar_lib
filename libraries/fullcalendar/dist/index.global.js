@@ -1,5 +1,5 @@
 /*!
-FullCalendar Standard Bundle v6.0.2
+FullCalendar Standard Bundle v6.0.3
 Docs & License: https://fullcalendar.io/docs/initialize-globals
 (c) 2022 Adam Shaw
 */
@@ -11,387 +11,6 @@ var FullCalendar = (function (exports) {
     var r,u,i,f=[],c=[],e=l$1.__b,a=l$1.__r,v=l$1.diffed,l=l$1.__c,m=l$1.unmount;function b(){for(var t;t=f.shift();)if(t.__P&&t.__H)try{t.__H.__h.forEach(k),t.__H.__h.forEach(w$1),t.__H.__h=[];}catch(r){t.__H.__h=[],l$1.__e(r,t.__v);}}l$1.__b=function(n){r=null,e&&e(n);},l$1.__r=function(n){a&&a(n);var i=(r=n.__c).__H;i&&(u===r?(i.__h=[],r.__h=[],i.__.forEach(function(n){n.__N&&(n.__=n.__N),n.__V=c,n.__N=n.i=void 0;})):(i.__h.forEach(k),i.__h.forEach(w$1),i.__h=[])),u=r;},l$1.diffed=function(t){v&&v(t);var o=t.__c;o&&o.__H&&(o.__H.__h.length&&(1!==f.push(o)&&i===l$1.requestAnimationFrame||((i=l$1.requestAnimationFrame)||j$1)(b)),o.__H.__.forEach(function(n){n.i&&(n.__H=n.i),n.__V!==c&&(n.__=n.__V),n.i=void 0,n.__V=c;})),u=r=null;},l$1.__c=function(t,r){r.some(function(t){try{t.__h.forEach(k),t.__h=t.__h.filter(function(n){return !n.__||w$1(n)});}catch(u){r.some(function(n){n.__h&&(n.__h=[]);}),r=[],l$1.__e(u,t.__v);}}),l&&l(t,r);},l$1.unmount=function(t){m&&m(t);var r,u=t.__c;u&&u.__H&&(u.__H.__.forEach(function(n){try{k(n);}catch(n){r=n;}}),u.__H=void 0,r&&l$1.__e(r,u.__v));};var g$1="function"==typeof requestAnimationFrame;function j$1(n){var t,r=function(){clearTimeout(u),g$1&&cancelAnimationFrame(t),setTimeout(n);},u=setTimeout(r,100);g$1&&(t=requestAnimationFrame(r));}function k(n){var t=r,u=n.__c;"function"==typeof u&&(n.__c=void 0,u()),r=t;}function w$1(n){var t=r;n.__c=n.__(),r=t;}
 
     function g(n,t){for(var e in t)n[e]=t[e];return n}function C(n,t){for(var e in n)if("__source"!==e&&!(e in t))return !0;for(var r in t)if("__source"!==r&&n[r]!==t[r])return !0;return !1}function w(n){this.props=n;}(w.prototype=new d).isPureReactComponent=!0,w.prototype.shouldComponentUpdate=function(n,t){return C(this.props,n)||C(this.state,t)};var x=l$1.__b;l$1.__b=function(n){n.type&&n.type.__f&&n.ref&&(n.props.ref=n.ref,n.ref=null),x&&x(n);};var T=l$1.__e;l$1.__e=function(n,t,e,r){if(n.then)for(var u,o=t;o=o.__;)if((u=o.__c)&&u.__c)return null==t.__e&&(t.__e=e.__e,t.__k=e.__k),u.__c(n,t);T(n,t,e,r);};var I=l$1.unmount;function L(n,t,e){return n&&(n.__c&&n.__c.__H&&(n.__c.__H.__.forEach(function(n){"function"==typeof n.__c&&n.__c();}),n.__c.__H=null),null!=(n=g({},n)).__c&&(n.__c.__P===e&&(n.__c.__P=t),n.__c=null),n.__k=n.__k&&n.__k.map(function(n){return L(n,t,e)})),n}function U(n,t,e){return n&&(n.__v=null,n.__k=n.__k&&n.__k.map(function(n){return U(n,t,e)}),n.__c&&n.__c.__P===t&&(n.__e&&e.insertBefore(n.__e,n.__d),n.__c.__e=!0,n.__c.__P=e)),n}function D(){this.__u=0,this.t=null,this.__b=null;}function F(n){var t=n.__.__c;return t&&t.__a&&t.__a(n)}function V(){this.u=null,this.o=null;}l$1.unmount=function(n){var t=n.__c;t&&t.__R&&t.__R(),t&&!0===n.__h&&(n.type=null),I&&I(n);},(D.prototype=new d).__c=function(n,t){var e=t.__c,r=this;null==r.t&&(r.t=[]),r.t.push(e);var u=F(r.__v),o=!1,i=function(){o||(o=!0,e.__R=null,u?u(l):l());};e.__R=i;var l=function(){if(!--r.__u){if(r.state.__a){var n=r.state.__a;r.__v.__k[0]=U(n,n.__c.__P,n.__c.__O);}var t;for(r.setState({__a:r.__b=null});t=r.t.pop();)t.forceUpdate();}},c=!0===t.__h;r.__u++||c||r.setState({__a:r.__b=r.__v.__k[0]}),n.then(i,i);},D.prototype.componentWillUnmount=function(){this.t=[];},D.prototype.render=function(n,e){if(this.__b){if(this.__v.__k){var r=document.createElement("div"),o=this.__v.__k[0].__c;this.__v.__k[0]=L(this.__b,r,o.__O=o.__P);}this.__b=null;}var i=e.__a&&h(p,null,n.fallback);return i&&(i.__h=null),[h(p,null,e.__a?null:n.children),i]};var W=function(n,t,e){if(++e[1]===e[0]&&n.o.delete(t),n.props.revealOrder&&("t"!==n.props.revealOrder[0]||!n.o.size))for(e=n.u;e;){for(;e.length>3;)e.pop()();if(e[1]<e[0])break;n.u=e=e[2];}};function P(n){return this.getChildContext=function(){return n.context},n.children}function $(n){var e=this,r=n.i;e.componentWillUnmount=function(){P$1(null,e.l),e.l=null,e.i=null;},e.i&&e.i!==r&&e.componentWillUnmount(),n.__v?(e.l||(e.i=r,e.l={nodeType:1,parentNode:r,childNodes:[],appendChild:function(n){this.childNodes.push(n),e.i.appendChild(n);},insertBefore:function(n,t){this.childNodes.push(n),e.i.appendChild(n);},removeChild:function(n){this.childNodes.splice(this.childNodes.indexOf(n)>>>1,1),e.i.removeChild(n);}}),P$1(h(P,{context:e.context},n.__v),e.l)):e.l&&e.componentWillUnmount();}function j(n,e){var r=h($,{__v:n,i:e});return r.containerInfo=e,r}(V.prototype=new d).__a=function(n){var t=this,e=F(t.__v),r=t.o.get(n);return r[0]++,function(u){var o=function(){t.props.revealOrder?(r.push(u),W(t,n,r)):u();};e?e(o):o();}},V.prototype.render=function(n){this.u=null,this.o=new Map;var t=x$1(n.children);n.revealOrder&&"b"===n.revealOrder[0]&&t.reverse();for(var e=t.length;e--;)this.o.set(t[e],this.u=[1,0,this.u]);return n.children},V.prototype.componentDidUpdate=V.prototype.componentDidMount=function(){var n=this;this.o.forEach(function(t,e){W(n,e,t);});};var z="undefined"!=typeof Symbol&&Symbol.for&&Symbol.for("react.element")||60103,B=/^(?:accent|alignment|arabic|baseline|cap|clip(?!PathU)|color|dominant|fill|flood|font|glyph(?!R)|horiz|image|letter|lighting|marker(?!H|W|U)|overline|paint|pointer|shape|stop|strikethrough|stroke|text(?!L)|transform|underline|unicode|units|v|vector|vert|word|writing|x(?!C))[A-Z]/,H="undefined"!=typeof document,Z=function(n){return ("undefined"!=typeof Symbol&&"symbol"==typeof Symbol()?/fil|che|rad/i:/fil|che|ra/i).test(n)};d.prototype.isReactComponent={},["componentWillMount","componentWillReceiveProps","componentWillUpdate"].forEach(function(t){Object.defineProperty(d.prototype,t,{configurable:!0,get:function(){return this["UNSAFE_"+t]},set:function(n){Object.defineProperty(this,t,{configurable:!0,writable:!0,value:n});}});});var G=l$1.event;function J(){}function K(){return this.cancelBubble}function Q(){return this.defaultPrevented}l$1.event=function(n){return G&&(n=G(n)),n.persist=J,n.isPropagationStopped=K,n.isDefaultPrevented=Q,n.nativeEvent=n};var nn={configurable:!0,get:function(){return this.class}},tn=l$1.vnode;l$1.vnode=function(n){var t=n.type,e=n.props,u=e;if("string"==typeof t){var o=-1===t.indexOf("-");for(var i in u={},e){var l=e[i];H&&"children"===i&&"noscript"===t||"value"===i&&"defaultValue"in e&&null==l||("defaultValue"===i&&"value"in e&&null==e.value?i="value":"download"===i&&!0===l?l="":/ondoubleclick/i.test(i)?i="ondblclick":/^onchange(textarea|input)/i.test(i+t)&&!Z(e.type)?i="oninput":/^onfocus$/i.test(i)?i="onfocusin":/^onblur$/i.test(i)?i="onfocusout":/^on(Ani|Tra|Tou|BeforeInp|Compo)/.test(i)?i=i.toLowerCase():o&&B.test(i)?i=i.replace(/[A-Z0-9]/g,"-$&").toLowerCase():null===l&&(l=void 0),/^oninput$/i.test(i)&&(i=i.toLowerCase(),u[i]&&(i="oninputCapture")),u[i]=l);}"select"==t&&u.multiple&&Array.isArray(u.value)&&(u.value=x$1(e.children).forEach(function(n){n.props.selected=-1!=u.value.indexOf(n.props.value);})),"select"==t&&null!=u.defaultValue&&(u.value=x$1(e.children).forEach(function(n){n.props.selected=u.multiple?-1!=u.defaultValue.indexOf(n.props.value):u.defaultValue==n.props.value;})),n.props=u,e.class!=e.className&&(nn.enumerable="className"in e,null!=e.className&&(u.class=e.className),Object.defineProperty(u,"className",nn));}n.$$typeof=z,tn&&tn(n);};var en=l$1.__r;l$1.__r=function(n){en&&en(n),n.__c;};
-
-    function injectStyles(css) {
-        if (!css || typeof document === 'undefined') {
-            return;
-        }
-        const head = document.head || document.getElementsByTagName('head')[0];
-        const style = document.createElement('style');
-        style.type = 'text/css';
-        head.appendChild(style);
-        if (style.styleSheet) {
-            style.styleSheet.cssText = css;
-        }
-        else {
-            style.appendChild(document.createTextNode(css));
-        }
-    }
-
-    class DelayedRunner {
-        constructor(drainedOption) {
-            this.drainedOption = drainedOption;
-            this.isRunning = false;
-            this.isDirty = false;
-            this.pauseDepths = {};
-            this.timeoutId = 0;
-        }
-        request(delay) {
-            this.isDirty = true;
-            if (!this.isPaused()) {
-                this.clearTimeout();
-                if (delay == null) {
-                    this.tryDrain();
-                }
-                else {
-                    this.timeoutId = setTimeout(// NOT OPTIMAL! TODO: look at debounce
-                    this.tryDrain.bind(this), delay);
-                }
-            }
-        }
-        pause(scope = '') {
-            let { pauseDepths } = this;
-            pauseDepths[scope] = (pauseDepths[scope] || 0) + 1;
-            this.clearTimeout();
-        }
-        resume(scope = '', force) {
-            let { pauseDepths } = this;
-            if (scope in pauseDepths) {
-                if (force) {
-                    delete pauseDepths[scope];
-                }
-                else {
-                    pauseDepths[scope] -= 1;
-                    let depth = pauseDepths[scope];
-                    if (depth <= 0) {
-                        delete pauseDepths[scope];
-                    }
-                }
-                this.tryDrain();
-            }
-        }
-        isPaused() {
-            return Object.keys(this.pauseDepths).length;
-        }
-        tryDrain() {
-            if (!this.isRunning && !this.isPaused()) {
-                this.isRunning = true;
-                while (this.isDirty) {
-                    this.isDirty = false;
-                    this.drained(); // might set isDirty to true again
-                }
-                this.isRunning = false;
-            }
-        }
-        clear() {
-            this.clearTimeout();
-            this.isDirty = false;
-            this.pauseDepths = {};
-        }
-        clearTimeout() {
-            if (this.timeoutId) {
-                clearTimeout(this.timeoutId);
-                this.timeoutId = 0;
-            }
-        }
-        drained() {
-            if (this.drainedOption) {
-                this.drainedOption();
-            }
-        }
-    }
-
-    const { hasOwnProperty } = Object.prototype;
-    // Merges an array of objects into a single object.
-    // The second argument allows for an array of property names who's object values will be merged together.
-    function mergeProps(propObjs, complexPropsMap) {
-        let dest = {};
-        if (complexPropsMap) {
-            for (let name in complexPropsMap) {
-                let complexObjs = [];
-                // collect the trailing object values, stopping when a non-object is discovered
-                for (let i = propObjs.length - 1; i >= 0; i -= 1) {
-                    let val = propObjs[i][name];
-                    if (typeof val === 'object' && val) { // non-null object
-                        complexObjs.unshift(val);
-                    }
-                    else if (val !== undefined) {
-                        dest[name] = val; // if there were no objects, this value will be used
-                        break;
-                    }
-                }
-                // if the trailing values were objects, use the merged value
-                if (complexObjs.length) {
-                    dest[name] = mergeProps(complexObjs);
-                }
-            }
-        }
-        // copy values into the destination, going from last to first
-        for (let i = propObjs.length - 1; i >= 0; i -= 1) {
-            let props = propObjs[i];
-            for (let name in props) {
-                if (!(name in dest)) { // if already assigned by previous props or complex props, don't reassign
-                    dest[name] = props[name];
-                }
-            }
-        }
-        return dest;
-    }
-    function filterHash(hash, func) {
-        let filtered = {};
-        for (let key in hash) {
-            if (func(hash[key], key)) {
-                filtered[key] = hash[key];
-            }
-        }
-        return filtered;
-    }
-    function mapHash(hash, func) {
-        let newHash = {};
-        for (let key in hash) {
-            newHash[key] = func(hash[key], key);
-        }
-        return newHash;
-    }
-    function arrayToHash(a) {
-        let hash = {};
-        for (let item of a) {
-            hash[item] = true;
-        }
-        return hash;
-    }
-    // TODO: reassess browser support
-    // https://caniuse.com/?search=object.values
-    function hashValuesToArray(obj) {
-        let a = [];
-        for (let key in obj) {
-            a.push(obj[key]);
-        }
-        return a;
-    }
-    function isPropsEqual(obj0, obj1) {
-        if (obj0 === obj1) {
-            return true;
-        }
-        for (let key in obj0) {
-            if (hasOwnProperty.call(obj0, key)) {
-                if (!(key in obj1)) {
-                    return false;
-                }
-            }
-        }
-        for (let key in obj1) {
-            if (hasOwnProperty.call(obj1, key)) {
-                if (obj0[key] !== obj1[key]) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-    const HANDLER_RE = /^on[A-Z]/;
-    function isNonHandlerPropsEqual(obj0, obj1) {
-        const keys = getUnequalProps(obj0, obj1);
-        for (let key of keys) {
-            if (!HANDLER_RE.test(key)) {
-                return false;
-            }
-        }
-        return true;
-    }
-    function getUnequalProps(obj0, obj1) {
-        let keys = [];
-        for (let key in obj0) {
-            if (hasOwnProperty.call(obj0, key)) {
-                if (!(key in obj1)) {
-                    keys.push(key);
-                }
-            }
-        }
-        for (let key in obj1) {
-            if (hasOwnProperty.call(obj1, key)) {
-                if (obj0[key] !== obj1[key]) {
-                    keys.push(key);
-                }
-            }
-        }
-        return keys;
-    }
-    function compareObjs(oldProps, newProps, equalityFuncs = {}) {
-        if (oldProps === newProps) {
-            return true;
-        }
-        for (let key in newProps) {
-            if (key in oldProps && isObjValsEqual(oldProps[key], newProps[key], equalityFuncs[key])) ;
-            else {
-                return false;
-            }
-        }
-        // check for props that were omitted in the new
-        for (let key in oldProps) {
-            if (!(key in newProps)) {
-                return false;
-            }
-        }
-        return true;
-    }
-    /*
-    assumed "true" equality for handler names like "onReceiveSomething"
-    */
-    function isObjValsEqual(val0, val1, comparator) {
-        if (val0 === val1 || comparator === true) {
-            return true;
-        }
-        if (comparator) {
-            return comparator(val0, val1);
-        }
-        return false;
-    }
-    function collectFromHash(hash, startIndex = 0, endIndex, step = 1) {
-        let res = [];
-        if (endIndex == null) {
-            endIndex = Object.keys(hash).length;
-        }
-        for (let i = startIndex; i < endIndex; i += step) {
-            let val = hash[i];
-            if (val !== undefined) { // will disregard undefined for sparse arrays
-                res.push(val);
-            }
-        }
-        return res;
-    }
-
-    // TODO: new util arrayify?
-    function removeExact(array, exactVal) {
-        let removeCnt = 0;
-        let i = 0;
-        while (i < array.length) {
-            if (array[i] === exactVal) {
-                array.splice(i, 1);
-                removeCnt += 1;
-            }
-            else {
-                i += 1;
-            }
-        }
-        return removeCnt;
-    }
-    function isArraysEqual(a0, a1, equalityFunc) {
-        if (a0 === a1) {
-            return true;
-        }
-        let len = a0.length;
-        let i;
-        if (len !== a1.length) { // not array? or not same length?
-            return false;
-        }
-        for (i = 0; i < len; i += 1) {
-            if (!(equalityFunc ? equalityFunc(a0[i], a1[i]) : a0[i] === a1[i])) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    function memoize(workerFunc, resEquality, teardownFunc) {
-        let currentArgs;
-        let currentRes;
-        return function (...newArgs) {
-            if (!currentArgs) {
-                currentRes = workerFunc.apply(this, newArgs);
-            }
-            else if (!isArraysEqual(currentArgs, newArgs)) {
-                if (teardownFunc) {
-                    teardownFunc(currentRes);
-                }
-                let res = workerFunc.apply(this, newArgs);
-                if (!resEquality || !resEquality(res, currentRes)) {
-                    currentRes = res;
-                }
-            }
-            currentArgs = newArgs;
-            return currentRes;
-        };
-    }
-    function memoizeObjArg(workerFunc, resEquality, teardownFunc) {
-        let currentArg;
-        let currentRes;
-        return (newArg) => {
-            if (!currentArg) {
-                currentRes = workerFunc.call(this, newArg);
-            }
-            else if (!isPropsEqual(currentArg, newArg)) {
-                if (teardownFunc) {
-                    teardownFunc(currentRes);
-                }
-                let res = workerFunc.call(this, newArg);
-                if (!resEquality || !resEquality(res, currentRes)) {
-                    currentRes = res;
-                }
-            }
-            currentArg = newArg;
-            return currentRes;
-        };
-    }
-    function memoizeArraylike(// used at all?
-    workerFunc, resEquality, teardownFunc) {
-        let currentArgSets = [];
-        let currentResults = [];
-        return (newArgSets) => {
-            let currentLen = currentArgSets.length;
-            let newLen = newArgSets.length;
-            let i = 0;
-            for (; i < currentLen; i += 1) {
-                if (!newArgSets[i]) { // one of the old sets no longer exists
-                    if (teardownFunc) {
-                        teardownFunc(currentResults[i]);
-                    }
-                }
-                else if (!isArraysEqual(currentArgSets[i], newArgSets[i])) {
-                    if (teardownFunc) {
-                        teardownFunc(currentResults[i]);
-                    }
-                    let res = workerFunc.apply(this, newArgSets[i]);
-                    if (!resEquality || !resEquality(res, currentResults[i])) {
-                        currentResults[i] = res;
-                    }
-                }
-            }
-            for (; i < newLen; i += 1) {
-                currentResults[i] = workerFunc.apply(this, newArgSets[i]);
-            }
-            currentArgSets = newArgSets;
-            currentResults.splice(newLen); // remove excess
-            return currentResults;
-        };
-    }
-    function memoizeHashlike(workerFunc, resEquality, teardownFunc) {
-        let currentArgHash = {};
-        let currentResHash = {};
-        return (newArgHash) => {
-            let newResHash = {};
-            for (let key in newArgHash) {
-                if (!currentResHash[key]) {
-                    newResHash[key] = workerFunc.apply(this, newArgHash[key]);
-                }
-                else if (!isArraysEqual(currentArgHash[key], newArgHash[key])) {
-                    if (teardownFunc) {
-                        teardownFunc(currentResHash[key]);
-                    }
-                    let res = workerFunc.apply(this, newArgHash[key]);
-                    newResHash[key] = (resEquality && resEquality(res, currentResHash[key]))
-                        ? currentResHash[key]
-                        : res;
-                }
-                else {
-                    newResHash[key] = currentResHash[key];
-                }
-            }
-            currentArgHash = newArgHash;
-            currentResHash = newResHash;
-            return newResHash;
-        };
-    }
 
     function removeElement(el) {
         if (el.parentNode) {
@@ -697,6 +316,326 @@ var FullCalendar = (function (exports) {
             contentWidthEl.getBoundingClientRect().width;
     }
 
+    const INTERNAL_UNITS = ['years', 'months', 'days', 'milliseconds'];
+    const PARSE_RE = /^(-?)(?:(\d+)\.)?(\d+):(\d\d)(?::(\d\d)(?:\.(\d\d\d))?)?/;
+    // Parsing and Creation
+    function createDuration(input, unit) {
+        if (typeof input === 'string') {
+            return parseString(input);
+        }
+        if (typeof input === 'object' && input) { // non-null object
+            return parseObject(input);
+        }
+        if (typeof input === 'number') {
+            return parseObject({ [unit || 'milliseconds']: input });
+        }
+        return null;
+    }
+    function parseString(s) {
+        let m = PARSE_RE.exec(s);
+        if (m) {
+            let sign = m[1] ? -1 : 1;
+            return {
+                years: 0,
+                months: 0,
+                days: sign * (m[2] ? parseInt(m[2], 10) : 0),
+                milliseconds: sign * ((m[3] ? parseInt(m[3], 10) : 0) * 60 * 60 * 1000 + // hours
+                    (m[4] ? parseInt(m[4], 10) : 0) * 60 * 1000 + // minutes
+                    (m[5] ? parseInt(m[5], 10) : 0) * 1000 + // seconds
+                    (m[6] ? parseInt(m[6], 10) : 0) // ms
+                ),
+            };
+        }
+        return null;
+    }
+    function parseObject(obj) {
+        let duration = {
+            years: obj.years || obj.year || 0,
+            months: obj.months || obj.month || 0,
+            days: obj.days || obj.day || 0,
+            milliseconds: (obj.hours || obj.hour || 0) * 60 * 60 * 1000 + // hours
+                (obj.minutes || obj.minute || 0) * 60 * 1000 + // minutes
+                (obj.seconds || obj.second || 0) * 1000 + // seconds
+                (obj.milliseconds || obj.millisecond || obj.ms || 0), // ms
+        };
+        let weeks = obj.weeks || obj.week;
+        if (weeks) {
+            duration.days += weeks * 7;
+            duration.specifiedWeeks = true;
+        }
+        return duration;
+    }
+    // Equality
+    function durationsEqual(d0, d1) {
+        return d0.years === d1.years &&
+            d0.months === d1.months &&
+            d0.days === d1.days &&
+            d0.milliseconds === d1.milliseconds;
+    }
+    function asCleanDays(dur) {
+        if (!dur.years && !dur.months && !dur.milliseconds) {
+            return dur.days;
+        }
+        return 0;
+    }
+    // Simple Math
+    function addDurations(d0, d1) {
+        return {
+            years: d0.years + d1.years,
+            months: d0.months + d1.months,
+            days: d0.days + d1.days,
+            milliseconds: d0.milliseconds + d1.milliseconds,
+        };
+    }
+    function subtractDurations(d1, d0) {
+        return {
+            years: d1.years - d0.years,
+            months: d1.months - d0.months,
+            days: d1.days - d0.days,
+            milliseconds: d1.milliseconds - d0.milliseconds,
+        };
+    }
+    function multiplyDuration(d, n) {
+        return {
+            years: d.years * n,
+            months: d.months * n,
+            days: d.days * n,
+            milliseconds: d.milliseconds * n,
+        };
+    }
+    // Conversions
+    // "Rough" because they are based on average-case Gregorian months/years
+    function asRoughYears(dur) {
+        return asRoughDays(dur) / 365;
+    }
+    function asRoughMonths(dur) {
+        return asRoughDays(dur) / 30;
+    }
+    function asRoughDays(dur) {
+        return asRoughMs(dur) / 864e5;
+    }
+    function asRoughMinutes(dur) {
+        return asRoughMs(dur) / (1000 * 60);
+    }
+    function asRoughSeconds(dur) {
+        return asRoughMs(dur) / 1000;
+    }
+    function asRoughMs(dur) {
+        return dur.years * (365 * 864e5) +
+            dur.months * (30 * 864e5) +
+            dur.days * 864e5 +
+            dur.milliseconds;
+    }
+    // Advanced Math
+    function wholeDivideDurations(numerator, denominator) {
+        let res = null;
+        for (let i = 0; i < INTERNAL_UNITS.length; i += 1) {
+            let unit = INTERNAL_UNITS[i];
+            if (denominator[unit]) {
+                let localRes = numerator[unit] / denominator[unit];
+                if (!isInt(localRes) || (res !== null && res !== localRes)) {
+                    return null;
+                }
+                res = localRes;
+            }
+            else if (numerator[unit]) {
+                // needs to divide by something but can't!
+                return null;
+            }
+        }
+        return res;
+    }
+    function greatestDurationDenominator(dur) {
+        let ms = dur.milliseconds;
+        if (ms) {
+            if (ms % 1000 !== 0) {
+                return { unit: 'millisecond', value: ms };
+            }
+            if (ms % (1000 * 60) !== 0) {
+                return { unit: 'second', value: ms / 1000 };
+            }
+            if (ms % (1000 * 60 * 60) !== 0) {
+                return { unit: 'minute', value: ms / (1000 * 60) };
+            }
+            if (ms) {
+                return { unit: 'hour', value: ms / (1000 * 60 * 60) };
+            }
+        }
+        if (dur.days) {
+            if (dur.specifiedWeeks && dur.days % 7 === 0) {
+                return { unit: 'week', value: dur.days / 7 };
+            }
+            return { unit: 'day', value: dur.days };
+        }
+        if (dur.months) {
+            return { unit: 'month', value: dur.months };
+        }
+        if (dur.years) {
+            return { unit: 'year', value: dur.years };
+        }
+        return { unit: 'millisecond', value: 0 };
+    }
+
+    const { hasOwnProperty } = Object.prototype;
+    // Merges an array of objects into a single object.
+    // The second argument allows for an array of property names who's object values will be merged together.
+    function mergeProps(propObjs, complexPropsMap) {
+        let dest = {};
+        if (complexPropsMap) {
+            for (let name in complexPropsMap) {
+                let complexObjs = [];
+                // collect the trailing object values, stopping when a non-object is discovered
+                for (let i = propObjs.length - 1; i >= 0; i -= 1) {
+                    let val = propObjs[i][name];
+                    if (typeof val === 'object' && val) { // non-null object
+                        complexObjs.unshift(val);
+                    }
+                    else if (val !== undefined) {
+                        dest[name] = val; // if there were no objects, this value will be used
+                        break;
+                    }
+                }
+                // if the trailing values were objects, use the merged value
+                if (complexObjs.length) {
+                    dest[name] = mergeProps(complexObjs);
+                }
+            }
+        }
+        // copy values into the destination, going from last to first
+        for (let i = propObjs.length - 1; i >= 0; i -= 1) {
+            let props = propObjs[i];
+            for (let name in props) {
+                if (!(name in dest)) { // if already assigned by previous props or complex props, don't reassign
+                    dest[name] = props[name];
+                }
+            }
+        }
+        return dest;
+    }
+    function filterHash(hash, func) {
+        let filtered = {};
+        for (let key in hash) {
+            if (func(hash[key], key)) {
+                filtered[key] = hash[key];
+            }
+        }
+        return filtered;
+    }
+    function mapHash(hash, func) {
+        let newHash = {};
+        for (let key in hash) {
+            newHash[key] = func(hash[key], key);
+        }
+        return newHash;
+    }
+    function arrayToHash(a) {
+        let hash = {};
+        for (let item of a) {
+            hash[item] = true;
+        }
+        return hash;
+    }
+    // TODO: reassess browser support
+    // https://caniuse.com/?search=object.values
+    function hashValuesToArray(obj) {
+        let a = [];
+        for (let key in obj) {
+            a.push(obj[key]);
+        }
+        return a;
+    }
+    function isPropsEqual(obj0, obj1) {
+        if (obj0 === obj1) {
+            return true;
+        }
+        for (let key in obj0) {
+            if (hasOwnProperty.call(obj0, key)) {
+                if (!(key in obj1)) {
+                    return false;
+                }
+            }
+        }
+        for (let key in obj1) {
+            if (hasOwnProperty.call(obj1, key)) {
+                if (obj0[key] !== obj1[key]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    const HANDLER_RE = /^on[A-Z]/;
+    function isNonHandlerPropsEqual(obj0, obj1) {
+        const keys = getUnequalProps(obj0, obj1);
+        for (let key of keys) {
+            if (!HANDLER_RE.test(key)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    function getUnequalProps(obj0, obj1) {
+        let keys = [];
+        for (let key in obj0) {
+            if (hasOwnProperty.call(obj0, key)) {
+                if (!(key in obj1)) {
+                    keys.push(key);
+                }
+            }
+        }
+        for (let key in obj1) {
+            if (hasOwnProperty.call(obj1, key)) {
+                if (obj0[key] !== obj1[key]) {
+                    keys.push(key);
+                }
+            }
+        }
+        return keys;
+    }
+    function compareObjs(oldProps, newProps, equalityFuncs = {}) {
+        if (oldProps === newProps) {
+            return true;
+        }
+        for (let key in newProps) {
+            if (key in oldProps && isObjValsEqual(oldProps[key], newProps[key], equalityFuncs[key])) ;
+            else {
+                return false;
+            }
+        }
+        // check for props that were omitted in the new
+        for (let key in oldProps) {
+            if (!(key in newProps)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    /*
+    assumed "true" equality for handler names like "onReceiveSomething"
+    */
+    function isObjValsEqual(val0, val1, comparator) {
+        if (val0 === val1 || comparator === true) {
+            return true;
+        }
+        if (comparator) {
+            return comparator(val0, val1);
+        }
+        return false;
+    }
+    function collectFromHash(hash, startIndex = 0, endIndex, step = 1) {
+        let res = [];
+        if (endIndex == null) {
+            endIndex = Object.keys(hash).length;
+        }
+        for (let i = startIndex; i < endIndex; i += step) {
+            let val = hash[i];
+            if (val !== undefined) { // will disregard undefined for sparse arrays
+                res.push(val);
+            }
+        }
+        return res;
+    }
+
     const DAY_IDS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
     // Adding
     function addWeeks(m, n) {
@@ -863,192 +802,6 @@ var FullCalendar = (function (exports) {
             m.getUTCMilliseconds();
     }
 
-    let calendarSystemClassMap = {};
-    function registerCalendarSystem(name, theClass) {
-        calendarSystemClassMap[name] = theClass;
-    }
-    function createCalendarSystem(name) {
-        return new calendarSystemClassMap[name]();
-    }
-    class GregorianCalendarSystem {
-        getMarkerYear(d) {
-            return d.getUTCFullYear();
-        }
-        getMarkerMonth(d) {
-            return d.getUTCMonth();
-        }
-        getMarkerDay(d) {
-            return d.getUTCDate();
-        }
-        arrayToMarker(arr) {
-            return arrayToUtcDate(arr);
-        }
-        markerToArray(marker) {
-            return dateToUtcArray(marker);
-        }
-    }
-    registerCalendarSystem('gregory', GregorianCalendarSystem);
-
-    const INTERNAL_UNITS = ['years', 'months', 'days', 'milliseconds'];
-    const PARSE_RE = /^(-?)(?:(\d+)\.)?(\d+):(\d\d)(?::(\d\d)(?:\.(\d\d\d))?)?/;
-    // Parsing and Creation
-    function createDuration(input, unit) {
-        if (typeof input === 'string') {
-            return parseString(input);
-        }
-        if (typeof input === 'object' && input) { // non-null object
-            return parseObject(input);
-        }
-        if (typeof input === 'number') {
-            return parseObject({ [unit || 'milliseconds']: input });
-        }
-        return null;
-    }
-    function parseString(s) {
-        let m = PARSE_RE.exec(s);
-        if (m) {
-            let sign = m[1] ? -1 : 1;
-            return {
-                years: 0,
-                months: 0,
-                days: sign * (m[2] ? parseInt(m[2], 10) : 0),
-                milliseconds: sign * ((m[3] ? parseInt(m[3], 10) : 0) * 60 * 60 * 1000 + // hours
-                    (m[4] ? parseInt(m[4], 10) : 0) * 60 * 1000 + // minutes
-                    (m[5] ? parseInt(m[5], 10) : 0) * 1000 + // seconds
-                    (m[6] ? parseInt(m[6], 10) : 0) // ms
-                ),
-            };
-        }
-        return null;
-    }
-    function parseObject(obj) {
-        let duration = {
-            years: obj.years || obj.year || 0,
-            months: obj.months || obj.month || 0,
-            days: obj.days || obj.day || 0,
-            milliseconds: (obj.hours || obj.hour || 0) * 60 * 60 * 1000 + // hours
-                (obj.minutes || obj.minute || 0) * 60 * 1000 + // minutes
-                (obj.seconds || obj.second || 0) * 1000 + // seconds
-                (obj.milliseconds || obj.millisecond || obj.ms || 0), // ms
-        };
-        let weeks = obj.weeks || obj.week;
-        if (weeks) {
-            duration.days += weeks * 7;
-            duration.specifiedWeeks = true;
-        }
-        return duration;
-    }
-    // Equality
-    function durationsEqual(d0, d1) {
-        return d0.years === d1.years &&
-            d0.months === d1.months &&
-            d0.days === d1.days &&
-            d0.milliseconds === d1.milliseconds;
-    }
-    function asCleanDays(dur) {
-        if (!dur.years && !dur.months && !dur.milliseconds) {
-            return dur.days;
-        }
-        return 0;
-    }
-    // Simple Math
-    function addDurations(d0, d1) {
-        return {
-            years: d0.years + d1.years,
-            months: d0.months + d1.months,
-            days: d0.days + d1.days,
-            milliseconds: d0.milliseconds + d1.milliseconds,
-        };
-    }
-    function subtractDurations(d1, d0) {
-        return {
-            years: d1.years - d0.years,
-            months: d1.months - d0.months,
-            days: d1.days - d0.days,
-            milliseconds: d1.milliseconds - d0.milliseconds,
-        };
-    }
-    function multiplyDuration(d, n) {
-        return {
-            years: d.years * n,
-            months: d.months * n,
-            days: d.days * n,
-            milliseconds: d.milliseconds * n,
-        };
-    }
-    // Conversions
-    // "Rough" because they are based on average-case Gregorian months/years
-    function asRoughYears(dur) {
-        return asRoughDays(dur) / 365;
-    }
-    function asRoughMonths(dur) {
-        return asRoughDays(dur) / 30;
-    }
-    function asRoughDays(dur) {
-        return asRoughMs(dur) / 864e5;
-    }
-    function asRoughMinutes(dur) {
-        return asRoughMs(dur) / (1000 * 60);
-    }
-    function asRoughSeconds(dur) {
-        return asRoughMs(dur) / 1000;
-    }
-    function asRoughMs(dur) {
-        return dur.years * (365 * 864e5) +
-            dur.months * (30 * 864e5) +
-            dur.days * 864e5 +
-            dur.milliseconds;
-    }
-    // Advanced Math
-    function wholeDivideDurations(numerator, denominator) {
-        let res = null;
-        for (let i = 0; i < INTERNAL_UNITS.length; i += 1) {
-            let unit = INTERNAL_UNITS[i];
-            if (denominator[unit]) {
-                let localRes = numerator[unit] / denominator[unit];
-                if (!isInt(localRes) || (res !== null && res !== localRes)) {
-                    return null;
-                }
-                res = localRes;
-            }
-            else if (numerator[unit]) {
-                // needs to divide by something but can't!
-                return null;
-            }
-        }
-        return res;
-    }
-    function greatestDurationDenominator(dur) {
-        let ms = dur.milliseconds;
-        if (ms) {
-            if (ms % 1000 !== 0) {
-                return { unit: 'millisecond', value: ms };
-            }
-            if (ms % (1000 * 60) !== 0) {
-                return { unit: 'second', value: ms / 1000 };
-            }
-            if (ms % (1000 * 60 * 60) !== 0) {
-                return { unit: 'minute', value: ms / (1000 * 60) };
-            }
-            if (ms) {
-                return { unit: 'hour', value: ms / (1000 * 60 * 60) };
-            }
-        }
-        if (dur.days) {
-            if (dur.specifiedWeeks && dur.days % 7 === 0) {
-                return { unit: 'week', value: dur.days / 7 };
-            }
-            return { unit: 'day', value: dur.days };
-        }
-        if (dur.months) {
-            return { unit: 'month', value: dur.months };
-        }
-        if (dur.years) {
-            return { unit: 'year', value: dur.years };
-        }
-        return { unit: 'millisecond', value: 0 };
-    }
-
     // timeZoneOffset is in minutes
     function buildIsoString(marker, timeZoneOffset, stripZeroTime = false) {
         let s = marker.toISOString();
@@ -1090,405 +843,137 @@ var FullCalendar = (function (exports) {
         return `GMT${sign}${hours}${mins ? `:${padStart(mins, 2)}` : ''}`;
     }
 
-    const ISO_RE = /^\s*(\d{4})(-?(\d{2})(-?(\d{2})([T ](\d{2}):?(\d{2})(:?(\d{2})(\.(\d+))?)?(Z|(([-+])(\d{2})(:?(\d{2}))?))?)?)?)?$/;
-    function parse(str) {
-        let m = ISO_RE.exec(str);
-        if (m) {
-            let marker = new Date(Date.UTC(Number(m[1]), m[3] ? Number(m[3]) - 1 : 0, Number(m[5] || 1), Number(m[7] || 0), Number(m[8] || 0), Number(m[10] || 0), m[12] ? Number(`0.${m[12]}`) * 1000 : 0));
-            if (isValidDate(marker)) {
-                let timeZoneOffset = null;
-                if (m[13]) {
-                    timeZoneOffset = (m[15] === '-' ? -1 : 1) * (Number(m[16] || 0) * 60 +
-                        Number(m[18] || 0));
-                }
-                return {
-                    marker,
-                    isTimeUnspecified: !m[6],
-                    timeZoneOffset,
-                };
-            }
-        }
-        return null;
-    }
-
-    class DateEnv {
-        constructor(settings) {
-            let timeZone = this.timeZone = settings.timeZone;
-            let isNamedTimeZone = timeZone !== 'local' && timeZone !== 'UTC';
-            if (settings.namedTimeZoneImpl && isNamedTimeZone) {
-                this.namedTimeZoneImpl = new settings.namedTimeZoneImpl(timeZone);
-            }
-            this.canComputeOffset = Boolean(!isNamedTimeZone || this.namedTimeZoneImpl);
-            this.calendarSystem = createCalendarSystem(settings.calendarSystem);
-            this.locale = settings.locale;
-            this.weekDow = settings.locale.week.dow;
-            this.weekDoy = settings.locale.week.doy;
-            if (settings.weekNumberCalculation === 'ISO') {
-                this.weekDow = 1;
-                this.weekDoy = 4;
-            }
-            if (typeof settings.firstDay === 'number') {
-                this.weekDow = settings.firstDay;
-            }
-            if (typeof settings.weekNumberCalculation === 'function') {
-                this.weekNumberFunc = settings.weekNumberCalculation;
-            }
-            this.weekText = settings.weekText != null ? settings.weekText : settings.locale.options.weekText;
-            this.weekTextLong = (settings.weekTextLong != null ? settings.weekTextLong : settings.locale.options.weekTextLong) || this.weekText;
-            this.cmdFormatter = settings.cmdFormatter;
-            this.defaultSeparator = settings.defaultSeparator;
-        }
-        // Creating / Parsing
-        createMarker(input) {
-            let meta = this.createMarkerMeta(input);
-            if (meta === null) {
-                return null;
-            }
-            return meta.marker;
-        }
-        createNowMarker() {
-            if (this.canComputeOffset) {
-                return this.timestampToMarker(new Date().valueOf());
-            }
-            // if we can't compute the current date val for a timezone,
-            // better to give the current local date vals than UTC
-            return arrayToUtcDate(dateToLocalArray(new Date()));
-        }
-        createMarkerMeta(input) {
-            if (typeof input === 'string') {
-                return this.parse(input);
-            }
-            let marker = null;
-            if (typeof input === 'number') {
-                marker = this.timestampToMarker(input);
-            }
-            else if (input instanceof Date) {
-                input = input.valueOf();
-                if (!isNaN(input)) {
-                    marker = this.timestampToMarker(input);
-                }
-            }
-            else if (Array.isArray(input)) {
-                marker = arrayToUtcDate(input);
-            }
-            if (marker === null || !isValidDate(marker)) {
-                return null;
-            }
-            return { marker, isTimeUnspecified: false, forcedTzo: null };
-        }
-        parse(s) {
-            let parts = parse(s);
-            if (parts === null) {
-                return null;
-            }
-            let { marker } = parts;
-            let forcedTzo = null;
-            if (parts.timeZoneOffset !== null) {
-                if (this.canComputeOffset) {
-                    marker = this.timestampToMarker(marker.valueOf() - parts.timeZoneOffset * 60 * 1000);
-                }
-                else {
-                    forcedTzo = parts.timeZoneOffset;
-                }
-            }
-            return { marker, isTimeUnspecified: parts.isTimeUnspecified, forcedTzo };
-        }
-        // Accessors
-        getYear(marker) {
-            return this.calendarSystem.getMarkerYear(marker);
-        }
-        getMonth(marker) {
-            return this.calendarSystem.getMarkerMonth(marker);
-        }
-        // Adding / Subtracting
-        add(marker, dur) {
-            let a = this.calendarSystem.markerToArray(marker);
-            a[0] += dur.years;
-            a[1] += dur.months;
-            a[2] += dur.days;
-            a[6] += dur.milliseconds;
-            return this.calendarSystem.arrayToMarker(a);
-        }
-        subtract(marker, dur) {
-            let a = this.calendarSystem.markerToArray(marker);
-            a[0] -= dur.years;
-            a[1] -= dur.months;
-            a[2] -= dur.days;
-            a[6] -= dur.milliseconds;
-            return this.calendarSystem.arrayToMarker(a);
-        }
-        addYears(marker, n) {
-            let a = this.calendarSystem.markerToArray(marker);
-            a[0] += n;
-            return this.calendarSystem.arrayToMarker(a);
-        }
-        addMonths(marker, n) {
-            let a = this.calendarSystem.markerToArray(marker);
-            a[1] += n;
-            return this.calendarSystem.arrayToMarker(a);
-        }
-        // Diffing Whole Units
-        diffWholeYears(m0, m1) {
-            let { calendarSystem } = this;
-            if (timeAsMs(m0) === timeAsMs(m1) &&
-                calendarSystem.getMarkerDay(m0) === calendarSystem.getMarkerDay(m1) &&
-                calendarSystem.getMarkerMonth(m0) === calendarSystem.getMarkerMonth(m1)) {
-                return calendarSystem.getMarkerYear(m1) - calendarSystem.getMarkerYear(m0);
-            }
-            return null;
-        }
-        diffWholeMonths(m0, m1) {
-            let { calendarSystem } = this;
-            if (timeAsMs(m0) === timeAsMs(m1) &&
-                calendarSystem.getMarkerDay(m0) === calendarSystem.getMarkerDay(m1)) {
-                return (calendarSystem.getMarkerMonth(m1) - calendarSystem.getMarkerMonth(m0)) +
-                    (calendarSystem.getMarkerYear(m1) - calendarSystem.getMarkerYear(m0)) * 12;
-            }
-            return null;
-        }
-        // Range / Duration
-        greatestWholeUnit(m0, m1) {
-            let n = this.diffWholeYears(m0, m1);
-            if (n !== null) {
-                return { unit: 'year', value: n };
-            }
-            n = this.diffWholeMonths(m0, m1);
-            if (n !== null) {
-                return { unit: 'month', value: n };
-            }
-            n = diffWholeWeeks(m0, m1);
-            if (n !== null) {
-                return { unit: 'week', value: n };
-            }
-            n = diffWholeDays(m0, m1);
-            if (n !== null) {
-                return { unit: 'day', value: n };
-            }
-            n = diffHours(m0, m1);
-            if (isInt(n)) {
-                return { unit: 'hour', value: n };
-            }
-            n = diffMinutes(m0, m1);
-            if (isInt(n)) {
-                return { unit: 'minute', value: n };
-            }
-            n = diffSeconds(m0, m1);
-            if (isInt(n)) {
-                return { unit: 'second', value: n };
-            }
-            return { unit: 'millisecond', value: m1.valueOf() - m0.valueOf() };
-        }
-        countDurationsBetween(m0, m1, d) {
-            // TODO: can use greatestWholeUnit
-            let diff;
-            if (d.years) {
-                diff = this.diffWholeYears(m0, m1);
-                if (diff !== null) {
-                    return diff / asRoughYears(d);
-                }
-            }
-            if (d.months) {
-                diff = this.diffWholeMonths(m0, m1);
-                if (diff !== null) {
-                    return diff / asRoughMonths(d);
-                }
-            }
-            if (d.days) {
-                diff = diffWholeDays(m0, m1);
-                if (diff !== null) {
-                    return diff / asRoughDays(d);
-                }
-            }
-            return (m1.valueOf() - m0.valueOf()) / asRoughMs(d);
-        }
-        // Start-Of
-        // these DON'T return zoned-dates. only UTC start-of dates
-        startOf(m, unit) {
-            if (unit === 'year') {
-                return this.startOfYear(m);
-            }
-            if (unit === 'month') {
-                return this.startOfMonth(m);
-            }
-            if (unit === 'week') {
-                return this.startOfWeek(m);
-            }
-            if (unit === 'day') {
-                return startOfDay(m);
-            }
-            if (unit === 'hour') {
-                return startOfHour(m);
-            }
-            if (unit === 'minute') {
-                return startOfMinute(m);
-            }
-            if (unit === 'second') {
-                return startOfSecond(m);
-            }
-            return null;
-        }
-        startOfYear(m) {
-            return this.calendarSystem.arrayToMarker([
-                this.calendarSystem.getMarkerYear(m),
-            ]);
-        }
-        startOfMonth(m) {
-            return this.calendarSystem.arrayToMarker([
-                this.calendarSystem.getMarkerYear(m),
-                this.calendarSystem.getMarkerMonth(m),
-            ]);
-        }
-        startOfWeek(m) {
-            return this.calendarSystem.arrayToMarker([
-                this.calendarSystem.getMarkerYear(m),
-                this.calendarSystem.getMarkerMonth(m),
-                m.getUTCDate() - ((m.getUTCDay() - this.weekDow + 7) % 7),
-            ]);
-        }
-        // Week Number
-        computeWeekNumber(marker) {
-            if (this.weekNumberFunc) {
-                return this.weekNumberFunc(this.toDate(marker));
-            }
-            return weekOfYear(marker, this.weekDow, this.weekDoy);
-        }
-        // TODO: choke on timeZoneName: long
-        format(marker, formatter, dateOptions = {}) {
-            return formatter.format({
-                marker,
-                timeZoneOffset: dateOptions.forcedTzo != null ?
-                    dateOptions.forcedTzo :
-                    this.offsetForMarker(marker),
-            }, this);
-        }
-        formatRange(start, end, formatter, dateOptions = {}) {
-            if (dateOptions.isEndExclusive) {
-                end = addMs(end, -1);
-            }
-            return formatter.formatRange({
-                marker: start,
-                timeZoneOffset: dateOptions.forcedStartTzo != null ?
-                    dateOptions.forcedStartTzo :
-                    this.offsetForMarker(start),
-            }, {
-                marker: end,
-                timeZoneOffset: dateOptions.forcedEndTzo != null ?
-                    dateOptions.forcedEndTzo :
-                    this.offsetForMarker(end),
-            }, this, dateOptions.defaultSeparator);
-        }
-        /*
-        DUMB: the omitTime arg is dumb. if we omit the time, we want to omit the timezone offset. and if we do that,
-        might as well use buildIsoString or some other util directly
-        */
-        formatIso(marker, extraOptions = {}) {
-            let timeZoneOffset = null;
-            if (!extraOptions.omitTimeZoneOffset) {
-                if (extraOptions.forcedTzo != null) {
-                    timeZoneOffset = extraOptions.forcedTzo;
-                }
-                else {
-                    timeZoneOffset = this.offsetForMarker(marker);
-                }
-            }
-            return buildIsoString(marker, timeZoneOffset, extraOptions.omitTime);
-        }
-        // TimeZone
-        timestampToMarker(ms) {
-            if (this.timeZone === 'local') {
-                return arrayToUtcDate(dateToLocalArray(new Date(ms)));
-            }
-            if (this.timeZone === 'UTC' || !this.namedTimeZoneImpl) {
-                return new Date(ms);
-            }
-            return arrayToUtcDate(this.namedTimeZoneImpl.timestampToArray(ms));
-        }
-        offsetForMarker(m) {
-            if (this.timeZone === 'local') {
-                return -arrayToLocalDate(dateToUtcArray(m)).getTimezoneOffset(); // convert "inverse" offset to "normal" offset
-            }
-            if (this.timeZone === 'UTC') {
-                return 0;
-            }
-            if (this.namedTimeZoneImpl) {
-                return this.namedTimeZoneImpl.offsetForArray(dateToUtcArray(m));
-            }
-            return null;
-        }
-        // Conversion
-        toDate(m, forcedTzo) {
-            if (this.timeZone === 'local') {
-                return arrayToLocalDate(dateToUtcArray(m));
-            }
-            if (this.timeZone === 'UTC') {
-                return new Date(m.valueOf()); // make sure it's a copy
-            }
-            if (!this.namedTimeZoneImpl) {
-                return new Date(m.valueOf() - (forcedTzo || 0));
-            }
-            return new Date(m.valueOf() -
-                this.namedTimeZoneImpl.offsetForArray(dateToUtcArray(m)) * 1000 * 60);
-        }
-    }
-
-    class Theme {
-        constructor(calendarOptions) {
-            if (this.iconOverrideOption) {
-                this.setIconOverride(calendarOptions[this.iconOverrideOption]);
-            }
-        }
-        setIconOverride(iconOverrideHash) {
-            let iconClassesCopy;
-            let buttonName;
-            if (typeof iconOverrideHash === 'object' && iconOverrideHash) { // non-null object
-                iconClassesCopy = Object.assign({}, this.iconClasses);
-                for (buttonName in iconOverrideHash) {
-                    iconClassesCopy[buttonName] = this.applyIconOverridePrefix(iconOverrideHash[buttonName]);
-                }
-                this.iconClasses = iconClassesCopy;
-            }
-            else if (iconOverrideHash === false) {
-                this.iconClasses = {};
-            }
-        }
-        applyIconOverridePrefix(className) {
-            let prefix = this.iconOverridePrefix;
-            if (prefix && className.indexOf(prefix) !== 0) { // if not already present
-                className = prefix + className;
-            }
-            return className;
-        }
-        getClass(key) {
-            return this.classes[key] || '';
-        }
-        getIconClass(buttonName, isRtl) {
-            let className;
-            if (isRtl && this.rtlIconClasses) {
-                className = this.rtlIconClasses[buttonName] || this.iconClasses[buttonName];
+    // TODO: new util arrayify?
+    function removeExact(array, exactVal) {
+        let removeCnt = 0;
+        let i = 0;
+        while (i < array.length) {
+            if (array[i] === exactVal) {
+                array.splice(i, 1);
+                removeCnt += 1;
             }
             else {
-                className = this.iconClasses[buttonName];
+                i += 1;
             }
-            if (className) {
-                return `${this.baseIconClass} ${className}`;
-            }
-            return '';
         }
-        getCustomButtonIconClass(customButtonProps) {
-            let className;
-            if (this.iconOverrideCustomButtonOption) {
-                className = customButtonProps[this.iconOverrideCustomButtonOption];
-                if (className) {
-                    return `${this.baseIconClass} ${this.applyIconOverridePrefix(className)}`;
+        return removeCnt;
+    }
+    function isArraysEqual(a0, a1, equalityFunc) {
+        if (a0 === a1) {
+            return true;
+        }
+        let len = a0.length;
+        let i;
+        if (len !== a1.length) { // not array? or not same length?
+            return false;
+        }
+        for (i = 0; i < len; i += 1) {
+            if (!(equalityFunc ? equalityFunc(a0[i], a1[i]) : a0[i] === a1[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function memoize(workerFunc, resEquality, teardownFunc) {
+        let currentArgs;
+        let currentRes;
+        return function (...newArgs) {
+            if (!currentArgs) {
+                currentRes = workerFunc.apply(this, newArgs);
+            }
+            else if (!isArraysEqual(currentArgs, newArgs)) {
+                if (teardownFunc) {
+                    teardownFunc(currentRes);
+                }
+                let res = workerFunc.apply(this, newArgs);
+                if (!resEquality || !resEquality(res, currentRes)) {
+                    currentRes = res;
                 }
             }
-            return '';
-        }
+            currentArgs = newArgs;
+            return currentRes;
+        };
     }
-    Theme.prototype.classes = {};
-    Theme.prototype.iconClasses = {};
-    Theme.prototype.baseIconClass = '';
-    Theme.prototype.iconOverridePrefix = '';
+    function memoizeObjArg(workerFunc, resEquality, teardownFunc) {
+        let currentArg;
+        let currentRes;
+        return (newArg) => {
+            if (!currentArg) {
+                currentRes = workerFunc.call(this, newArg);
+            }
+            else if (!isPropsEqual(currentArg, newArg)) {
+                if (teardownFunc) {
+                    teardownFunc(currentRes);
+                }
+                let res = workerFunc.call(this, newArg);
+                if (!resEquality || !resEquality(res, currentRes)) {
+                    currentRes = res;
+                }
+            }
+            currentArg = newArg;
+            return currentRes;
+        };
+    }
+    function memoizeArraylike(// used at all?
+    workerFunc, resEquality, teardownFunc) {
+        let currentArgSets = [];
+        let currentResults = [];
+        return (newArgSets) => {
+            let currentLen = currentArgSets.length;
+            let newLen = newArgSets.length;
+            let i = 0;
+            for (; i < currentLen; i += 1) {
+                if (!newArgSets[i]) { // one of the old sets no longer exists
+                    if (teardownFunc) {
+                        teardownFunc(currentResults[i]);
+                    }
+                }
+                else if (!isArraysEqual(currentArgSets[i], newArgSets[i])) {
+                    if (teardownFunc) {
+                        teardownFunc(currentResults[i]);
+                    }
+                    let res = workerFunc.apply(this, newArgSets[i]);
+                    if (!resEquality || !resEquality(res, currentResults[i])) {
+                        currentResults[i] = res;
+                    }
+                }
+            }
+            for (; i < newLen; i += 1) {
+                currentResults[i] = workerFunc.apply(this, newArgSets[i]);
+            }
+            currentArgSets = newArgSets;
+            currentResults.splice(newLen); // remove excess
+            return currentResults;
+        };
+    }
+    function memoizeHashlike(workerFunc, resEquality, teardownFunc) {
+        let currentArgHash = {};
+        let currentResHash = {};
+        return (newArgHash) => {
+            let newResHash = {};
+            for (let key in newArgHash) {
+                if (!currentResHash[key]) {
+                    newResHash[key] = workerFunc.apply(this, newArgHash[key]);
+                }
+                else if (!isArraysEqual(currentArgHash[key], newArgHash[key])) {
+                    if (teardownFunc) {
+                        teardownFunc(currentResHash[key]);
+                    }
+                    let res = workerFunc.apply(this, newArgHash[key]);
+                    newResHash[key] = (resEquality && resEquality(res, currentResHash[key]))
+                        ? currentResHash[key]
+                        : res;
+                }
+                else {
+                    newResHash[key] = currentResHash[key];
+                }
+            }
+            currentArgHash = newArgHash;
+            currentResHash = newResHash;
+            return newResHash;
+        };
+    }
 
     const EXTENDED_SETTINGS_AND_SEVERITIES = {
         week: 3,
@@ -2148,6 +1633,1304 @@ var FullCalendar = (function (exports) {
         return raw;
     }
 
+    function createEventInstance(defId, range, forcedStartTzo, forcedEndTzo) {
+        return {
+            instanceId: guid(),
+            defId,
+            range,
+            forcedStartTzo: forcedStartTzo == null ? null : forcedStartTzo,
+            forcedEndTzo: forcedEndTzo == null ? null : forcedEndTzo,
+        };
+    }
+
+    function parseRecurring(refined, defaultAllDay, dateEnv, recurringTypes) {
+        for (let i = 0; i < recurringTypes.length; i += 1) {
+            let parsed = recurringTypes[i].parse(refined, dateEnv);
+            if (parsed) {
+                let { allDay } = refined;
+                if (allDay == null) {
+                    allDay = defaultAllDay;
+                    if (allDay == null) {
+                        allDay = parsed.allDayGuess;
+                        if (allDay == null) {
+                            allDay = false;
+                        }
+                    }
+                }
+                return {
+                    allDay,
+                    duration: parsed.duration,
+                    typeData: parsed.typeData,
+                    typeId: i,
+                };
+            }
+        }
+        return null;
+    }
+    function expandRecurring(eventStore, framingRange, context) {
+        let { dateEnv, pluginHooks, options } = context;
+        let { defs, instances } = eventStore;
+        // remove existing recurring instances
+        // TODO: bad. always expand events as a second step
+        instances = filterHash(instances, (instance) => !defs[instance.defId].recurringDef);
+        for (let defId in defs) {
+            let def = defs[defId];
+            if (def.recurringDef) {
+                let { duration } = def.recurringDef;
+                if (!duration) {
+                    duration = def.allDay ?
+                        options.defaultAllDayEventDuration :
+                        options.defaultTimedEventDuration;
+                }
+                let starts = expandRecurringRanges(def, duration, framingRange, dateEnv, pluginHooks.recurringTypes);
+                for (let start of starts) {
+                    let instance = createEventInstance(defId, {
+                        start,
+                        end: dateEnv.add(start, duration),
+                    });
+                    instances[instance.instanceId] = instance;
+                }
+            }
+        }
+        return { defs, instances };
+    }
+    /*
+    Event MUST have a recurringDef
+    */
+    function expandRecurringRanges(eventDef, duration, framingRange, dateEnv, recurringTypes) {
+        let typeDef = recurringTypes[eventDef.recurringDef.typeId];
+        let markers = typeDef.expand(eventDef.recurringDef.typeData, {
+            start: dateEnv.subtract(framingRange.start, duration),
+            end: framingRange.end,
+        }, dateEnv);
+        // the recurrence plugins don't guarantee that all-day events are start-of-day, so we have to
+        if (eventDef.allDay) {
+            markers = markers.map(startOfDay);
+        }
+        return markers;
+    }
+
+    function parseEvents(rawEvents, eventSource, context, allowOpenRange) {
+        let eventStore = createEmptyEventStore();
+        let eventRefiners = buildEventRefiners(context);
+        for (let rawEvent of rawEvents) {
+            let tuple = parseEvent(rawEvent, eventSource, context, allowOpenRange, eventRefiners);
+            if (tuple) {
+                eventTupleToStore(tuple, eventStore);
+            }
+        }
+        return eventStore;
+    }
+    function eventTupleToStore(tuple, eventStore = createEmptyEventStore()) {
+        eventStore.defs[tuple.def.defId] = tuple.def;
+        if (tuple.instance) {
+            eventStore.instances[tuple.instance.instanceId] = tuple.instance;
+        }
+        return eventStore;
+    }
+    // retrieves events that have the same groupId as the instance specified by `instanceId`
+    // or they are the same as the instance.
+    // why might instanceId not be in the store? an event from another calendar?
+    function getRelevantEvents(eventStore, instanceId) {
+        let instance = eventStore.instances[instanceId];
+        if (instance) {
+            let def = eventStore.defs[instance.defId];
+            // get events/instances with same group
+            let newStore = filterEventStoreDefs(eventStore, (lookDef) => isEventDefsGrouped(def, lookDef));
+            // add the original
+            // TODO: wish we could use eventTupleToStore or something like it
+            newStore.defs[def.defId] = def;
+            newStore.instances[instance.instanceId] = instance;
+            return newStore;
+        }
+        return createEmptyEventStore();
+    }
+    function isEventDefsGrouped(def0, def1) {
+        return Boolean(def0.groupId && def0.groupId === def1.groupId);
+    }
+    function createEmptyEventStore() {
+        return { defs: {}, instances: {} };
+    }
+    function mergeEventStores(store0, store1) {
+        return {
+            defs: Object.assign(Object.assign({}, store0.defs), store1.defs),
+            instances: Object.assign(Object.assign({}, store0.instances), store1.instances),
+        };
+    }
+    function filterEventStoreDefs(eventStore, filterFunc) {
+        let defs = filterHash(eventStore.defs, filterFunc);
+        let instances = filterHash(eventStore.instances, (instance) => (defs[instance.defId] // still exists?
+        ));
+        return { defs, instances };
+    }
+    function excludeSubEventStore(master, sub) {
+        let { defs, instances } = master;
+        let filteredDefs = {};
+        let filteredInstances = {};
+        for (let defId in defs) {
+            if (!sub.defs[defId]) { // not explicitly excluded
+                filteredDefs[defId] = defs[defId];
+            }
+        }
+        for (let instanceId in instances) {
+            if (!sub.instances[instanceId] && // not explicitly excluded
+                filteredDefs[instances[instanceId].defId] // def wasn't filtered away
+            ) {
+                filteredInstances[instanceId] = instances[instanceId];
+            }
+        }
+        return {
+            defs: filteredDefs,
+            instances: filteredInstances,
+        };
+    }
+
+    function normalizeConstraint(input, context) {
+        if (Array.isArray(input)) {
+            return parseEvents(input, null, context, true); // allowOpenRange=true
+        }
+        if (typeof input === 'object' && input) { // non-null object
+            return parseEvents([input], null, context, true); // allowOpenRange=true
+        }
+        if (input != null) {
+            return String(input);
+        }
+        return null;
+    }
+
+    function parseClassNames(raw) {
+        if (Array.isArray(raw)) {
+            return raw;
+        }
+        if (typeof raw === 'string') {
+            return raw.split(/\s+/);
+        }
+        return [];
+    }
+
+    // TODO: better called "EventSettings" or "EventConfig"
+    // TODO: move this file into structs
+    // TODO: separate constraint/overlap/allow, because selection uses only that, not other props
+    const EVENT_UI_REFINERS = {
+        display: String,
+        editable: Boolean,
+        startEditable: Boolean,
+        durationEditable: Boolean,
+        constraint: identity,
+        overlap: identity,
+        allow: identity,
+        className: parseClassNames,
+        classNames: parseClassNames,
+        color: String,
+        backgroundColor: String,
+        borderColor: String,
+        textColor: String,
+    };
+    const EMPTY_EVENT_UI = {
+        display: null,
+        startEditable: null,
+        durationEditable: null,
+        constraints: [],
+        overlap: null,
+        allows: [],
+        backgroundColor: '',
+        borderColor: '',
+        textColor: '',
+        classNames: [],
+    };
+    function createEventUi(refined, context) {
+        let constraint = normalizeConstraint(refined.constraint, context);
+        return {
+            display: refined.display || null,
+            startEditable: refined.startEditable != null ? refined.startEditable : refined.editable,
+            durationEditable: refined.durationEditable != null ? refined.durationEditable : refined.editable,
+            constraints: constraint != null ? [constraint] : [],
+            overlap: refined.overlap != null ? refined.overlap : null,
+            allows: refined.allow != null ? [refined.allow] : [],
+            backgroundColor: refined.backgroundColor || refined.color || '',
+            borderColor: refined.borderColor || refined.color || '',
+            textColor: refined.textColor || '',
+            classNames: (refined.className || []).concat(refined.classNames || []), // join singular and plural
+        };
+    }
+    // TODO: prevent against problems with <2 args!
+    function combineEventUis(uis) {
+        return uis.reduce(combineTwoEventUis, EMPTY_EVENT_UI);
+    }
+    function combineTwoEventUis(item0, item1) {
+        return {
+            display: item1.display != null ? item1.display : item0.display,
+            startEditable: item1.startEditable != null ? item1.startEditable : item0.startEditable,
+            durationEditable: item1.durationEditable != null ? item1.durationEditable : item0.durationEditable,
+            constraints: item0.constraints.concat(item1.constraints),
+            overlap: typeof item1.overlap === 'boolean' ? item1.overlap : item0.overlap,
+            allows: item0.allows.concat(item1.allows),
+            backgroundColor: item1.backgroundColor || item0.backgroundColor,
+            borderColor: item1.borderColor || item0.borderColor,
+            textColor: item1.textColor || item0.textColor,
+            classNames: item0.classNames.concat(item1.classNames),
+        };
+    }
+
+    const EVENT_NON_DATE_REFINERS = {
+        id: String,
+        groupId: String,
+        title: String,
+        url: String,
+        interactive: Boolean,
+    };
+    const EVENT_DATE_REFINERS = {
+        start: identity,
+        end: identity,
+        date: identity,
+        allDay: Boolean,
+    };
+    const EVENT_REFINERS = Object.assign(Object.assign(Object.assign({}, EVENT_NON_DATE_REFINERS), EVENT_DATE_REFINERS), { extendedProps: identity });
+    function parseEvent(raw, eventSource, context, allowOpenRange, refiners = buildEventRefiners(context)) {
+        let { refined, extra } = refineEventDef(raw, context, refiners);
+        let defaultAllDay = computeIsDefaultAllDay(eventSource, context);
+        let recurringRes = parseRecurring(refined, defaultAllDay, context.dateEnv, context.pluginHooks.recurringTypes);
+        if (recurringRes) {
+            let def = parseEventDef(refined, extra, eventSource ? eventSource.sourceId : '', recurringRes.allDay, Boolean(recurringRes.duration), context);
+            def.recurringDef = {
+                typeId: recurringRes.typeId,
+                typeData: recurringRes.typeData,
+                duration: recurringRes.duration,
+            };
+            return { def, instance: null };
+        }
+        let singleRes = parseSingle(refined, defaultAllDay, context, allowOpenRange);
+        if (singleRes) {
+            let def = parseEventDef(refined, extra, eventSource ? eventSource.sourceId : '', singleRes.allDay, singleRes.hasEnd, context);
+            let instance = createEventInstance(def.defId, singleRes.range, singleRes.forcedStartTzo, singleRes.forcedEndTzo);
+            return { def, instance };
+        }
+        return null;
+    }
+    function refineEventDef(raw, context, refiners = buildEventRefiners(context)) {
+        return refineProps(raw, refiners);
+    }
+    function buildEventRefiners(context) {
+        return Object.assign(Object.assign(Object.assign({}, EVENT_UI_REFINERS), EVENT_REFINERS), context.pluginHooks.eventRefiners);
+    }
+    /*
+    Will NOT populate extendedProps with the leftover properties.
+    Will NOT populate date-related props.
+    */
+    function parseEventDef(refined, extra, sourceId, allDay, hasEnd, context) {
+        let def = {
+            title: refined.title || '',
+            groupId: refined.groupId || '',
+            publicId: refined.id || '',
+            url: refined.url || '',
+            recurringDef: null,
+            defId: guid(),
+            sourceId,
+            allDay,
+            hasEnd,
+            interactive: refined.interactive,
+            ui: createEventUi(refined, context),
+            extendedProps: Object.assign(Object.assign({}, (refined.extendedProps || {})), extra),
+        };
+        for (let memberAdder of context.pluginHooks.eventDefMemberAdders) {
+            Object.assign(def, memberAdder(refined));
+        }
+        // help out EventImpl from having user modify props
+        Object.freeze(def.ui.classNames);
+        Object.freeze(def.extendedProps);
+        return def;
+    }
+    function parseSingle(refined, defaultAllDay, context, allowOpenRange) {
+        let { allDay } = refined;
+        let startMeta;
+        let startMarker = null;
+        let hasEnd = false;
+        let endMeta;
+        let endMarker = null;
+        let startInput = refined.start != null ? refined.start : refined.date;
+        startMeta = context.dateEnv.createMarkerMeta(startInput);
+        if (startMeta) {
+            startMarker = startMeta.marker;
+        }
+        else if (!allowOpenRange) {
+            return null;
+        }
+        if (refined.end != null) {
+            endMeta = context.dateEnv.createMarkerMeta(refined.end);
+        }
+        if (allDay == null) {
+            if (defaultAllDay != null) {
+                allDay = defaultAllDay;
+            }
+            else {
+                // fall back to the date props LAST
+                allDay = (!startMeta || startMeta.isTimeUnspecified) &&
+                    (!endMeta || endMeta.isTimeUnspecified);
+            }
+        }
+        if (allDay && startMarker) {
+            startMarker = startOfDay(startMarker);
+        }
+        if (endMeta) {
+            endMarker = endMeta.marker;
+            if (allDay) {
+                endMarker = startOfDay(endMarker);
+            }
+            if (startMarker && endMarker <= startMarker) {
+                endMarker = null;
+            }
+        }
+        if (endMarker) {
+            hasEnd = true;
+        }
+        else if (!allowOpenRange) {
+            hasEnd = context.options.forceEventDuration || false;
+            endMarker = context.dateEnv.add(startMarker, allDay ?
+                context.options.defaultAllDayEventDuration :
+                context.options.defaultTimedEventDuration);
+        }
+        return {
+            allDay,
+            hasEnd,
+            range: { start: startMarker, end: endMarker },
+            forcedStartTzo: startMeta ? startMeta.forcedTzo : null,
+            forcedEndTzo: endMeta ? endMeta.forcedTzo : null,
+        };
+    }
+    function computeIsDefaultAllDay(eventSource, context) {
+        let res = null;
+        if (eventSource) {
+            res = eventSource.defaultAllDay;
+        }
+        if (res == null) {
+            res = context.options.defaultAllDay;
+        }
+        return res;
+    }
+
+    const DEF_DEFAULTS = {
+        startTime: '09:00',
+        endTime: '17:00',
+        daysOfWeek: [1, 2, 3, 4, 5],
+        display: 'inverse-background',
+        classNames: 'fc-non-business',
+        groupId: '_businessHours', // so multiple defs get grouped
+    };
+    /*
+    TODO: pass around as EventDefHash!!!
+    */
+    function parseBusinessHours(input, context) {
+        return parseEvents(refineInputs(input), null, context);
+    }
+    function refineInputs(input) {
+        let rawDefs;
+        if (input === true) {
+            rawDefs = [{}]; // will get DEF_DEFAULTS verbatim
+        }
+        else if (Array.isArray(input)) {
+            // if specifying an array, every sub-definition NEEDS a day-of-week
+            rawDefs = input.filter((rawDef) => rawDef.daysOfWeek);
+        }
+        else if (typeof input === 'object' && input) { // non-null object
+            rawDefs = [input];
+        }
+        else { // is probably false
+            rawDefs = [];
+        }
+        rawDefs = rawDefs.map((rawDef) => (Object.assign(Object.assign({}, DEF_DEFAULTS), rawDef)));
+        return rawDefs;
+    }
+
+    /* Date stuff that doesn't belong in datelib core
+    ----------------------------------------------------------------------------------------------------------------------*/
+    // given a timed range, computes an all-day range that has the same exact duration,
+    // but whose start time is aligned with the start of the day.
+    function computeAlignedDayRange(timedRange) {
+        let dayCnt = Math.floor(diffDays(timedRange.start, timedRange.end)) || 1;
+        let start = startOfDay(timedRange.start);
+        let end = addDays(start, dayCnt);
+        return { start, end };
+    }
+    // given a timed range, computes an all-day range based on how for the end date bleeds into the next day
+    // TODO: give nextDayThreshold a default arg
+    function computeVisibleDayRange(timedRange, nextDayThreshold = createDuration(0)) {
+        let startDay = null;
+        let endDay = null;
+        if (timedRange.end) {
+            endDay = startOfDay(timedRange.end);
+            let endTimeMS = timedRange.end.valueOf() - endDay.valueOf(); // # of milliseconds into `endDay`
+            // If the end time is actually inclusively part of the next day and is equal to or
+            // beyond the next day threshold, adjust the end to be the exclusive end of `endDay`.
+            // Otherwise, leaving it as inclusive will cause it to exclude `endDay`.
+            if (endTimeMS && endTimeMS >= asRoughMs(nextDayThreshold)) {
+                endDay = addDays(endDay, 1);
+            }
+        }
+        if (timedRange.start) {
+            startDay = startOfDay(timedRange.start); // the beginning of the day the range starts
+            // If end is within `startDay` but not past nextDayThreshold, assign the default duration of one day.
+            if (endDay && endDay <= startDay) {
+                endDay = addDays(startDay, 1);
+            }
+        }
+        return { start: startDay, end: endDay };
+    }
+    // spans from one day into another?
+    function isMultiDayRange(range) {
+        let visibleRange = computeVisibleDayRange(range);
+        return diffDays(visibleRange.start, visibleRange.end) > 1;
+    }
+    function diffDates(date0, date1, dateEnv, largeUnit) {
+        if (largeUnit === 'year') {
+            return createDuration(dateEnv.diffWholeYears(date0, date1), 'year');
+        }
+        if (largeUnit === 'month') {
+            return createDuration(dateEnv.diffWholeMonths(date0, date1), 'month');
+        }
+        return diffDayAndTime(date0, date1); // returns a duration
+    }
+
+    function pointInsideRect(point, rect) {
+        return point.left >= rect.left &&
+            point.left < rect.right &&
+            point.top >= rect.top &&
+            point.top < rect.bottom;
+    }
+    // Returns a new rectangle that is the intersection of the two rectangles. If they don't intersect, returns false
+    function intersectRects(rect1, rect2) {
+        let res = {
+            left: Math.max(rect1.left, rect2.left),
+            right: Math.min(rect1.right, rect2.right),
+            top: Math.max(rect1.top, rect2.top),
+            bottom: Math.min(rect1.bottom, rect2.bottom),
+        };
+        if (res.left < res.right && res.top < res.bottom) {
+            return res;
+        }
+        return false;
+    }
+    function translateRect(rect, deltaX, deltaY) {
+        return {
+            left: rect.left + deltaX,
+            right: rect.right + deltaX,
+            top: rect.top + deltaY,
+            bottom: rect.bottom + deltaY,
+        };
+    }
+    // Returns a new point that will have been moved to reside within the given rectangle
+    function constrainPoint(point, rect) {
+        return {
+            left: Math.min(Math.max(point.left, rect.left), rect.right),
+            top: Math.min(Math.max(point.top, rect.top), rect.bottom),
+        };
+    }
+    // Returns a point that is the center of the given rectangle
+    function getRectCenter(rect) {
+        return {
+            left: (rect.left + rect.right) / 2,
+            top: (rect.top + rect.bottom) / 2,
+        };
+    }
+    // Subtracts point2's coordinates from point1's coordinates, returning a delta
+    function diffPoints(point1, point2) {
+        return {
+            left: point1.left - point2.left,
+            top: point1.top - point2.top,
+        };
+    }
+
+    let canVGrowWithinCell;
+    function getCanVGrowWithinCell() {
+        if (canVGrowWithinCell == null) {
+            canVGrowWithinCell = computeCanVGrowWithinCell();
+        }
+        return canVGrowWithinCell;
+    }
+    function computeCanVGrowWithinCell() {
+        // for SSR, because this function is call immediately at top-level
+        // TODO: just make this logic execute top-level, immediately, instead of doing lazily
+        if (typeof document === 'undefined') {
+            return true;
+        }
+        let el = document.createElement('div');
+        el.style.position = 'absolute';
+        el.style.top = '0px';
+        el.style.left = '0px';
+        el.innerHTML = '<table><tr><td><div></div></td></tr></table>';
+        el.querySelector('table').style.height = '100px';
+        el.querySelector('div').style.height = '100%';
+        document.body.appendChild(el);
+        let div = el.querySelector('div');
+        let possible = div.offsetHeight > 0;
+        document.body.removeChild(el);
+        return possible;
+    }
+
+    const EMPTY_EVENT_STORE = createEmptyEventStore(); // for purecomponents. TODO: keep elsewhere
+    class Splitter {
+        constructor() {
+            this.getKeysForEventDefs = memoize(this._getKeysForEventDefs);
+            this.splitDateSelection = memoize(this._splitDateSpan);
+            this.splitEventStore = memoize(this._splitEventStore);
+            this.splitIndividualUi = memoize(this._splitIndividualUi);
+            this.splitEventDrag = memoize(this._splitInteraction);
+            this.splitEventResize = memoize(this._splitInteraction);
+            this.eventUiBuilders = {}; // TODO: typescript protection
+        }
+        splitProps(props) {
+            let keyInfos = this.getKeyInfo(props);
+            let defKeys = this.getKeysForEventDefs(props.eventStore);
+            let dateSelections = this.splitDateSelection(props.dateSelection);
+            let individualUi = this.splitIndividualUi(props.eventUiBases, defKeys); // the individual *bases*
+            let eventStores = this.splitEventStore(props.eventStore, defKeys);
+            let eventDrags = this.splitEventDrag(props.eventDrag);
+            let eventResizes = this.splitEventResize(props.eventResize);
+            let splitProps = {};
+            this.eventUiBuilders = mapHash(keyInfos, (info, key) => this.eventUiBuilders[key] || memoize(buildEventUiForKey));
+            for (let key in keyInfos) {
+                let keyInfo = keyInfos[key];
+                let eventStore = eventStores[key] || EMPTY_EVENT_STORE;
+                let buildEventUi = this.eventUiBuilders[key];
+                splitProps[key] = {
+                    businessHours: keyInfo.businessHours || props.businessHours,
+                    dateSelection: dateSelections[key] || null,
+                    eventStore,
+                    eventUiBases: buildEventUi(props.eventUiBases[''], keyInfo.ui, individualUi[key]),
+                    eventSelection: eventStore.instances[props.eventSelection] ? props.eventSelection : '',
+                    eventDrag: eventDrags[key] || null,
+                    eventResize: eventResizes[key] || null,
+                };
+            }
+            return splitProps;
+        }
+        _splitDateSpan(dateSpan) {
+            let dateSpans = {};
+            if (dateSpan) {
+                let keys = this.getKeysForDateSpan(dateSpan);
+                for (let key of keys) {
+                    dateSpans[key] = dateSpan;
+                }
+            }
+            return dateSpans;
+        }
+        _getKeysForEventDefs(eventStore) {
+            return mapHash(eventStore.defs, (eventDef) => this.getKeysForEventDef(eventDef));
+        }
+        _splitEventStore(eventStore, defKeys) {
+            let { defs, instances } = eventStore;
+            let splitStores = {};
+            for (let defId in defs) {
+                for (let key of defKeys[defId]) {
+                    if (!splitStores[key]) {
+                        splitStores[key] = createEmptyEventStore();
+                    }
+                    splitStores[key].defs[defId] = defs[defId];
+                }
+            }
+            for (let instanceId in instances) {
+                let instance = instances[instanceId];
+                for (let key of defKeys[instance.defId]) {
+                    if (splitStores[key]) { // must have already been created
+                        splitStores[key].instances[instanceId] = instance;
+                    }
+                }
+            }
+            return splitStores;
+        }
+        _splitIndividualUi(eventUiBases, defKeys) {
+            let splitHashes = {};
+            for (let defId in eventUiBases) {
+                if (defId) { // not the '' key
+                    for (let key of defKeys[defId]) {
+                        if (!splitHashes[key]) {
+                            splitHashes[key] = {};
+                        }
+                        splitHashes[key][defId] = eventUiBases[defId];
+                    }
+                }
+            }
+            return splitHashes;
+        }
+        _splitInteraction(interaction) {
+            let splitStates = {};
+            if (interaction) {
+                let affectedStores = this._splitEventStore(interaction.affectedEvents, this._getKeysForEventDefs(interaction.affectedEvents));
+                // can't rely on defKeys because event data is mutated
+                let mutatedKeysByDefId = this._getKeysForEventDefs(interaction.mutatedEvents);
+                let mutatedStores = this._splitEventStore(interaction.mutatedEvents, mutatedKeysByDefId);
+                let populate = (key) => {
+                    if (!splitStates[key]) {
+                        splitStates[key] = {
+                            affectedEvents: affectedStores[key] || EMPTY_EVENT_STORE,
+                            mutatedEvents: mutatedStores[key] || EMPTY_EVENT_STORE,
+                            isEvent: interaction.isEvent,
+                        };
+                    }
+                };
+                for (let key in affectedStores) {
+                    populate(key);
+                }
+                for (let key in mutatedStores) {
+                    populate(key);
+                }
+            }
+            return splitStates;
+        }
+    }
+    function buildEventUiForKey(allUi, eventUiForKey, individualUi) {
+        let baseParts = [];
+        if (allUi) {
+            baseParts.push(allUi);
+        }
+        if (eventUiForKey) {
+            baseParts.push(eventUiForKey);
+        }
+        let stuff = {
+            '': combineEventUis(baseParts),
+        };
+        if (individualUi) {
+            Object.assign(stuff, individualUi);
+        }
+        return stuff;
+    }
+
+    function parseRange(input, dateEnv) {
+        let start = null;
+        let end = null;
+        if (input.start) {
+            start = dateEnv.createMarker(input.start);
+        }
+        if (input.end) {
+            end = dateEnv.createMarker(input.end);
+        }
+        if (!start && !end) {
+            return null;
+        }
+        if (start && end && end < start) {
+            return null;
+        }
+        return { start, end };
+    }
+    // SIDE-EFFECT: will mutate ranges.
+    // Will return a new array result.
+    function invertRanges(ranges, constraintRange) {
+        let invertedRanges = [];
+        let { start } = constraintRange; // the end of the previous range. the start of the new range
+        let i;
+        let dateRange;
+        // ranges need to be in order. required for our date-walking algorithm
+        ranges.sort(compareRanges);
+        for (i = 0; i < ranges.length; i += 1) {
+            dateRange = ranges[i];
+            // add the span of time before the event (if there is any)
+            if (dateRange.start > start) { // compare millisecond time (skip any ambig logic)
+                invertedRanges.push({ start, end: dateRange.start });
+            }
+            if (dateRange.end > start) {
+                start = dateRange.end;
+            }
+        }
+        // add the span of time after the last event (if there is any)
+        if (start < constraintRange.end) { // compare millisecond time (skip any ambig logic)
+            invertedRanges.push({ start, end: constraintRange.end });
+        }
+        return invertedRanges;
+    }
+    function compareRanges(range0, range1) {
+        return range0.start.valueOf() - range1.start.valueOf(); // earlier ranges go first
+    }
+    function intersectRanges(range0, range1) {
+        let { start, end } = range0;
+        let newRange = null;
+        if (range1.start !== null) {
+            if (start === null) {
+                start = range1.start;
+            }
+            else {
+                start = new Date(Math.max(start.valueOf(), range1.start.valueOf()));
+            }
+        }
+        if (range1.end != null) {
+            if (end === null) {
+                end = range1.end;
+            }
+            else {
+                end = new Date(Math.min(end.valueOf(), range1.end.valueOf()));
+            }
+        }
+        if (start === null || end === null || start < end) {
+            newRange = { start, end };
+        }
+        return newRange;
+    }
+    function rangesEqual(range0, range1) {
+        return (range0.start === null ? null : range0.start.valueOf()) === (range1.start === null ? null : range1.start.valueOf()) &&
+            (range0.end === null ? null : range0.end.valueOf()) === (range1.end === null ? null : range1.end.valueOf());
+    }
+    function rangesIntersect(range0, range1) {
+        return (range0.end === null || range1.start === null || range0.end > range1.start) &&
+            (range0.start === null || range1.end === null || range0.start < range1.end);
+    }
+    function rangeContainsRange(outerRange, innerRange) {
+        return (outerRange.start === null || (innerRange.start !== null && innerRange.start >= outerRange.start)) &&
+            (outerRange.end === null || (innerRange.end !== null && innerRange.end <= outerRange.end));
+    }
+    function rangeContainsMarker(range, date) {
+        return (range.start === null || date >= range.start) &&
+            (range.end === null || date < range.end);
+    }
+    // If the given date is not within the given range, move it inside.
+    // (If it's past the end, make it one millisecond before the end).
+    function constrainMarkerToRange(date, range) {
+        if (range.start != null && date < range.start) {
+            return range.start;
+        }
+        if (range.end != null && date >= range.end) {
+            return new Date(range.end.valueOf() - 1);
+        }
+        return date;
+    }
+
+    function getDateMeta(date, todayRange, nowDate, dateProfile) {
+        return {
+            dow: date.getUTCDay(),
+            isDisabled: Boolean(dateProfile && !rangeContainsMarker(dateProfile.activeRange, date)),
+            isOther: Boolean(dateProfile && !rangeContainsMarker(dateProfile.currentRange, date)),
+            isToday: Boolean(todayRange && rangeContainsMarker(todayRange, date)),
+            isPast: Boolean(nowDate ? (date < nowDate) : todayRange ? (date < todayRange.start) : false),
+            isFuture: Boolean(nowDate ? (date > nowDate) : todayRange ? (date >= todayRange.end) : false),
+        };
+    }
+    function getDayClassNames(meta, theme) {
+        let classNames = [
+            'fc-day',
+            `fc-day-${DAY_IDS[meta.dow]}`,
+        ];
+        if (meta.isDisabled) {
+            classNames.push('fc-day-disabled');
+        }
+        else {
+            if (meta.isToday) {
+                classNames.push('fc-day-today');
+                classNames.push(theme.getClass('today'));
+            }
+            if (meta.isPast) {
+                classNames.push('fc-day-past');
+            }
+            if (meta.isFuture) {
+                classNames.push('fc-day-future');
+            }
+            if (meta.isOther) {
+                classNames.push('fc-day-other');
+            }
+        }
+        return classNames;
+    }
+    function getSlotClassNames(meta, theme) {
+        let classNames = [
+            'fc-slot',
+            `fc-slot-${DAY_IDS[meta.dow]}`,
+        ];
+        if (meta.isDisabled) {
+            classNames.push('fc-slot-disabled');
+        }
+        else {
+            if (meta.isToday) {
+                classNames.push('fc-slot-today');
+                classNames.push(theme.getClass('today'));
+            }
+            if (meta.isPast) {
+                classNames.push('fc-slot-past');
+            }
+            if (meta.isFuture) {
+                classNames.push('fc-slot-future');
+            }
+        }
+        return classNames;
+    }
+
+    const DAY_FORMAT = createFormatter({ year: 'numeric', month: 'long', day: 'numeric' });
+    const WEEK_FORMAT = createFormatter({ week: 'long' });
+    function buildNavLinkAttrs(context, dateMarker, viewType = 'day', isTabbable = true) {
+        const { dateEnv, options, calendarApi } = context;
+        let dateStr = dateEnv.format(dateMarker, viewType === 'week' ? WEEK_FORMAT : DAY_FORMAT);
+        if (options.navLinks) {
+            let zonedDate = dateEnv.toDate(dateMarker);
+            const handleInteraction = (ev) => {
+                let customAction = viewType === 'day' ? options.navLinkDayClick :
+                    viewType === 'week' ? options.navLinkWeekClick : null;
+                if (typeof customAction === 'function') {
+                    customAction.call(calendarApi, dateEnv.toDate(dateMarker), ev);
+                }
+                else {
+                    if (typeof customAction === 'string') {
+                        viewType = customAction;
+                    }
+                    calendarApi.zoomTo(dateMarker, viewType);
+                }
+            };
+            return Object.assign({ title: formatWithOrdinals(options.navLinkHint, [dateStr, zonedDate], dateStr), 'data-navlink': '' }, (isTabbable
+                ? createAriaClickAttrs(handleInteraction)
+                : { onClick: handleInteraction }));
+        }
+        return { 'aria-label': dateStr };
+    }
+
+    let _isRtlScrollbarOnLeft = null;
+    function getIsRtlScrollbarOnLeft() {
+        if (_isRtlScrollbarOnLeft === null) {
+            _isRtlScrollbarOnLeft = computeIsRtlScrollbarOnLeft();
+        }
+        return _isRtlScrollbarOnLeft;
+    }
+    function computeIsRtlScrollbarOnLeft() {
+        let outerEl = document.createElement('div');
+        applyStyle(outerEl, {
+            position: 'absolute',
+            top: -1000,
+            left: 0,
+            border: 0,
+            padding: 0,
+            overflow: 'scroll',
+            direction: 'rtl',
+        });
+        outerEl.innerHTML = '<div></div>';
+        document.body.appendChild(outerEl);
+        let innerEl = outerEl.firstChild;
+        let res = innerEl.getBoundingClientRect().left > outerEl.getBoundingClientRect().left;
+        removeElement(outerEl);
+        return res;
+    }
+
+    let _scrollbarWidths;
+    function getScrollbarWidths() {
+        if (!_scrollbarWidths) {
+            _scrollbarWidths = computeScrollbarWidths();
+        }
+        return _scrollbarWidths;
+    }
+    function computeScrollbarWidths() {
+        let el = document.createElement('div');
+        el.style.overflow = 'scroll';
+        el.style.position = 'absolute';
+        el.style.top = '-9999px';
+        el.style.left = '-9999px';
+        document.body.appendChild(el);
+        let res = computeScrollbarWidthsForEl(el);
+        document.body.removeChild(el);
+        return res;
+    }
+    // WARNING: will include border
+    function computeScrollbarWidthsForEl(el) {
+        return {
+            x: el.offsetHeight - el.clientHeight,
+            y: el.offsetWidth - el.clientWidth,
+        };
+    }
+
+    function computeEdges(el, getPadding = false) {
+        let computedStyle = window.getComputedStyle(el);
+        let borderLeft = parseInt(computedStyle.borderLeftWidth, 10) || 0;
+        let borderRight = parseInt(computedStyle.borderRightWidth, 10) || 0;
+        let borderTop = parseInt(computedStyle.borderTopWidth, 10) || 0;
+        let borderBottom = parseInt(computedStyle.borderBottomWidth, 10) || 0;
+        let badScrollbarWidths = computeScrollbarWidthsForEl(el); // includes border!
+        let scrollbarLeftRight = badScrollbarWidths.y - borderLeft - borderRight;
+        let scrollbarBottom = badScrollbarWidths.x - borderTop - borderBottom;
+        let res = {
+            borderLeft,
+            borderRight,
+            borderTop,
+            borderBottom,
+            scrollbarBottom,
+            scrollbarLeft: 0,
+            scrollbarRight: 0,
+        };
+        if (getIsRtlScrollbarOnLeft() && computedStyle.direction === 'rtl') { // is the scrollbar on the left side?
+            res.scrollbarLeft = scrollbarLeftRight;
+        }
+        else {
+            res.scrollbarRight = scrollbarLeftRight;
+        }
+        if (getPadding) {
+            res.paddingLeft = parseInt(computedStyle.paddingLeft, 10) || 0;
+            res.paddingRight = parseInt(computedStyle.paddingRight, 10) || 0;
+            res.paddingTop = parseInt(computedStyle.paddingTop, 10) || 0;
+            res.paddingBottom = parseInt(computedStyle.paddingBottom, 10) || 0;
+        }
+        return res;
+    }
+    function computeInnerRect(el, goWithinPadding = false, doFromWindowViewport) {
+        let outerRect = doFromWindowViewport ? el.getBoundingClientRect() : computeRect(el);
+        let edges = computeEdges(el, goWithinPadding);
+        let res = {
+            left: outerRect.left + edges.borderLeft + edges.scrollbarLeft,
+            right: outerRect.right - edges.borderRight - edges.scrollbarRight,
+            top: outerRect.top + edges.borderTop,
+            bottom: outerRect.bottom - edges.borderBottom - edges.scrollbarBottom,
+        };
+        if (goWithinPadding) {
+            res.left += edges.paddingLeft;
+            res.right -= edges.paddingRight;
+            res.top += edges.paddingTop;
+            res.bottom -= edges.paddingBottom;
+        }
+        return res;
+    }
+    function computeRect(el) {
+        let rect = el.getBoundingClientRect();
+        return {
+            left: rect.left + window.pageXOffset,
+            top: rect.top + window.pageYOffset,
+            right: rect.right + window.pageXOffset,
+            bottom: rect.bottom + window.pageYOffset,
+        };
+    }
+    function computeClippedClientRect(el) {
+        let clippingParents = getClippingParents(el);
+        let rect = el.getBoundingClientRect();
+        for (let clippingParent of clippingParents) {
+            let intersection = intersectRects(rect, clippingParent.getBoundingClientRect());
+            if (intersection) {
+                rect = intersection;
+            }
+            else {
+                return null;
+            }
+        }
+        return rect;
+    }
+    // does not return window
+    function getClippingParents(el) {
+        let parents = [];
+        while (el instanceof HTMLElement) { // will stop when gets to document or null
+            let computedStyle = window.getComputedStyle(el);
+            if (computedStyle.position === 'fixed') {
+                break;
+            }
+            if ((/(auto|scroll)/).test(computedStyle.overflow + computedStyle.overflowY + computedStyle.overflowX)) {
+                parents.push(el);
+            }
+            el = el.parentNode;
+        }
+        return parents;
+    }
+
+    /*
+    given a function that resolves a result asynchronously.
+    the function can either call passed-in success and failure callbacks,
+    or it can return a promise.
+    if you need to pass additional params to func, bind them first.
+    */
+    function unpromisify(func, normalizedSuccessCallback, normalizedFailureCallback) {
+        // guard against success/failure callbacks being called more than once
+        // and guard against a promise AND callback being used together.
+        let isResolved = false;
+        let wrappedSuccess = function (res) {
+            if (!isResolved) {
+                isResolved = true;
+                normalizedSuccessCallback(res);
+            }
+        };
+        let wrappedFailure = function (error) {
+            if (!isResolved) {
+                isResolved = true;
+                normalizedFailureCallback(error);
+            }
+        };
+        let res = func(wrappedSuccess, wrappedFailure);
+        if (res && typeof res.then === 'function') {
+            res.then(wrappedSuccess, wrappedFailure);
+        }
+    }
+
+    class Emitter {
+        constructor() {
+            this.handlers = {};
+            this.thisContext = null;
+        }
+        setThisContext(thisContext) {
+            this.thisContext = thisContext;
+        }
+        setOptions(options) {
+            this.options = options;
+        }
+        on(type, handler) {
+            addToHash(this.handlers, type, handler);
+        }
+        off(type, handler) {
+            removeFromHash(this.handlers, type, handler);
+        }
+        trigger(type, ...args) {
+            let attachedHandlers = this.handlers[type] || [];
+            let optionHandler = this.options && this.options[type];
+            let handlers = [].concat(optionHandler || [], attachedHandlers);
+            for (let handler of handlers) {
+                handler.apply(this.thisContext, args);
+            }
+        }
+        hasHandlers(type) {
+            return Boolean((this.handlers[type] && this.handlers[type].length) ||
+                (this.options && this.options[type]));
+        }
+    }
+    function addToHash(hash, type, handler) {
+        (hash[type] || (hash[type] = []))
+            .push(handler);
+    }
+    function removeFromHash(hash, type, handler) {
+        if (handler) {
+            if (hash[type]) {
+                hash[type] = hash[type].filter((func) => func !== handler);
+            }
+        }
+        else {
+            delete hash[type]; // remove all handler funcs for this type
+        }
+    }
+
+    /*
+    Records offset information for a set of elements, relative to an origin element.
+    Can record the left/right OR the top/bottom OR both.
+    Provides methods for querying the cache by position.
+    */
+    class PositionCache {
+        constructor(originEl, els, isHorizontal, isVertical) {
+            this.els = els;
+            let originClientRect = this.originClientRect = originEl.getBoundingClientRect(); // relative to viewport top-left
+            if (isHorizontal) {
+                this.buildElHorizontals(originClientRect.left);
+            }
+            if (isVertical) {
+                this.buildElVerticals(originClientRect.top);
+            }
+        }
+        // Populates the left/right internal coordinate arrays
+        buildElHorizontals(originClientLeft) {
+            let lefts = [];
+            let rights = [];
+            for (let el of this.els) {
+                let rect = el.getBoundingClientRect();
+                lefts.push(rect.left - originClientLeft);
+                rights.push(rect.right - originClientLeft);
+            }
+            this.lefts = lefts;
+            this.rights = rights;
+        }
+        // Populates the top/bottom internal coordinate arrays
+        buildElVerticals(originClientTop) {
+            let tops = [];
+            let bottoms = [];
+            for (let el of this.els) {
+                let rect = el.getBoundingClientRect();
+                tops.push(rect.top - originClientTop);
+                bottoms.push(rect.bottom - originClientTop);
+            }
+            this.tops = tops;
+            this.bottoms = bottoms;
+        }
+        // Given a left offset (from document left), returns the index of the el that it horizontally intersects.
+        // If no intersection is made, returns undefined.
+        leftToIndex(leftPosition) {
+            let { lefts, rights } = this;
+            let len = lefts.length;
+            let i;
+            for (i = 0; i < len; i += 1) {
+                if (leftPosition >= lefts[i] && leftPosition < rights[i]) {
+                    return i;
+                }
+            }
+            return undefined; // TODO: better
+        }
+        // Given a top offset (from document top), returns the index of the el that it vertically intersects.
+        // If no intersection is made, returns undefined.
+        topToIndex(topPosition) {
+            let { tops, bottoms } = this;
+            let len = tops.length;
+            let i;
+            for (i = 0; i < len; i += 1) {
+                if (topPosition >= tops[i] && topPosition < bottoms[i]) {
+                    return i;
+                }
+            }
+            return undefined; // TODO: better
+        }
+        // Gets the width of the element at the given index
+        getWidth(leftIndex) {
+            return this.rights[leftIndex] - this.lefts[leftIndex];
+        }
+        // Gets the height of the element at the given index
+        getHeight(topIndex) {
+            return this.bottoms[topIndex] - this.tops[topIndex];
+        }
+        similarTo(otherCache) {
+            return similarNumArrays(this.tops || [], otherCache.tops || []) &&
+                similarNumArrays(this.bottoms || [], otherCache.bottoms || []) &&
+                similarNumArrays(this.lefts || [], otherCache.lefts || []) &&
+                similarNumArrays(this.rights || [], otherCache.rights || []);
+        }
+    }
+    function similarNumArrays(a, b) {
+        const len = a.length;
+        if (len !== b.length) {
+            return false;
+        }
+        for (let i = 0; i < len; i++) {
+            if (Math.round(a[i]) !== Math.round(b[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /* eslint max-classes-per-file: "off" */
+    /*
+    An object for getting/setting scroll-related information for an element.
+    Internally, this is done very differently for window versus DOM element,
+    so this object serves as a common interface.
+    */
+    class ScrollController {
+        getMaxScrollTop() {
+            return this.getScrollHeight() - this.getClientHeight();
+        }
+        getMaxScrollLeft() {
+            return this.getScrollWidth() - this.getClientWidth();
+        }
+        canScrollVertically() {
+            return this.getMaxScrollTop() > 0;
+        }
+        canScrollHorizontally() {
+            return this.getMaxScrollLeft() > 0;
+        }
+        canScrollUp() {
+            return this.getScrollTop() > 0;
+        }
+        canScrollDown() {
+            return this.getScrollTop() < this.getMaxScrollTop();
+        }
+        canScrollLeft() {
+            return this.getScrollLeft() > 0;
+        }
+        canScrollRight() {
+            return this.getScrollLeft() < this.getMaxScrollLeft();
+        }
+    }
+    class ElementScrollController extends ScrollController {
+        constructor(el) {
+            super();
+            this.el = el;
+        }
+        getScrollTop() {
+            return this.el.scrollTop;
+        }
+        getScrollLeft() {
+            return this.el.scrollLeft;
+        }
+        setScrollTop(top) {
+            this.el.scrollTop = top;
+        }
+        setScrollLeft(left) {
+            this.el.scrollLeft = left;
+        }
+        getScrollWidth() {
+            return this.el.scrollWidth;
+        }
+        getScrollHeight() {
+            return this.el.scrollHeight;
+        }
+        getClientHeight() {
+            return this.el.clientHeight;
+        }
+        getClientWidth() {
+            return this.el.clientWidth;
+        }
+    }
+    class WindowScrollController extends ScrollController {
+        getScrollTop() {
+            return window.pageYOffset;
+        }
+        getScrollLeft() {
+            return window.pageXOffset;
+        }
+        setScrollTop(n) {
+            window.scroll(window.pageXOffset, n);
+        }
+        setScrollLeft(n) {
+            window.scroll(n, window.pageYOffset);
+        }
+        getScrollWidth() {
+            return document.documentElement.scrollWidth;
+        }
+        getScrollHeight() {
+            return document.documentElement.scrollHeight;
+        }
+        getClientHeight() {
+            return document.documentElement.clientHeight;
+        }
+        getClientWidth() {
+            return document.documentElement.clientWidth;
+        }
+    }
+
+    class Theme {
+        constructor(calendarOptions) {
+            if (this.iconOverrideOption) {
+                this.setIconOverride(calendarOptions[this.iconOverrideOption]);
+            }
+        }
+        setIconOverride(iconOverrideHash) {
+            let iconClassesCopy;
+            let buttonName;
+            if (typeof iconOverrideHash === 'object' && iconOverrideHash) { // non-null object
+                iconClassesCopy = Object.assign({}, this.iconClasses);
+                for (buttonName in iconOverrideHash) {
+                    iconClassesCopy[buttonName] = this.applyIconOverridePrefix(iconOverrideHash[buttonName]);
+                }
+                this.iconClasses = iconClassesCopy;
+            }
+            else if (iconOverrideHash === false) {
+                this.iconClasses = {};
+            }
+        }
+        applyIconOverridePrefix(className) {
+            let prefix = this.iconOverridePrefix;
+            if (prefix && className.indexOf(prefix) !== 0) { // if not already present
+                className = prefix + className;
+            }
+            return className;
+        }
+        getClass(key) {
+            return this.classes[key] || '';
+        }
+        getIconClass(buttonName, isRtl) {
+            let className;
+            if (isRtl && this.rtlIconClasses) {
+                className = this.rtlIconClasses[buttonName] || this.iconClasses[buttonName];
+            }
+            else {
+                className = this.iconClasses[buttonName];
+            }
+            if (className) {
+                return `${this.baseIconClass} ${className}`;
+            }
+            return '';
+        }
+        getCustomButtonIconClass(customButtonProps) {
+            let className;
+            if (this.iconOverrideCustomButtonOption) {
+                className = customButtonProps[this.iconOverrideCustomButtonOption];
+                if (className) {
+                    return `${this.baseIconClass} ${this.applyIconOverridePrefix(className)}`;
+                }
+            }
+            return '';
+        }
+    }
+    Theme.prototype.classes = {};
+    Theme.prototype.iconClasses = {};
+    Theme.prototype.baseIconClass = '';
+    Theme.prototype.iconOverridePrefix = '';
+
     /*
     NOTE: this can be a public API, especially createElement for hooks.
     See examples/typescript-scheduler/src/index.ts
@@ -2312,320 +3095,38 @@ var FullCalendar = (function (exports) {
         }
     }
 
-    class ContentInjector extends BaseComponent {
+    /*
+    an INTERACTABLE date component
+
+    PURPOSES:
+    - hook up to fg, fill, and mirror renderers
+    - interface for dragging and hits
+    */
+    class DateComponent extends BaseComponent {
         constructor() {
             super(...arguments);
-            this.id = guid();
-            this.currentDomNodes = [];
-            this.queuedDomNodes = [];
-            this.handleEl = (el) => {
-                if (this.props.elRef) {
-                    setRef(this.props.elRef, el);
-                }
-            };
+            this.uid = guid();
         }
-        render() {
-            const { props, context } = this;
-            const { options } = context;
-            const { generator, renderProps } = props;
-            const attrs = buildElAttrs(props);
-            let innerContent;
-            let queuedDomNodes = [];
-            if (hasCustomRenderingHandler(props.generatorName, options)) {
-                if (options.customRenderingReplacesEl) {
-                    delete attrs.elRef; // because handleEl will be used
-                }
-            }
-            else {
-                const customContent = typeof generator === 'function' ?
-                    generator(renderProps, h) :
-                    generator;
-                if (typeof customContent === 'string' ||
-                    i$1(customContent) ||
-                    Array.isArray(customContent)) {
-                    innerContent = customContent;
-                }
-                else if (typeof customContent === 'object') {
-                    if ('html' in customContent) {
-                        attrs.dangerouslySetInnerHTML = { __html: customContent.html };
-                    }
-                    else if ('domNodes' in customContent) {
-                        queuedDomNodes = Array.prototype.slice.call(customContent.domNodes);
-                    }
-                }
-            }
-            this.queuedDomNodes = queuedDomNodes;
-            return h(props.elTag, attrs, innerContent);
+        // Hit System
+        // -----------------------------------------------------------------------------------------------------------------
+        prepareHits() {
         }
-        componentDidMount() {
-            this.applyQueueudDomNodes();
-            this.triggerCustomRendering(true);
+        queryHit(positionLeft, positionTop, elWidth, elHeight) {
+            return null; // this should be abstract
         }
-        componentDidUpdate() {
-            this.applyQueueudDomNodes();
-            this.triggerCustomRendering(true);
+        // Pointer Interaction Utils
+        // -----------------------------------------------------------------------------------------------------------------
+        isValidSegDownEl(el) {
+            return !this.props.eventDrag && // HACK
+                !this.props.eventResize && // HACK
+                !elementClosest(el, '.fc-event-mirror');
         }
-        componentWillUnmount() {
-            this.triggerCustomRendering(false); // TODO: different API for removal?
+        isValidDateDownEl(el) {
+            return !elementClosest(el, '.fc-event:not(.fc-bg-event)') &&
+                !elementClosest(el, '.fc-more-link') && // a "more.." link
+                !elementClosest(el, 'a[data-navlink]') && // a clickable nav link
+                !elementClosest(el, '.fc-popover'); // hack
         }
-        triggerCustomRendering(isActive) {
-            const { props, context } = this;
-            const { handleCustomRendering, customRenderingMetaMap } = context.options;
-            if (handleCustomRendering) {
-                const customRenderingMeta = customRenderingMetaMap === null || customRenderingMetaMap === void 0 ? void 0 : customRenderingMetaMap[props.generatorName];
-                if (customRenderingMeta) {
-                    handleCustomRendering(Object.assign({ id: this.id, isActive, containerEl: this.base, reportNewContainerEl: this.handleEl, generatorMeta: customRenderingMeta }, props));
-                }
-            }
-        }
-        applyQueueudDomNodes() {
-            const { queuedDomNodes, currentDomNodes } = this;
-            const el = this.base;
-            if (!isArraysEqual(queuedDomNodes, currentDomNodes)) {
-                currentDomNodes.forEach(removeElement);
-                for (let newNode of queuedDomNodes) {
-                    el.appendChild(newNode);
-                }
-                this.currentDomNodes = queuedDomNodes;
-            }
-        }
-    }
-    ContentInjector.addPropsEquality({
-        elClasses: isArraysEqual,
-        elStyle: isPropsEqual,
-        elAttrs: isNonHandlerPropsEqual,
-        renderProps: isPropsEqual,
-    });
-    // Util
-    function hasCustomRenderingHandler(generatorName, options) {
-        var _a;
-        return Boolean(options.handleCustomRendering &&
-            generatorName &&
-            ((_a = options.customRenderingMetaMap) === null || _a === void 0 ? void 0 : _a[generatorName]));
-    }
-    function buildElAttrs(props, extraClassNames) {
-        const attrs = Object.assign(Object.assign({}, props.elAttrs), { ref: props.elRef });
-        if (props.elClasses || extraClassNames) {
-            attrs.className = (props.elClasses || [])
-                .concat(extraClassNames || [])
-                .concat(attrs.className || [])
-                .filter(Boolean)
-                .join(' ');
-        }
-        if (props.elStyle) {
-            attrs.style = props.elStyle;
-        }
-        return attrs;
-    }
-
-    const RenderId = createContext(0);
-
-    class ContentContainer extends d {
-        constructor() {
-            super(...arguments);
-            this.InnerContent = InnerContentInjector.bind(undefined, this);
-        }
-        render() {
-            const { props } = this;
-            const generatedClassNames = generateClassNames(props.classNameGenerator, props.renderProps);
-            if (props.children) {
-                const elAttrs = buildElAttrs(props, generatedClassNames);
-                const children = props.children(this.InnerContent, props.renderProps, elAttrs);
-                if (props.elTag) {
-                    return h(props.elTag, elAttrs, children);
-                }
-                else {
-                    return children;
-                }
-            }
-            else {
-                return h((ContentInjector), Object.assign(Object.assign({}, props), { elTag: props.elTag || 'div', elClasses: (props.elClasses || []).concat(generatedClassNames), renderId: this.context }));
-            }
-        }
-        componentDidMount() {
-            var _a, _b;
-            (_b = (_a = this.props).didMount) === null || _b === void 0 ? void 0 : _b.call(_a, Object.assign(Object.assign({}, this.props.renderProps), { el: this.base }));
-        }
-        componentWillUnmount() {
-            var _a, _b;
-            (_b = (_a = this.props).willUnmount) === null || _b === void 0 ? void 0 : _b.call(_a, Object.assign(Object.assign({}, this.props.renderProps), { el: this.base }));
-        }
-    }
-    ContentContainer.contextType = RenderId;
-    function InnerContentInjector(containerComponent, props) {
-        const parentProps = containerComponent.props;
-        return h((ContentInjector), Object.assign({ renderProps: parentProps.renderProps, generatorName: parentProps.generatorName, generator: parentProps.generator, renderId: containerComponent.context }, props));
-    }
-    // Utils
-    function generateClassNames(classNameGenerator, renderProps) {
-        const classNames = typeof classNameGenerator === 'function' ?
-            classNameGenerator(renderProps) :
-            classNameGenerator || [];
-        return typeof classNames === 'string' ? [classNames] : classNames;
-    }
-
-    class ViewContainer$1 extends BaseComponent {
-        render() {
-            let { props, context } = this;
-            let { options } = context;
-            let renderProps = { view: context.viewApi };
-            return (h(ContentContainer, Object.assign({}, props, { elTag: props.elTag || 'div', elClasses: [
-                    ...buildViewClassNames(props.viewSpec),
-                    ...(props.elClasses || []),
-                ], renderProps: renderProps, classNameGenerator: options.viewClassNames, generatorName: undefined, generator: undefined, didMount: options.viewDidMount, willUnmount: options.viewWillUnmount }), () => props.children));
-        }
-    }
-    function buildViewClassNames(viewSpec) {
-        return [
-            `fc-${viewSpec.type}-view`,
-            'fc-view',
-        ];
-    }
-
-    function parseRange(input, dateEnv) {
-        let start = null;
-        let end = null;
-        if (input.start) {
-            start = dateEnv.createMarker(input.start);
-        }
-        if (input.end) {
-            end = dateEnv.createMarker(input.end);
-        }
-        if (!start && !end) {
-            return null;
-        }
-        if (start && end && end < start) {
-            return null;
-        }
-        return { start, end };
-    }
-    // SIDE-EFFECT: will mutate ranges.
-    // Will return a new array result.
-    function invertRanges(ranges, constraintRange) {
-        let invertedRanges = [];
-        let { start } = constraintRange; // the end of the previous range. the start of the new range
-        let i;
-        let dateRange;
-        // ranges need to be in order. required for our date-walking algorithm
-        ranges.sort(compareRanges);
-        for (i = 0; i < ranges.length; i += 1) {
-            dateRange = ranges[i];
-            // add the span of time before the event (if there is any)
-            if (dateRange.start > start) { // compare millisecond time (skip any ambig logic)
-                invertedRanges.push({ start, end: dateRange.start });
-            }
-            if (dateRange.end > start) {
-                start = dateRange.end;
-            }
-        }
-        // add the span of time after the last event (if there is any)
-        if (start < constraintRange.end) { // compare millisecond time (skip any ambig logic)
-            invertedRanges.push({ start, end: constraintRange.end });
-        }
-        return invertedRanges;
-    }
-    function compareRanges(range0, range1) {
-        return range0.start.valueOf() - range1.start.valueOf(); // earlier ranges go first
-    }
-    function intersectRanges(range0, range1) {
-        let { start, end } = range0;
-        let newRange = null;
-        if (range1.start !== null) {
-            if (start === null) {
-                start = range1.start;
-            }
-            else {
-                start = new Date(Math.max(start.valueOf(), range1.start.valueOf()));
-            }
-        }
-        if (range1.end != null) {
-            if (end === null) {
-                end = range1.end;
-            }
-            else {
-                end = new Date(Math.min(end.valueOf(), range1.end.valueOf()));
-            }
-        }
-        if (start === null || end === null || start < end) {
-            newRange = { start, end };
-        }
-        return newRange;
-    }
-    function rangesEqual(range0, range1) {
-        return (range0.start === null ? null : range0.start.valueOf()) === (range1.start === null ? null : range1.start.valueOf()) &&
-            (range0.end === null ? null : range0.end.valueOf()) === (range1.end === null ? null : range1.end.valueOf());
-    }
-    function rangesIntersect(range0, range1) {
-        return (range0.end === null || range1.start === null || range0.end > range1.start) &&
-            (range0.start === null || range1.end === null || range0.start < range1.end);
-    }
-    function rangeContainsRange(outerRange, innerRange) {
-        return (outerRange.start === null || (innerRange.start !== null && innerRange.start >= outerRange.start)) &&
-            (outerRange.end === null || (innerRange.end !== null && innerRange.end <= outerRange.end));
-    }
-    function rangeContainsMarker(range, date) {
-        return (range.start === null || date >= range.start) &&
-            (range.end === null || date < range.end);
-    }
-    // If the given date is not within the given range, move it inside.
-    // (If it's past the end, make it one millisecond before the end).
-    function constrainMarkerToRange(date, range) {
-        if (range.start != null && date < range.start) {
-            return range.start;
-        }
-        if (range.end != null && date >= range.end) {
-            return new Date(range.end.valueOf() - 1);
-        }
-        return date;
-    }
-
-    /* Date stuff that doesn't belong in datelib core
-    ----------------------------------------------------------------------------------------------------------------------*/
-    // given a timed range, computes an all-day range that has the same exact duration,
-    // but whose start time is aligned with the start of the day.
-    function computeAlignedDayRange(timedRange) {
-        let dayCnt = Math.floor(diffDays(timedRange.start, timedRange.end)) || 1;
-        let start = startOfDay(timedRange.start);
-        let end = addDays(start, dayCnt);
-        return { start, end };
-    }
-    // given a timed range, computes an all-day range based on how for the end date bleeds into the next day
-    // TODO: give nextDayThreshold a default arg
-    function computeVisibleDayRange(timedRange, nextDayThreshold = createDuration(0)) {
-        let startDay = null;
-        let endDay = null;
-        if (timedRange.end) {
-            endDay = startOfDay(timedRange.end);
-            let endTimeMS = timedRange.end.valueOf() - endDay.valueOf(); // # of milliseconds into `endDay`
-            // If the end time is actually inclusively part of the next day and is equal to or
-            // beyond the next day threshold, adjust the end to be the exclusive end of `endDay`.
-            // Otherwise, leaving it as inclusive will cause it to exclude `endDay`.
-            if (endTimeMS && endTimeMS >= asRoughMs(nextDayThreshold)) {
-                endDay = addDays(endDay, 1);
-            }
-        }
-        if (timedRange.start) {
-            startDay = startOfDay(timedRange.start); // the beginning of the day the range starts
-            // If end is within `startDay` but not past nextDayThreshold, assign the default duration of one day.
-            if (endDay && endDay <= startDay) {
-                endDay = addDays(startDay, 1);
-            }
-        }
-        return { start: startDay, end: endDay };
-    }
-    // spans from one day into another?
-    function isMultiDayRange(range) {
-        let visibleRange = computeVisibleDayRange(range);
-        return diffDays(visibleRange.start, visibleRange.end) > 1;
-    }
-    function diffDates(date0, date1, dateEnv, largeUnit) {
-        if (largeUnit === 'year') {
-            return createDuration(dateEnv.diffWholeYears(date0, date1), 'year');
-        }
-        if (largeUnit === 'month') {
-            return createDuration(dateEnv.diffWholeMonths(date0, date1), 'month');
-        }
-        return diffDayAndTime(date0, date1); // returns a duration
     }
 
     function reduceCurrentDate(currentDate, action) {
@@ -2958,625 +3459,6 @@ var FullCalendar = (function (exports) {
             }
             return date;
         }
-    }
-
-    function createEventInstance(defId, range, forcedStartTzo, forcedEndTzo) {
-        return {
-            instanceId: guid(),
-            defId,
-            range,
-            forcedStartTzo: forcedStartTzo == null ? null : forcedStartTzo,
-            forcedEndTzo: forcedEndTzo == null ? null : forcedEndTzo,
-        };
-    }
-
-    function parseRecurring(refined, defaultAllDay, dateEnv, recurringTypes) {
-        for (let i = 0; i < recurringTypes.length; i += 1) {
-            let parsed = recurringTypes[i].parse(refined, dateEnv);
-            if (parsed) {
-                let { allDay } = refined;
-                if (allDay == null) {
-                    allDay = defaultAllDay;
-                    if (allDay == null) {
-                        allDay = parsed.allDayGuess;
-                        if (allDay == null) {
-                            allDay = false;
-                        }
-                    }
-                }
-                return {
-                    allDay,
-                    duration: parsed.duration,
-                    typeData: parsed.typeData,
-                    typeId: i,
-                };
-            }
-        }
-        return null;
-    }
-    function expandRecurring(eventStore, framingRange, context) {
-        let { dateEnv, pluginHooks, options } = context;
-        let { defs, instances } = eventStore;
-        // remove existing recurring instances
-        // TODO: bad. always expand events as a second step
-        instances = filterHash(instances, (instance) => !defs[instance.defId].recurringDef);
-        for (let defId in defs) {
-            let def = defs[defId];
-            if (def.recurringDef) {
-                let { duration } = def.recurringDef;
-                if (!duration) {
-                    duration = def.allDay ?
-                        options.defaultAllDayEventDuration :
-                        options.defaultTimedEventDuration;
-                }
-                let starts = expandRecurringRanges(def, duration, framingRange, dateEnv, pluginHooks.recurringTypes);
-                for (let start of starts) {
-                    let instance = createEventInstance(defId, {
-                        start,
-                        end: dateEnv.add(start, duration),
-                    });
-                    instances[instance.instanceId] = instance;
-                }
-            }
-        }
-        return { defs, instances };
-    }
-    /*
-    Event MUST have a recurringDef
-    */
-    function expandRecurringRanges(eventDef, duration, framingRange, dateEnv, recurringTypes) {
-        let typeDef = recurringTypes[eventDef.recurringDef.typeId];
-        let markers = typeDef.expand(eventDef.recurringDef.typeData, {
-            start: dateEnv.subtract(framingRange.start, duration),
-            end: framingRange.end,
-        }, dateEnv);
-        // the recurrence plugins don't guarantee that all-day events are start-of-day, so we have to
-        if (eventDef.allDay) {
-            markers = markers.map(startOfDay);
-        }
-        return markers;
-    }
-
-    const EVENT_NON_DATE_REFINERS = {
-        id: String,
-        groupId: String,
-        title: String,
-        url: String,
-        interactive: Boolean,
-    };
-    const EVENT_DATE_REFINERS = {
-        start: identity,
-        end: identity,
-        date: identity,
-        allDay: Boolean,
-    };
-    const EVENT_REFINERS = Object.assign(Object.assign(Object.assign({}, EVENT_NON_DATE_REFINERS), EVENT_DATE_REFINERS), { extendedProps: identity });
-    function parseEvent(raw, eventSource, context, allowOpenRange, refiners = buildEventRefiners(context)) {
-        let { refined, extra } = refineEventDef(raw, context, refiners);
-        let defaultAllDay = computeIsDefaultAllDay(eventSource, context);
-        let recurringRes = parseRecurring(refined, defaultAllDay, context.dateEnv, context.pluginHooks.recurringTypes);
-        if (recurringRes) {
-            let def = parseEventDef(refined, extra, eventSource ? eventSource.sourceId : '', recurringRes.allDay, Boolean(recurringRes.duration), context);
-            def.recurringDef = {
-                typeId: recurringRes.typeId,
-                typeData: recurringRes.typeData,
-                duration: recurringRes.duration,
-            };
-            return { def, instance: null };
-        }
-        let singleRes = parseSingle(refined, defaultAllDay, context, allowOpenRange);
-        if (singleRes) {
-            let def = parseEventDef(refined, extra, eventSource ? eventSource.sourceId : '', singleRes.allDay, singleRes.hasEnd, context);
-            let instance = createEventInstance(def.defId, singleRes.range, singleRes.forcedStartTzo, singleRes.forcedEndTzo);
-            return { def, instance };
-        }
-        return null;
-    }
-    function refineEventDef(raw, context, refiners = buildEventRefiners(context)) {
-        return refineProps(raw, refiners);
-    }
-    function buildEventRefiners(context) {
-        return Object.assign(Object.assign(Object.assign({}, EVENT_UI_REFINERS), EVENT_REFINERS), context.pluginHooks.eventRefiners);
-    }
-    /*
-    Will NOT populate extendedProps with the leftover properties.
-    Will NOT populate date-related props.
-    */
-    function parseEventDef(refined, extra, sourceId, allDay, hasEnd, context) {
-        let def = {
-            title: refined.title || '',
-            groupId: refined.groupId || '',
-            publicId: refined.id || '',
-            url: refined.url || '',
-            recurringDef: null,
-            defId: guid(),
-            sourceId,
-            allDay,
-            hasEnd,
-            interactive: refined.interactive,
-            ui: createEventUi(refined, context),
-            extendedProps: Object.assign(Object.assign({}, (refined.extendedProps || {})), extra),
-        };
-        for (let memberAdder of context.pluginHooks.eventDefMemberAdders) {
-            Object.assign(def, memberAdder(refined));
-        }
-        // help out EventImpl from having user modify props
-        Object.freeze(def.ui.classNames);
-        Object.freeze(def.extendedProps);
-        return def;
-    }
-    function parseSingle(refined, defaultAllDay, context, allowOpenRange) {
-        let { allDay } = refined;
-        let startMeta;
-        let startMarker = null;
-        let hasEnd = false;
-        let endMeta;
-        let endMarker = null;
-        let startInput = refined.start != null ? refined.start : refined.date;
-        startMeta = context.dateEnv.createMarkerMeta(startInput);
-        if (startMeta) {
-            startMarker = startMeta.marker;
-        }
-        else if (!allowOpenRange) {
-            return null;
-        }
-        if (refined.end != null) {
-            endMeta = context.dateEnv.createMarkerMeta(refined.end);
-        }
-        if (allDay == null) {
-            if (defaultAllDay != null) {
-                allDay = defaultAllDay;
-            }
-            else {
-                // fall back to the date props LAST
-                allDay = (!startMeta || startMeta.isTimeUnspecified) &&
-                    (!endMeta || endMeta.isTimeUnspecified);
-            }
-        }
-        if (allDay && startMarker) {
-            startMarker = startOfDay(startMarker);
-        }
-        if (endMeta) {
-            endMarker = endMeta.marker;
-            if (allDay) {
-                endMarker = startOfDay(endMarker);
-            }
-            if (startMarker && endMarker <= startMarker) {
-                endMarker = null;
-            }
-        }
-        if (endMarker) {
-            hasEnd = true;
-        }
-        else if (!allowOpenRange) {
-            hasEnd = context.options.forceEventDuration || false;
-            endMarker = context.dateEnv.add(startMarker, allDay ?
-                context.options.defaultAllDayEventDuration :
-                context.options.defaultTimedEventDuration);
-        }
-        return {
-            allDay,
-            hasEnd,
-            range: { start: startMarker, end: endMarker },
-            forcedStartTzo: startMeta ? startMeta.forcedTzo : null,
-            forcedEndTzo: endMeta ? endMeta.forcedTzo : null,
-        };
-    }
-    function computeIsDefaultAllDay(eventSource, context) {
-        let res = null;
-        if (eventSource) {
-            res = eventSource.defaultAllDay;
-        }
-        if (res == null) {
-            res = context.options.defaultAllDay;
-        }
-        return res;
-    }
-
-    function parseEvents(rawEvents, eventSource, context, allowOpenRange) {
-        let eventStore = createEmptyEventStore();
-        let eventRefiners = buildEventRefiners(context);
-        for (let rawEvent of rawEvents) {
-            let tuple = parseEvent(rawEvent, eventSource, context, allowOpenRange, eventRefiners);
-            if (tuple) {
-                eventTupleToStore(tuple, eventStore);
-            }
-        }
-        return eventStore;
-    }
-    function eventTupleToStore(tuple, eventStore = createEmptyEventStore()) {
-        eventStore.defs[tuple.def.defId] = tuple.def;
-        if (tuple.instance) {
-            eventStore.instances[tuple.instance.instanceId] = tuple.instance;
-        }
-        return eventStore;
-    }
-    // retrieves events that have the same groupId as the instance specified by `instanceId`
-    // or they are the same as the instance.
-    // why might instanceId not be in the store? an event from another calendar?
-    function getRelevantEvents(eventStore, instanceId) {
-        let instance = eventStore.instances[instanceId];
-        if (instance) {
-            let def = eventStore.defs[instance.defId];
-            // get events/instances with same group
-            let newStore = filterEventStoreDefs(eventStore, (lookDef) => isEventDefsGrouped(def, lookDef));
-            // add the original
-            // TODO: wish we could use eventTupleToStore or something like it
-            newStore.defs[def.defId] = def;
-            newStore.instances[instance.instanceId] = instance;
-            return newStore;
-        }
-        return createEmptyEventStore();
-    }
-    function isEventDefsGrouped(def0, def1) {
-        return Boolean(def0.groupId && def0.groupId === def1.groupId);
-    }
-    function createEmptyEventStore() {
-        return { defs: {}, instances: {} };
-    }
-    function mergeEventStores(store0, store1) {
-        return {
-            defs: Object.assign(Object.assign({}, store0.defs), store1.defs),
-            instances: Object.assign(Object.assign({}, store0.instances), store1.instances),
-        };
-    }
-    function filterEventStoreDefs(eventStore, filterFunc) {
-        let defs = filterHash(eventStore.defs, filterFunc);
-        let instances = filterHash(eventStore.instances, (instance) => (defs[instance.defId] // still exists?
-        ));
-        return { defs, instances };
-    }
-    function excludeSubEventStore(master, sub) {
-        let { defs, instances } = master;
-        let filteredDefs = {};
-        let filteredInstances = {};
-        for (let defId in defs) {
-            if (!sub.defs[defId]) { // not explicitly excluded
-                filteredDefs[defId] = defs[defId];
-            }
-        }
-        for (let instanceId in instances) {
-            if (!sub.instances[instanceId] && // not explicitly excluded
-                filteredDefs[instances[instanceId].defId] // def wasn't filtered away
-            ) {
-                filteredInstances[instanceId] = instances[instanceId];
-            }
-        }
-        return {
-            defs: filteredDefs,
-            instances: filteredInstances,
-        };
-    }
-
-    function normalizeConstraint(input, context) {
-        if (Array.isArray(input)) {
-            return parseEvents(input, null, context, true); // allowOpenRange=true
-        }
-        if (typeof input === 'object' && input) { // non-null object
-            return parseEvents([input], null, context, true); // allowOpenRange=true
-        }
-        if (input != null) {
-            return String(input);
-        }
-        return null;
-    }
-
-    function parseClassNames(raw) {
-        if (Array.isArray(raw)) {
-            return raw;
-        }
-        if (typeof raw === 'string') {
-            return raw.split(/\s+/);
-        }
-        return [];
-    }
-
-    // TODO: better called "EventSettings" or "EventConfig"
-    // TODO: move this file into structs
-    // TODO: separate constraint/overlap/allow, because selection uses only that, not other props
-    const EVENT_UI_REFINERS = {
-        display: String,
-        editable: Boolean,
-        startEditable: Boolean,
-        durationEditable: Boolean,
-        constraint: identity,
-        overlap: identity,
-        allow: identity,
-        className: parseClassNames,
-        classNames: parseClassNames,
-        color: String,
-        backgroundColor: String,
-        borderColor: String,
-        textColor: String,
-    };
-    const EMPTY_EVENT_UI = {
-        display: null,
-        startEditable: null,
-        durationEditable: null,
-        constraints: [],
-        overlap: null,
-        allows: [],
-        backgroundColor: '',
-        borderColor: '',
-        textColor: '',
-        classNames: [],
-    };
-    function createEventUi(refined, context) {
-        let constraint = normalizeConstraint(refined.constraint, context);
-        return {
-            display: refined.display || null,
-            startEditable: refined.startEditable != null ? refined.startEditable : refined.editable,
-            durationEditable: refined.durationEditable != null ? refined.durationEditable : refined.editable,
-            constraints: constraint != null ? [constraint] : [],
-            overlap: refined.overlap != null ? refined.overlap : null,
-            allows: refined.allow != null ? [refined.allow] : [],
-            backgroundColor: refined.backgroundColor || refined.color || '',
-            borderColor: refined.borderColor || refined.color || '',
-            textColor: refined.textColor || '',
-            classNames: (refined.className || []).concat(refined.classNames || []), // join singular and plural
-        };
-    }
-    // TODO: prevent against problems with <2 args!
-    function combineEventUis(uis) {
-        return uis.reduce(combineTwoEventUis, EMPTY_EVENT_UI);
-    }
-    function combineTwoEventUis(item0, item1) {
-        return {
-            display: item1.display != null ? item1.display : item0.display,
-            startEditable: item1.startEditable != null ? item1.startEditable : item0.startEditable,
-            durationEditable: item1.durationEditable != null ? item1.durationEditable : item0.durationEditable,
-            constraints: item0.constraints.concat(item1.constraints),
-            overlap: typeof item1.overlap === 'boolean' ? item1.overlap : item0.overlap,
-            allows: item0.allows.concat(item1.allows),
-            backgroundColor: item1.backgroundColor || item0.backgroundColor,
-            borderColor: item1.borderColor || item0.borderColor,
-            textColor: item1.textColor || item0.textColor,
-            classNames: item0.classNames.concat(item1.classNames),
-        };
-    }
-
-    const EVENT_SOURCE_REFINERS = {
-        id: String,
-        defaultAllDay: Boolean,
-        url: String,
-        format: String,
-        events: identity,
-        eventDataTransform: identity,
-        // for any network-related sources
-        success: identity,
-        failure: identity,
-    };
-    function parseEventSource(raw, context, refiners = buildEventSourceRefiners(context)) {
-        let rawObj;
-        if (typeof raw === 'string') {
-            rawObj = { url: raw };
-        }
-        else if (typeof raw === 'function' || Array.isArray(raw)) {
-            rawObj = { events: raw };
-        }
-        else if (typeof raw === 'object' && raw) { // not null
-            rawObj = raw;
-        }
-        if (rawObj) {
-            let { refined, extra } = refineProps(rawObj, refiners);
-            let metaRes = buildEventSourceMeta(refined, context);
-            if (metaRes) {
-                return {
-                    _raw: raw,
-                    isFetching: false,
-                    latestFetchId: '',
-                    fetchRange: null,
-                    defaultAllDay: refined.defaultAllDay,
-                    eventDataTransform: refined.eventDataTransform,
-                    success: refined.success,
-                    failure: refined.failure,
-                    publicId: refined.id || '',
-                    sourceId: guid(),
-                    sourceDefId: metaRes.sourceDefId,
-                    meta: metaRes.meta,
-                    ui: createEventUi(refined, context),
-                    extendedProps: extra,
-                };
-            }
-        }
-        return null;
-    }
-    function buildEventSourceRefiners(context) {
-        return Object.assign(Object.assign(Object.assign({}, EVENT_UI_REFINERS), EVENT_SOURCE_REFINERS), context.pluginHooks.eventSourceRefiners);
-    }
-    function buildEventSourceMeta(raw, context) {
-        let defs = context.pluginHooks.eventSourceDefs;
-        for (let i = defs.length - 1; i >= 0; i -= 1) { // later-added plugins take precedence
-            let def = defs[i];
-            let meta = def.parseMeta(raw);
-            if (meta) {
-                return { sourceDefId: i, meta };
-            }
-        }
-        return null;
-    }
-
-    function reduceEventStore(eventStore, action, eventSources, dateProfile, context) {
-        switch (action.type) {
-            case 'RECEIVE_EVENTS': // raw
-                return receiveRawEvents(eventStore, eventSources[action.sourceId], action.fetchId, action.fetchRange, action.rawEvents, context);
-            case 'ADD_EVENTS': // already parsed, but not expanded
-                return addEvent(eventStore, action.eventStore, // new ones
-                dateProfile ? dateProfile.activeRange : null, context);
-            case 'RESET_EVENTS':
-                return action.eventStore;
-            case 'MERGE_EVENTS': // already parsed and expanded
-                return mergeEventStores(eventStore, action.eventStore);
-            case 'PREV': // TODO: how do we track all actions that affect dateProfile :(
-            case 'NEXT':
-            case 'CHANGE_DATE':
-            case 'CHANGE_VIEW_TYPE':
-                if (dateProfile) {
-                    return expandRecurring(eventStore, dateProfile.activeRange, context);
-                }
-                return eventStore;
-            case 'REMOVE_EVENTS':
-                return excludeSubEventStore(eventStore, action.eventStore);
-            case 'REMOVE_EVENT_SOURCE':
-                return excludeEventsBySourceId(eventStore, action.sourceId);
-            case 'REMOVE_ALL_EVENT_SOURCES':
-                return filterEventStoreDefs(eventStore, (eventDef) => (!eventDef.sourceId // only keep events with no source id
-                ));
-            case 'REMOVE_ALL_EVENTS':
-                return createEmptyEventStore();
-            default:
-                return eventStore;
-        }
-    }
-    function receiveRawEvents(eventStore, eventSource, fetchId, fetchRange, rawEvents, context) {
-        if (eventSource && // not already removed
-            fetchId === eventSource.latestFetchId // TODO: wish this logic was always in event-sources
-        ) {
-            let subset = parseEvents(transformRawEvents(rawEvents, eventSource, context), eventSource, context);
-            if (fetchRange) {
-                subset = expandRecurring(subset, fetchRange, context);
-            }
-            return mergeEventStores(excludeEventsBySourceId(eventStore, eventSource.sourceId), subset);
-        }
-        return eventStore;
-    }
-    function transformRawEvents(rawEvents, eventSource, context) {
-        let calEachTransform = context.options.eventDataTransform;
-        let sourceEachTransform = eventSource ? eventSource.eventDataTransform : null;
-        if (sourceEachTransform) {
-            rawEvents = transformEachRawEvent(rawEvents, sourceEachTransform);
-        }
-        if (calEachTransform) {
-            rawEvents = transformEachRawEvent(rawEvents, calEachTransform);
-        }
-        return rawEvents;
-    }
-    function transformEachRawEvent(rawEvents, func) {
-        let refinedEvents;
-        if (!func) {
-            refinedEvents = rawEvents;
-        }
-        else {
-            refinedEvents = [];
-            for (let rawEvent of rawEvents) {
-                let refinedEvent = func(rawEvent);
-                if (refinedEvent) {
-                    refinedEvents.push(refinedEvent);
-                }
-                else if (refinedEvent == null) {
-                    refinedEvents.push(rawEvent);
-                } // if a different falsy value, do nothing
-            }
-        }
-        return refinedEvents;
-    }
-    function addEvent(eventStore, subset, expandRange, context) {
-        if (expandRange) {
-            subset = expandRecurring(subset, expandRange, context);
-        }
-        return mergeEventStores(eventStore, subset);
-    }
-    function rezoneEventStoreDates(eventStore, oldDateEnv, newDateEnv) {
-        let { defs } = eventStore;
-        let instances = mapHash(eventStore.instances, (instance) => {
-            let def = defs[instance.defId];
-            if (def.allDay || def.recurringDef) {
-                return instance; // isn't dependent on timezone
-            }
-            return Object.assign(Object.assign({}, instance), { range: {
-                    start: newDateEnv.createMarker(oldDateEnv.toDate(instance.range.start, instance.forcedStartTzo)),
-                    end: newDateEnv.createMarker(oldDateEnv.toDate(instance.range.end, instance.forcedEndTzo)),
-                }, forcedStartTzo: newDateEnv.canComputeOffset ? null : instance.forcedStartTzo, forcedEndTzo: newDateEnv.canComputeOffset ? null : instance.forcedEndTzo });
-        });
-        return { defs, instances };
-    }
-    function excludeEventsBySourceId(eventStore, sourceId) {
-        return filterEventStoreDefs(eventStore, (eventDef) => eventDef.sourceId !== sourceId);
-    }
-    // QUESTION: why not just return instances? do a general object-property-exclusion util
-    function excludeInstances(eventStore, removals) {
-        return {
-            defs: eventStore.defs,
-            instances: filterHash(eventStore.instances, (instance) => !removals[instance.instanceId]),
-        };
-    }
-
-    class Emitter {
-        constructor() {
-            this.handlers = {};
-            this.thisContext = null;
-        }
-        setThisContext(thisContext) {
-            this.thisContext = thisContext;
-        }
-        setOptions(options) {
-            this.options = options;
-        }
-        on(type, handler) {
-            addToHash(this.handlers, type, handler);
-        }
-        off(type, handler) {
-            removeFromHash(this.handlers, type, handler);
-        }
-        trigger(type, ...args) {
-            let attachedHandlers = this.handlers[type] || [];
-            let optionHandler = this.options && this.options[type];
-            let handlers = [].concat(optionHandler || [], attachedHandlers);
-            for (let handler of handlers) {
-                handler.apply(this.thisContext, args);
-            }
-        }
-        hasHandlers(type) {
-            return Boolean((this.handlers[type] && this.handlers[type].length) ||
-                (this.options && this.options[type]));
-        }
-    }
-    function addToHash(hash, type, handler) {
-        (hash[type] || (hash[type] = []))
-            .push(handler);
-    }
-    function removeFromHash(hash, type, handler) {
-        if (handler) {
-            if (hash[type]) {
-                hash[type] = hash[type].filter((func) => func !== handler);
-            }
-        }
-        else {
-            delete hash[type]; // remove all handler funcs for this type
-        }
-    }
-
-    const DEF_DEFAULTS = {
-        startTime: '09:00',
-        endTime: '17:00',
-        daysOfWeek: [1, 2, 3, 4, 5],
-        display: 'inverse-background',
-        classNames: 'fc-non-business',
-        groupId: '_businessHours', // so multiple defs get grouped
-    };
-    /*
-    TODO: pass around as EventDefHash!!!
-    */
-    function parseBusinessHours(input, context) {
-        return parseEvents(refineInputs(input), null, context);
-    }
-    function refineInputs(input) {
-        let rawDefs;
-        if (input === true) {
-            rawDefs = [{}]; // will get DEF_DEFAULTS verbatim
-        }
-        else if (Array.isArray(input)) {
-            // if specifying an array, every sub-definition NEEDS a day-of-week
-            rawDefs = input.filter((rawDef) => rawDef.daysOfWeek);
-        }
-        else if (typeof input === 'object' && input) { // non-null object
-            rawDefs = [input];
-        }
-        else { // is probably false
-            rawDefs = [];
-        }
-        rawDefs = rawDefs.map((rawDef) => (Object.assign(Object.assign({}, DEF_DEFAULTS), rawDef)));
-        return rawDefs;
     }
 
     function triggerDateSelect(selection, pev, context) {
@@ -4436,1136 +4318,370 @@ var FullCalendar = (function (exports) {
         };
     }
 
-    /*
-    given a function that resolves a result asynchronously.
-    the function can either call passed-in success and failure callbacks,
-    or it can return a promise.
-    if you need to pass additional params to func, bind them first.
-    */
-    function unpromisify(func, normalizedSuccessCallback, normalizedFailureCallback) {
-        // guard against success/failure callbacks being called more than once
-        // and guard against a promise AND callback being used together.
-        let isResolved = false;
-        let wrappedSuccess = function (res) {
-            if (!isResolved) {
-                isResolved = true;
-                normalizedSuccessCallback(res);
-            }
-        };
-        let wrappedFailure = function (error) {
-            if (!isResolved) {
-                isResolved = true;
-                normalizedFailureCallback(error);
-            }
-        };
-        let res = func(wrappedSuccess, wrappedFailure);
-        if (res && typeof res.then === 'function') {
-            res.then(wrappedSuccess, wrappedFailure);
+    let calendarSystemClassMap = {};
+    function registerCalendarSystem(name, theClass) {
+        calendarSystemClassMap[name] = theClass;
+    }
+    function createCalendarSystem(name) {
+        return new calendarSystemClassMap[name]();
+    }
+    class GregorianCalendarSystem {
+        getMarkerYear(d) {
+            return d.getUTCFullYear();
         }
+        getMarkerMonth(d) {
+            return d.getUTCMonth();
+        }
+        getMarkerDay(d) {
+            return d.getUTCDate();
+        }
+        arrayToMarker(arr) {
+            return arrayToUtcDate(arr);
+        }
+        markerToArray(marker) {
+            return dateToUtcArray(marker);
+        }
+    }
+    registerCalendarSystem('gregory', GregorianCalendarSystem);
+
+    const ISO_RE = /^\s*(\d{4})(-?(\d{2})(-?(\d{2})([T ](\d{2}):?(\d{2})(:?(\d{2})(\.(\d+))?)?(Z|(([-+])(\d{2})(:?(\d{2}))?))?)?)?)?$/;
+    function parse(str) {
+        let m = ISO_RE.exec(str);
+        if (m) {
+            let marker = new Date(Date.UTC(Number(m[1]), m[3] ? Number(m[3]) - 1 : 0, Number(m[5] || 1), Number(m[7] || 0), Number(m[8] || 0), Number(m[10] || 0), m[12] ? Number(`0.${m[12]}`) * 1000 : 0));
+            if (isValidDate(marker)) {
+                let timeZoneOffset = null;
+                if (m[13]) {
+                    timeZoneOffset = (m[15] === '-' ? -1 : 1) * (Number(m[16] || 0) * 60 +
+                        Number(m[18] || 0));
+                }
+                return {
+                    marker,
+                    isTimeUnspecified: !m[6],
+                    timeZoneOffset,
+                };
+            }
+        }
+        return null;
     }
 
-    class JsonRequestError extends Error {
-        constructor(message, response) {
-            super(message);
-            this.response = response;
-        }
-    }
-    function requestJson(method, url, params) {
-        method = method.toUpperCase();
-        const fetchOptions = {
-            method,
-        };
-        if (method === 'GET') {
-            url += (url.indexOf('?') === -1 ? '?' : '&') +
-                new URLSearchParams(params);
-        }
-        else {
-            fetchOptions.body = new URLSearchParams(params);
-            fetchOptions.headers = {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            };
-        }
-        return fetch(url, fetchOptions).then((fetchRes) => {
-            if (fetchRes.ok) {
-                return fetchRes.json().then((parsedResponse) => {
-                    return [parsedResponse, fetchRes];
-                }, () => {
-                    throw new JsonRequestError('Failure parsing JSON', fetchRes);
-                });
-            }
-            else {
-                throw new JsonRequestError('Request failed', fetchRes);
-            }
-        });
-    }
-
-    let canVGrowWithinCell;
-    function getCanVGrowWithinCell() {
-        if (canVGrowWithinCell == null) {
-            canVGrowWithinCell = computeCanVGrowWithinCell();
-        }
-        return canVGrowWithinCell;
-    }
-    function computeCanVGrowWithinCell() {
-        // for SSR, because this function is call immediately at top-level
-        // TODO: just make this logic execute top-level, immediately, instead of doing lazily
-        if (typeof document === 'undefined') {
-            return true;
-        }
-        let el = document.createElement('div');
-        el.style.position = 'absolute';
-        el.style.top = '0px';
-        el.style.left = '0px';
-        el.innerHTML = '<table><tr><td><div></div></td></tr></table>';
-        el.querySelector('table').style.height = '100px';
-        el.querySelector('div').style.height = '100%';
-        document.body.appendChild(el);
-        let div = el.querySelector('div');
-        let possible = div.offsetHeight > 0;
-        document.body.removeChild(el);
-        return possible;
-    }
-
-    class CalendarRoot extends BaseComponent {
-        constructor() {
-            super(...arguments);
-            this.state = {
-                forPrint: false,
-            };
-            this.handleBeforePrint = () => {
-                this.setState({ forPrint: true });
-            };
-            this.handleAfterPrint = () => {
-                this.setState({ forPrint: false });
-            };
-        }
-        render() {
-            let { props } = this;
-            let { options } = props;
-            let { forPrint } = this.state;
-            let isHeightAuto = forPrint || options.height === 'auto' || options.contentHeight === 'auto';
-            let height = (!isHeightAuto && options.height != null) ? options.height : '';
-            let classNames = [
-                'fc',
-                forPrint ? 'fc-media-print' : 'fc-media-screen',
-                `fc-direction-${options.direction}`,
-                props.theme.getClass('root'),
-            ];
-            if (!getCanVGrowWithinCell()) {
-                classNames.push('fc-liquid-hack');
-            }
-            return props.children(classNames, height, isHeightAuto, forPrint);
-        }
-        componentDidMount() {
-            let { emitter } = this.props;
-            emitter.on('_beforeprint', this.handleBeforePrint);
-            emitter.on('_afterprint', this.handleAfterPrint);
-        }
-        componentWillUnmount() {
-            let { emitter } = this.props;
-            emitter.off('_beforeprint', this.handleBeforePrint);
-            emitter.off('_afterprint', this.handleAfterPrint);
-        }
-    }
-
-    class Interaction {
+    class DateEnv {
         constructor(settings) {
-            this.component = settings.component;
-            this.isHitComboAllowed = settings.isHitComboAllowed || null;
-        }
-        destroy() {
-        }
-    }
-    function parseInteractionSettings(component, input) {
-        return {
-            component,
-            el: input.el,
-            useEventCenter: input.useEventCenter != null ? input.useEventCenter : true,
-            isHitComboAllowed: input.isHitComboAllowed || null,
-        };
-    }
-    function interactionSettingsToStore(settings) {
-        return {
-            [settings.component.uid]: settings,
-        };
-    }
-    // global state
-    const interactionSettingsStore = {};
-
-    class CalendarImpl {
-        getCurrentData() {
-            return this.currentDataManager.getCurrentData();
-        }
-        dispatch(action) {
-            this.currentDataManager.dispatch(action);
-        }
-        get view() { return this.getCurrentData().viewApi; }
-        batchRendering(callback) {
-            callback();
-        }
-        updateSize() {
-            this.trigger('_resize', true);
-        }
-        // Options
-        // -----------------------------------------------------------------------------------------------------------------
-        setOption(name, val) {
-            this.dispatch({
-                type: 'SET_OPTION',
-                optionName: name,
-                rawOptionValue: val,
-            });
-        }
-        getOption(name) {
-            return this.currentDataManager.currentCalendarOptionsInput[name];
-        }
-        getAvailableLocaleCodes() {
-            return Object.keys(this.getCurrentData().availableRawLocales);
-        }
-        // Trigger
-        // -----------------------------------------------------------------------------------------------------------------
-        on(handlerName, handler) {
-            let { currentDataManager } = this;
-            if (currentDataManager.currentCalendarOptionsRefiners[handlerName]) {
-                currentDataManager.emitter.on(handlerName, handler);
+            let timeZone = this.timeZone = settings.timeZone;
+            let isNamedTimeZone = timeZone !== 'local' && timeZone !== 'UTC';
+            if (settings.namedTimeZoneImpl && isNamedTimeZone) {
+                this.namedTimeZoneImpl = new settings.namedTimeZoneImpl(timeZone);
             }
-            else {
-                console.warn(`Unknown listener name '${handlerName}'`);
+            this.canComputeOffset = Boolean(!isNamedTimeZone || this.namedTimeZoneImpl);
+            this.calendarSystem = createCalendarSystem(settings.calendarSystem);
+            this.locale = settings.locale;
+            this.weekDow = settings.locale.week.dow;
+            this.weekDoy = settings.locale.week.doy;
+            if (settings.weekNumberCalculation === 'ISO') {
+                this.weekDow = 1;
+                this.weekDoy = 4;
             }
-        }
-        off(handlerName, handler) {
-            this.currentDataManager.emitter.off(handlerName, handler);
-        }
-        // not meant for public use
-        trigger(handlerName, ...args) {
-            this.currentDataManager.emitter.trigger(handlerName, ...args);
-        }
-        // View
-        // -----------------------------------------------------------------------------------------------------------------
-        changeView(viewType, dateOrRange) {
-            this.batchRendering(() => {
-                this.unselect();
-                if (dateOrRange) {
-                    if (dateOrRange.start && dateOrRange.end) { // a range
-                        this.dispatch({
-                            type: 'CHANGE_VIEW_TYPE',
-                            viewType,
-                        });
-                        this.dispatch({
-                            type: 'SET_OPTION',
-                            optionName: 'visibleRange',
-                            rawOptionValue: dateOrRange,
-                        });
-                    }
-                    else {
-                        let { dateEnv } = this.getCurrentData();
-                        this.dispatch({
-                            type: 'CHANGE_VIEW_TYPE',
-                            viewType,
-                            dateMarker: dateEnv.createMarker(dateOrRange),
-                        });
-                    }
-                }
-                else {
-                    this.dispatch({
-                        type: 'CHANGE_VIEW_TYPE',
-                        viewType,
-                    });
-                }
-            });
-        }
-        // Forces navigation to a view for the given date.
-        // `viewType` can be a specific view name or a generic one like "week" or "day".
-        // needs to change
-        zoomTo(dateMarker, viewType) {
-            let state = this.getCurrentData();
-            let spec;
-            viewType = viewType || 'day'; // day is default zoom
-            spec = state.viewSpecs[viewType] || this.getUnitViewSpec(viewType);
-            this.unselect();
-            if (spec) {
-                this.dispatch({
-                    type: 'CHANGE_VIEW_TYPE',
-                    viewType: spec.type,
-                    dateMarker,
-                });
+            if (typeof settings.firstDay === 'number') {
+                this.weekDow = settings.firstDay;
             }
-            else {
-                this.dispatch({
-                    type: 'CHANGE_DATE',
-                    dateMarker,
-                });
+            if (typeof settings.weekNumberCalculation === 'function') {
+                this.weekNumberFunc = settings.weekNumberCalculation;
             }
+            this.weekText = settings.weekText != null ? settings.weekText : settings.locale.options.weekText;
+            this.weekTextLong = (settings.weekTextLong != null ? settings.weekTextLong : settings.locale.options.weekTextLong) || this.weekText;
+            this.cmdFormatter = settings.cmdFormatter;
+            this.defaultSeparator = settings.defaultSeparator;
         }
-        // Given a duration singular unit, like "week" or "day", finds a matching view spec.
-        // Preference is given to views that have corresponding buttons.
-        getUnitViewSpec(unit) {
-            let { viewSpecs, toolbarConfig } = this.getCurrentData();
-            let viewTypes = [].concat(toolbarConfig.header ? toolbarConfig.header.viewsWithButtons : [], toolbarConfig.footer ? toolbarConfig.footer.viewsWithButtons : []);
-            let i;
-            let spec;
-            for (let viewType in viewSpecs) {
-                viewTypes.push(viewType);
-            }
-            for (i = 0; i < viewTypes.length; i += 1) {
-                spec = viewSpecs[viewTypes[i]];
-                if (spec) {
-                    if (spec.singleUnit === unit) {
-                        return spec;
-                    }
-                }
-            }
-            return null;
-        }
-        // Current Date
-        // -----------------------------------------------------------------------------------------------------------------
-        prev() {
-            this.unselect();
-            this.dispatch({ type: 'PREV' });
-        }
-        next() {
-            this.unselect();
-            this.dispatch({ type: 'NEXT' });
-        }
-        prevYear() {
-            let state = this.getCurrentData();
-            this.unselect();
-            this.dispatch({
-                type: 'CHANGE_DATE',
-                dateMarker: state.dateEnv.addYears(state.currentDate, -1),
-            });
-        }
-        nextYear() {
-            let state = this.getCurrentData();
-            this.unselect();
-            this.dispatch({
-                type: 'CHANGE_DATE',
-                dateMarker: state.dateEnv.addYears(state.currentDate, 1),
-            });
-        }
-        today() {
-            let state = this.getCurrentData();
-            this.unselect();
-            this.dispatch({
-                type: 'CHANGE_DATE',
-                dateMarker: getNow(state.calendarOptions.now, state.dateEnv),
-            });
-        }
-        gotoDate(zonedDateInput) {
-            let state = this.getCurrentData();
-            this.unselect();
-            this.dispatch({
-                type: 'CHANGE_DATE',
-                dateMarker: state.dateEnv.createMarker(zonedDateInput),
-            });
-        }
-        incrementDate(deltaInput) {
-            let state = this.getCurrentData();
-            let delta = createDuration(deltaInput);
-            if (delta) { // else, warn about invalid input?
-                this.unselect();
-                this.dispatch({
-                    type: 'CHANGE_DATE',
-                    dateMarker: state.dateEnv.add(state.currentDate, delta),
-                });
-            }
-        }
-        getDate() {
-            let state = this.getCurrentData();
-            return state.dateEnv.toDate(state.currentDate);
-        }
-        // Date Formatting Utils
-        // -----------------------------------------------------------------------------------------------------------------
-        formatDate(d, formatter) {
-            let { dateEnv } = this.getCurrentData();
-            return dateEnv.format(dateEnv.createMarker(d), createFormatter(formatter));
-        }
-        // `settings` is for formatter AND isEndExclusive
-        formatRange(d0, d1, settings) {
-            let { dateEnv } = this.getCurrentData();
-            return dateEnv.formatRange(dateEnv.createMarker(d0), dateEnv.createMarker(d1), createFormatter(settings), settings);
-        }
-        formatIso(d, omitTime) {
-            let { dateEnv } = this.getCurrentData();
-            return dateEnv.formatIso(dateEnv.createMarker(d), { omitTime });
-        }
-        // Date Selection / Event Selection / DayClick
-        // -----------------------------------------------------------------------------------------------------------------
-        select(dateOrObj, endDate) {
-            let selectionInput;
-            if (endDate == null) {
-                if (dateOrObj.start != null) {
-                    selectionInput = dateOrObj;
-                }
-                else {
-                    selectionInput = {
-                        start: dateOrObj,
-                        end: null,
-                    };
-                }
-            }
-            else {
-                selectionInput = {
-                    start: dateOrObj,
-                    end: endDate,
-                };
-            }
-            let state = this.getCurrentData();
-            let selection = parseDateSpan(selectionInput, state.dateEnv, createDuration({ days: 1 }));
-            if (selection) { // throw parse error otherwise?
-                this.dispatch({ type: 'SELECT_DATES', selection });
-                triggerDateSelect(selection, null, state);
-            }
-        }
-        unselect(pev) {
-            let state = this.getCurrentData();
-            if (state.dateSelection) {
-                this.dispatch({ type: 'UNSELECT_DATES' });
-                triggerDateUnselect(pev, state);
-            }
-        }
-        // Public Events API
-        // -----------------------------------------------------------------------------------------------------------------
-        addEvent(eventInput, sourceInput) {
-            if (eventInput instanceof EventImpl) {
-                let def = eventInput._def;
-                let instance = eventInput._instance;
-                let currentData = this.getCurrentData();
-                // not already present? don't want to add an old snapshot
-                if (!currentData.eventStore.defs[def.defId]) {
-                    this.dispatch({
-                        type: 'ADD_EVENTS',
-                        eventStore: eventTupleToStore({ def, instance }), // TODO: better util for two args?
-                    });
-                    this.triggerEventAdd(eventInput);
-                }
-                return eventInput;
-            }
-            let state = this.getCurrentData();
-            let eventSource;
-            if (sourceInput instanceof EventSourceImpl) {
-                eventSource = sourceInput.internalEventSource;
-            }
-            else if (typeof sourceInput === 'boolean') {
-                if (sourceInput) { // true. part of the first event source
-                    [eventSource] = hashValuesToArray(state.eventSources);
-                }
-            }
-            else if (sourceInput != null) { // an ID. accepts a number too
-                let sourceApi = this.getEventSourceById(sourceInput); // TODO: use an internal function
-                if (!sourceApi) {
-                    console.warn(`Could not find an event source with ID "${sourceInput}"`); // TODO: test
-                    return null;
-                }
-                eventSource = sourceApi.internalEventSource;
-            }
-            let tuple = parseEvent(eventInput, eventSource, state, false);
-            if (tuple) {
-                let newEventApi = new EventImpl(state, tuple.def, tuple.def.recurringDef ? null : tuple.instance);
-                this.dispatch({
-                    type: 'ADD_EVENTS',
-                    eventStore: eventTupleToStore(tuple),
-                });
-                this.triggerEventAdd(newEventApi);
-                return newEventApi;
-            }
-            return null;
-        }
-        triggerEventAdd(eventApi) {
-            let { emitter } = this.getCurrentData();
-            emitter.trigger('eventAdd', {
-                event: eventApi,
-                relatedEvents: [],
-                revert: () => {
-                    this.dispatch({
-                        type: 'REMOVE_EVENTS',
-                        eventStore: eventApiToStore(eventApi),
-                    });
-                },
-            });
-        }
-        // TODO: optimize
-        getEventById(id) {
-            let state = this.getCurrentData();
-            let { defs, instances } = state.eventStore;
-            id = String(id);
-            for (let defId in defs) {
-                let def = defs[defId];
-                if (def.publicId === id) {
-                    if (def.recurringDef) {
-                        return new EventImpl(state, def, null);
-                    }
-                    for (let instanceId in instances) {
-                        let instance = instances[instanceId];
-                        if (instance.defId === def.defId) {
-                            return new EventImpl(state, def, instance);
-                        }
-                    }
-                }
-            }
-            return null;
-        }
-        getEvents() {
-            let currentData = this.getCurrentData();
-            return buildEventApis(currentData.eventStore, currentData);
-        }
-        removeAllEvents() {
-            this.dispatch({ type: 'REMOVE_ALL_EVENTS' });
-        }
-        // Public Event Sources API
-        // -----------------------------------------------------------------------------------------------------------------
-        getEventSources() {
-            let state = this.getCurrentData();
-            let sourceHash = state.eventSources;
-            let sourceApis = [];
-            for (let internalId in sourceHash) {
-                sourceApis.push(new EventSourceImpl(state, sourceHash[internalId]));
-            }
-            return sourceApis;
-        }
-        getEventSourceById(id) {
-            let state = this.getCurrentData();
-            let sourceHash = state.eventSources;
-            id = String(id);
-            for (let sourceId in sourceHash) {
-                if (sourceHash[sourceId].publicId === id) {
-                    return new EventSourceImpl(state, sourceHash[sourceId]);
-                }
-            }
-            return null;
-        }
-        addEventSource(sourceInput) {
-            let state = this.getCurrentData();
-            if (sourceInput instanceof EventSourceImpl) {
-                // not already present? don't want to add an old snapshot
-                if (!state.eventSources[sourceInput.internalEventSource.sourceId]) {
-                    this.dispatch({
-                        type: 'ADD_EVENT_SOURCES',
-                        sources: [sourceInput.internalEventSource],
-                    });
-                }
-                return sourceInput;
-            }
-            let eventSource = parseEventSource(sourceInput, state);
-            if (eventSource) { // TODO: error otherwise?
-                this.dispatch({ type: 'ADD_EVENT_SOURCES', sources: [eventSource] });
-                return new EventSourceImpl(state, eventSource);
-            }
-            return null;
-        }
-        removeAllEventSources() {
-            this.dispatch({ type: 'REMOVE_ALL_EVENT_SOURCES' });
-        }
-        refetchEvents() {
-            this.dispatch({ type: 'FETCH_EVENT_SOURCES', isRefetch: true });
-        }
-        // Scroll
-        // -----------------------------------------------------------------------------------------------------------------
-        scrollToTime(timeInput) {
-            let time = createDuration(timeInput);
-            if (time) {
-                this.trigger('_scrollRequest', { time });
-            }
-        }
-    }
-
-    function pointInsideRect(point, rect) {
-        return point.left >= rect.left &&
-            point.left < rect.right &&
-            point.top >= rect.top &&
-            point.top < rect.bottom;
-    }
-    // Returns a new rectangle that is the intersection of the two rectangles. If they don't intersect, returns false
-    function intersectRects(rect1, rect2) {
-        let res = {
-            left: Math.max(rect1.left, rect2.left),
-            right: Math.min(rect1.right, rect2.right),
-            top: Math.max(rect1.top, rect2.top),
-            bottom: Math.min(rect1.bottom, rect2.bottom),
-        };
-        if (res.left < res.right && res.top < res.bottom) {
-            return res;
-        }
-        return false;
-    }
-    function translateRect(rect, deltaX, deltaY) {
-        return {
-            left: rect.left + deltaX,
-            right: rect.right + deltaX,
-            top: rect.top + deltaY,
-            bottom: rect.bottom + deltaY,
-        };
-    }
-    // Returns a new point that will have been moved to reside within the given rectangle
-    function constrainPoint(point, rect) {
-        return {
-            left: Math.min(Math.max(point.left, rect.left), rect.right),
-            top: Math.min(Math.max(point.top, rect.top), rect.bottom),
-        };
-    }
-    // Returns a point that is the center of the given rectangle
-    function getRectCenter(rect) {
-        return {
-            left: (rect.left + rect.right) / 2,
-            top: (rect.top + rect.bottom) / 2,
-        };
-    }
-    // Subtracts point2's coordinates from point1's coordinates, returning a delta
-    function diffPoints(point1, point2) {
-        return {
-            left: point1.left - point2.left,
-            top: point1.top - point2.top,
-        };
-    }
-
-    const EMPTY_EVENT_STORE = createEmptyEventStore(); // for purecomponents. TODO: keep elsewhere
-    class Splitter {
-        constructor() {
-            this.getKeysForEventDefs = memoize(this._getKeysForEventDefs);
-            this.splitDateSelection = memoize(this._splitDateSpan);
-            this.splitEventStore = memoize(this._splitEventStore);
-            this.splitIndividualUi = memoize(this._splitIndividualUi);
-            this.splitEventDrag = memoize(this._splitInteraction);
-            this.splitEventResize = memoize(this._splitInteraction);
-            this.eventUiBuilders = {}; // TODO: typescript protection
-        }
-        splitProps(props) {
-            let keyInfos = this.getKeyInfo(props);
-            let defKeys = this.getKeysForEventDefs(props.eventStore);
-            let dateSelections = this.splitDateSelection(props.dateSelection);
-            let individualUi = this.splitIndividualUi(props.eventUiBases, defKeys); // the individual *bases*
-            let eventStores = this.splitEventStore(props.eventStore, defKeys);
-            let eventDrags = this.splitEventDrag(props.eventDrag);
-            let eventResizes = this.splitEventResize(props.eventResize);
-            let splitProps = {};
-            this.eventUiBuilders = mapHash(keyInfos, (info, key) => this.eventUiBuilders[key] || memoize(buildEventUiForKey));
-            for (let key in keyInfos) {
-                let keyInfo = keyInfos[key];
-                let eventStore = eventStores[key] || EMPTY_EVENT_STORE;
-                let buildEventUi = this.eventUiBuilders[key];
-                splitProps[key] = {
-                    businessHours: keyInfo.businessHours || props.businessHours,
-                    dateSelection: dateSelections[key] || null,
-                    eventStore,
-                    eventUiBases: buildEventUi(props.eventUiBases[''], keyInfo.ui, individualUi[key]),
-                    eventSelection: eventStore.instances[props.eventSelection] ? props.eventSelection : '',
-                    eventDrag: eventDrags[key] || null,
-                    eventResize: eventResizes[key] || null,
-                };
-            }
-            return splitProps;
-        }
-        _splitDateSpan(dateSpan) {
-            let dateSpans = {};
-            if (dateSpan) {
-                let keys = this.getKeysForDateSpan(dateSpan);
-                for (let key of keys) {
-                    dateSpans[key] = dateSpan;
-                }
-            }
-            return dateSpans;
-        }
-        _getKeysForEventDefs(eventStore) {
-            return mapHash(eventStore.defs, (eventDef) => this.getKeysForEventDef(eventDef));
-        }
-        _splitEventStore(eventStore, defKeys) {
-            let { defs, instances } = eventStore;
-            let splitStores = {};
-            for (let defId in defs) {
-                for (let key of defKeys[defId]) {
-                    if (!splitStores[key]) {
-                        splitStores[key] = createEmptyEventStore();
-                    }
-                    splitStores[key].defs[defId] = defs[defId];
-                }
-            }
-            for (let instanceId in instances) {
-                let instance = instances[instanceId];
-                for (let key of defKeys[instance.defId]) {
-                    if (splitStores[key]) { // must have already been created
-                        splitStores[key].instances[instanceId] = instance;
-                    }
-                }
-            }
-            return splitStores;
-        }
-        _splitIndividualUi(eventUiBases, defKeys) {
-            let splitHashes = {};
-            for (let defId in eventUiBases) {
-                if (defId) { // not the '' key
-                    for (let key of defKeys[defId]) {
-                        if (!splitHashes[key]) {
-                            splitHashes[key] = {};
-                        }
-                        splitHashes[key][defId] = eventUiBases[defId];
-                    }
-                }
-            }
-            return splitHashes;
-        }
-        _splitInteraction(interaction) {
-            let splitStates = {};
-            if (interaction) {
-                let affectedStores = this._splitEventStore(interaction.affectedEvents, this._getKeysForEventDefs(interaction.affectedEvents));
-                // can't rely on defKeys because event data is mutated
-                let mutatedKeysByDefId = this._getKeysForEventDefs(interaction.mutatedEvents);
-                let mutatedStores = this._splitEventStore(interaction.mutatedEvents, mutatedKeysByDefId);
-                let populate = (key) => {
-                    if (!splitStates[key]) {
-                        splitStates[key] = {
-                            affectedEvents: affectedStores[key] || EMPTY_EVENT_STORE,
-                            mutatedEvents: mutatedStores[key] || EMPTY_EVENT_STORE,
-                            isEvent: interaction.isEvent,
-                        };
-                    }
-                };
-                for (let key in affectedStores) {
-                    populate(key);
-                }
-                for (let key in mutatedStores) {
-                    populate(key);
-                }
-            }
-            return splitStates;
-        }
-    }
-    function buildEventUiForKey(allUi, eventUiForKey, individualUi) {
-        let baseParts = [];
-        if (allUi) {
-            baseParts.push(allUi);
-        }
-        if (eventUiForKey) {
-            baseParts.push(eventUiForKey);
-        }
-        let stuff = {
-            '': combineEventUis(baseParts),
-        };
-        if (individualUi) {
-            Object.assign(stuff, individualUi);
-        }
-        return stuff;
-    }
-
-    function getDateMeta(date, todayRange, nowDate, dateProfile) {
-        return {
-            dow: date.getUTCDay(),
-            isDisabled: Boolean(dateProfile && !rangeContainsMarker(dateProfile.activeRange, date)),
-            isOther: Boolean(dateProfile && !rangeContainsMarker(dateProfile.currentRange, date)),
-            isToday: Boolean(todayRange && rangeContainsMarker(todayRange, date)),
-            isPast: Boolean(nowDate ? (date < nowDate) : todayRange ? (date < todayRange.start) : false),
-            isFuture: Boolean(nowDate ? (date > nowDate) : todayRange ? (date >= todayRange.end) : false),
-        };
-    }
-    function getDayClassNames(meta, theme) {
-        let classNames = [
-            'fc-day',
-            `fc-day-${DAY_IDS[meta.dow]}`,
-        ];
-        if (meta.isDisabled) {
-            classNames.push('fc-day-disabled');
-        }
-        else {
-            if (meta.isToday) {
-                classNames.push('fc-day-today');
-                classNames.push(theme.getClass('today'));
-            }
-            if (meta.isPast) {
-                classNames.push('fc-day-past');
-            }
-            if (meta.isFuture) {
-                classNames.push('fc-day-future');
-            }
-            if (meta.isOther) {
-                classNames.push('fc-day-other');
-            }
-        }
-        return classNames;
-    }
-    function getSlotClassNames(meta, theme) {
-        let classNames = [
-            'fc-slot',
-            `fc-slot-${DAY_IDS[meta.dow]}`,
-        ];
-        if (meta.isDisabled) {
-            classNames.push('fc-slot-disabled');
-        }
-        else {
-            if (meta.isToday) {
-                classNames.push('fc-slot-today');
-                classNames.push(theme.getClass('today'));
-            }
-            if (meta.isPast) {
-                classNames.push('fc-slot-past');
-            }
-            if (meta.isFuture) {
-                classNames.push('fc-slot-future');
-            }
-        }
-        return classNames;
-    }
-
-    const DAY_FORMAT = createFormatter({ year: 'numeric', month: 'long', day: 'numeric' });
-    const WEEK_FORMAT = createFormatter({ week: 'long' });
-    function buildNavLinkAttrs(context, dateMarker, viewType = 'day', isTabbable = true) {
-        const { dateEnv, options, calendarApi } = context;
-        let dateStr = dateEnv.format(dateMarker, viewType === 'week' ? WEEK_FORMAT : DAY_FORMAT);
-        if (options.navLinks) {
-            let zonedDate = dateEnv.toDate(dateMarker);
-            const handleInteraction = (ev) => {
-                let customAction = viewType === 'day' ? options.navLinkDayClick :
-                    viewType === 'week' ? options.navLinkWeekClick : null;
-                if (typeof customAction === 'function') {
-                    customAction.call(calendarApi, dateEnv.toDate(dateMarker), ev);
-                }
-                else {
-                    if (typeof customAction === 'string') {
-                        viewType = customAction;
-                    }
-                    calendarApi.zoomTo(dateMarker, viewType);
-                }
-            };
-            return Object.assign({ title: formatWithOrdinals(options.navLinkHint, [dateStr, zonedDate], dateStr), 'data-navlink': '' }, (isTabbable
-                ? createAriaClickAttrs(handleInteraction)
-                : { onClick: handleInteraction }));
-        }
-        return { 'aria-label': dateStr };
-    }
-
-    let _isRtlScrollbarOnLeft = null;
-    function getIsRtlScrollbarOnLeft() {
-        if (_isRtlScrollbarOnLeft === null) {
-            _isRtlScrollbarOnLeft = computeIsRtlScrollbarOnLeft();
-        }
-        return _isRtlScrollbarOnLeft;
-    }
-    function computeIsRtlScrollbarOnLeft() {
-        let outerEl = document.createElement('div');
-        applyStyle(outerEl, {
-            position: 'absolute',
-            top: -1000,
-            left: 0,
-            border: 0,
-            padding: 0,
-            overflow: 'scroll',
-            direction: 'rtl',
-        });
-        outerEl.innerHTML = '<div></div>';
-        document.body.appendChild(outerEl);
-        let innerEl = outerEl.firstChild;
-        let res = innerEl.getBoundingClientRect().left > outerEl.getBoundingClientRect().left;
-        removeElement(outerEl);
-        return res;
-    }
-
-    let _scrollbarWidths;
-    function getScrollbarWidths() {
-        if (!_scrollbarWidths) {
-            _scrollbarWidths = computeScrollbarWidths();
-        }
-        return _scrollbarWidths;
-    }
-    function computeScrollbarWidths() {
-        let el = document.createElement('div');
-        el.style.overflow = 'scroll';
-        el.style.position = 'absolute';
-        el.style.top = '-9999px';
-        el.style.left = '-9999px';
-        document.body.appendChild(el);
-        let res = computeScrollbarWidthsForEl(el);
-        document.body.removeChild(el);
-        return res;
-    }
-    // WARNING: will include border
-    function computeScrollbarWidthsForEl(el) {
-        return {
-            x: el.offsetHeight - el.clientHeight,
-            y: el.offsetWidth - el.clientWidth,
-        };
-    }
-
-    function computeEdges(el, getPadding = false) {
-        let computedStyle = window.getComputedStyle(el);
-        let borderLeft = parseInt(computedStyle.borderLeftWidth, 10) || 0;
-        let borderRight = parseInt(computedStyle.borderRightWidth, 10) || 0;
-        let borderTop = parseInt(computedStyle.borderTopWidth, 10) || 0;
-        let borderBottom = parseInt(computedStyle.borderBottomWidth, 10) || 0;
-        let badScrollbarWidths = computeScrollbarWidthsForEl(el); // includes border!
-        let scrollbarLeftRight = badScrollbarWidths.y - borderLeft - borderRight;
-        let scrollbarBottom = badScrollbarWidths.x - borderTop - borderBottom;
-        let res = {
-            borderLeft,
-            borderRight,
-            borderTop,
-            borderBottom,
-            scrollbarBottom,
-            scrollbarLeft: 0,
-            scrollbarRight: 0,
-        };
-        if (getIsRtlScrollbarOnLeft() && computedStyle.direction === 'rtl') { // is the scrollbar on the left side?
-            res.scrollbarLeft = scrollbarLeftRight;
-        }
-        else {
-            res.scrollbarRight = scrollbarLeftRight;
-        }
-        if (getPadding) {
-            res.paddingLeft = parseInt(computedStyle.paddingLeft, 10) || 0;
-            res.paddingRight = parseInt(computedStyle.paddingRight, 10) || 0;
-            res.paddingTop = parseInt(computedStyle.paddingTop, 10) || 0;
-            res.paddingBottom = parseInt(computedStyle.paddingBottom, 10) || 0;
-        }
-        return res;
-    }
-    function computeInnerRect(el, goWithinPadding = false, doFromWindowViewport) {
-        let outerRect = doFromWindowViewport ? el.getBoundingClientRect() : computeRect(el);
-        let edges = computeEdges(el, goWithinPadding);
-        let res = {
-            left: outerRect.left + edges.borderLeft + edges.scrollbarLeft,
-            right: outerRect.right - edges.borderRight - edges.scrollbarRight,
-            top: outerRect.top + edges.borderTop,
-            bottom: outerRect.bottom - edges.borderBottom - edges.scrollbarBottom,
-        };
-        if (goWithinPadding) {
-            res.left += edges.paddingLeft;
-            res.right -= edges.paddingRight;
-            res.top += edges.paddingTop;
-            res.bottom -= edges.paddingBottom;
-        }
-        return res;
-    }
-    function computeRect(el) {
-        let rect = el.getBoundingClientRect();
-        return {
-            left: rect.left + window.pageXOffset,
-            top: rect.top + window.pageYOffset,
-            right: rect.right + window.pageXOffset,
-            bottom: rect.bottom + window.pageYOffset,
-        };
-    }
-    function computeClippedClientRect(el) {
-        let clippingParents = getClippingParents(el);
-        let rect = el.getBoundingClientRect();
-        for (let clippingParent of clippingParents) {
-            let intersection = intersectRects(rect, clippingParent.getBoundingClientRect());
-            if (intersection) {
-                rect = intersection;
-            }
-            else {
+        // Creating / Parsing
+        createMarker(input) {
+            let meta = this.createMarkerMeta(input);
+            if (meta === null) {
                 return null;
             }
+            return meta.marker;
         }
-        return rect;
-    }
-    // does not return window
-    function getClippingParents(el) {
-        let parents = [];
-        while (el instanceof HTMLElement) { // will stop when gets to document or null
-            let computedStyle = window.getComputedStyle(el);
-            if (computedStyle.position === 'fixed') {
-                break;
+        createNowMarker() {
+            if (this.canComputeOffset) {
+                return this.timestampToMarker(new Date().valueOf());
             }
-            if ((/(auto|scroll)/).test(computedStyle.overflow + computedStyle.overflowY + computedStyle.overflowX)) {
-                parents.push(el);
-            }
-            el = el.parentNode;
+            // if we can't compute the current date val for a timezone,
+            // better to give the current local date vals than UTC
+            return arrayToUtcDate(dateToLocalArray(new Date()));
         }
-        return parents;
-    }
-
-    /*
-    Records offset information for a set of elements, relative to an origin element.
-    Can record the left/right OR the top/bottom OR both.
-    Provides methods for querying the cache by position.
-    */
-    class PositionCache {
-        constructor(originEl, els, isHorizontal, isVertical) {
-            this.els = els;
-            let originClientRect = this.originClientRect = originEl.getBoundingClientRect(); // relative to viewport top-left
-            if (isHorizontal) {
-                this.buildElHorizontals(originClientRect.left);
+        createMarkerMeta(input) {
+            if (typeof input === 'string') {
+                return this.parse(input);
             }
-            if (isVertical) {
-                this.buildElVerticals(originClientRect.top);
+            let marker = null;
+            if (typeof input === 'number') {
+                marker = this.timestampToMarker(input);
             }
-        }
-        // Populates the left/right internal coordinate arrays
-        buildElHorizontals(originClientLeft) {
-            let lefts = [];
-            let rights = [];
-            for (let el of this.els) {
-                let rect = el.getBoundingClientRect();
-                lefts.push(rect.left - originClientLeft);
-                rights.push(rect.right - originClientLeft);
-            }
-            this.lefts = lefts;
-            this.rights = rights;
-        }
-        // Populates the top/bottom internal coordinate arrays
-        buildElVerticals(originClientTop) {
-            let tops = [];
-            let bottoms = [];
-            for (let el of this.els) {
-                let rect = el.getBoundingClientRect();
-                tops.push(rect.top - originClientTop);
-                bottoms.push(rect.bottom - originClientTop);
-            }
-            this.tops = tops;
-            this.bottoms = bottoms;
-        }
-        // Given a left offset (from document left), returns the index of the el that it horizontally intersects.
-        // If no intersection is made, returns undefined.
-        leftToIndex(leftPosition) {
-            let { lefts, rights } = this;
-            let len = lefts.length;
-            let i;
-            for (i = 0; i < len; i += 1) {
-                if (leftPosition >= lefts[i] && leftPosition < rights[i]) {
-                    return i;
+            else if (input instanceof Date) {
+                input = input.valueOf();
+                if (!isNaN(input)) {
+                    marker = this.timestampToMarker(input);
                 }
             }
-            return undefined; // TODO: better
+            else if (Array.isArray(input)) {
+                marker = arrayToUtcDate(input);
+            }
+            if (marker === null || !isValidDate(marker)) {
+                return null;
+            }
+            return { marker, isTimeUnspecified: false, forcedTzo: null };
         }
-        // Given a top offset (from document top), returns the index of the el that it vertically intersects.
-        // If no intersection is made, returns undefined.
-        topToIndex(topPosition) {
-            let { tops, bottoms } = this;
-            let len = tops.length;
-            let i;
-            for (i = 0; i < len; i += 1) {
-                if (topPosition >= tops[i] && topPosition < bottoms[i]) {
-                    return i;
+        parse(s) {
+            let parts = parse(s);
+            if (parts === null) {
+                return null;
+            }
+            let { marker } = parts;
+            let forcedTzo = null;
+            if (parts.timeZoneOffset !== null) {
+                if (this.canComputeOffset) {
+                    marker = this.timestampToMarker(marker.valueOf() - parts.timeZoneOffset * 60 * 1000);
+                }
+                else {
+                    forcedTzo = parts.timeZoneOffset;
                 }
             }
-            return undefined; // TODO: better
+            return { marker, isTimeUnspecified: parts.isTimeUnspecified, forcedTzo };
         }
-        // Gets the width of the element at the given index
-        getWidth(leftIndex) {
-            return this.rights[leftIndex] - this.lefts[leftIndex];
+        // Accessors
+        getYear(marker) {
+            return this.calendarSystem.getMarkerYear(marker);
         }
-        // Gets the height of the element at the given index
-        getHeight(topIndex) {
-            return this.bottoms[topIndex] - this.tops[topIndex];
+        getMonth(marker) {
+            return this.calendarSystem.getMarkerMonth(marker);
         }
-    }
-
-    /* eslint max-classes-per-file: "off" */
-    /*
-    An object for getting/setting scroll-related information for an element.
-    Internally, this is done very differently for window versus DOM element,
-    so this object serves as a common interface.
-    */
-    class ScrollController {
-        getMaxScrollTop() {
-            return this.getScrollHeight() - this.getClientHeight();
+        // Adding / Subtracting
+        add(marker, dur) {
+            let a = this.calendarSystem.markerToArray(marker);
+            a[0] += dur.years;
+            a[1] += dur.months;
+            a[2] += dur.days;
+            a[6] += dur.milliseconds;
+            return this.calendarSystem.arrayToMarker(a);
         }
-        getMaxScrollLeft() {
-            return this.getScrollWidth() - this.getClientWidth();
+        subtract(marker, dur) {
+            let a = this.calendarSystem.markerToArray(marker);
+            a[0] -= dur.years;
+            a[1] -= dur.months;
+            a[2] -= dur.days;
+            a[6] -= dur.milliseconds;
+            return this.calendarSystem.arrayToMarker(a);
         }
-        canScrollVertically() {
-            return this.getMaxScrollTop() > 0;
+        addYears(marker, n) {
+            let a = this.calendarSystem.markerToArray(marker);
+            a[0] += n;
+            return this.calendarSystem.arrayToMarker(a);
         }
-        canScrollHorizontally() {
-            return this.getMaxScrollLeft() > 0;
+        addMonths(marker, n) {
+            let a = this.calendarSystem.markerToArray(marker);
+            a[1] += n;
+            return this.calendarSystem.arrayToMarker(a);
         }
-        canScrollUp() {
-            return this.getScrollTop() > 0;
+        // Diffing Whole Units
+        diffWholeYears(m0, m1) {
+            let { calendarSystem } = this;
+            if (timeAsMs(m0) === timeAsMs(m1) &&
+                calendarSystem.getMarkerDay(m0) === calendarSystem.getMarkerDay(m1) &&
+                calendarSystem.getMarkerMonth(m0) === calendarSystem.getMarkerMonth(m1)) {
+                return calendarSystem.getMarkerYear(m1) - calendarSystem.getMarkerYear(m0);
+            }
+            return null;
         }
-        canScrollDown() {
-            return this.getScrollTop() < this.getMaxScrollTop();
+        diffWholeMonths(m0, m1) {
+            let { calendarSystem } = this;
+            if (timeAsMs(m0) === timeAsMs(m1) &&
+                calendarSystem.getMarkerDay(m0) === calendarSystem.getMarkerDay(m1)) {
+                return (calendarSystem.getMarkerMonth(m1) - calendarSystem.getMarkerMonth(m0)) +
+                    (calendarSystem.getMarkerYear(m1) - calendarSystem.getMarkerYear(m0)) * 12;
+            }
+            return null;
         }
-        canScrollLeft() {
-            return this.getScrollLeft() > 0;
+        // Range / Duration
+        greatestWholeUnit(m0, m1) {
+            let n = this.diffWholeYears(m0, m1);
+            if (n !== null) {
+                return { unit: 'year', value: n };
+            }
+            n = this.diffWholeMonths(m0, m1);
+            if (n !== null) {
+                return { unit: 'month', value: n };
+            }
+            n = diffWholeWeeks(m0, m1);
+            if (n !== null) {
+                return { unit: 'week', value: n };
+            }
+            n = diffWholeDays(m0, m1);
+            if (n !== null) {
+                return { unit: 'day', value: n };
+            }
+            n = diffHours(m0, m1);
+            if (isInt(n)) {
+                return { unit: 'hour', value: n };
+            }
+            n = diffMinutes(m0, m1);
+            if (isInt(n)) {
+                return { unit: 'minute', value: n };
+            }
+            n = diffSeconds(m0, m1);
+            if (isInt(n)) {
+                return { unit: 'second', value: n };
+            }
+            return { unit: 'millisecond', value: m1.valueOf() - m0.valueOf() };
         }
-        canScrollRight() {
-            return this.getScrollLeft() < this.getMaxScrollLeft();
+        countDurationsBetween(m0, m1, d) {
+            // TODO: can use greatestWholeUnit
+            let diff;
+            if (d.years) {
+                diff = this.diffWholeYears(m0, m1);
+                if (diff !== null) {
+                    return diff / asRoughYears(d);
+                }
+            }
+            if (d.months) {
+                diff = this.diffWholeMonths(m0, m1);
+                if (diff !== null) {
+                    return diff / asRoughMonths(d);
+                }
+            }
+            if (d.days) {
+                diff = diffWholeDays(m0, m1);
+                if (diff !== null) {
+                    return diff / asRoughDays(d);
+                }
+            }
+            return (m1.valueOf() - m0.valueOf()) / asRoughMs(d);
         }
-    }
-    class ElementScrollController extends ScrollController {
-        constructor(el) {
-            super();
-            this.el = el;
+        // Start-Of
+        // these DON'T return zoned-dates. only UTC start-of dates
+        startOf(m, unit) {
+            if (unit === 'year') {
+                return this.startOfYear(m);
+            }
+            if (unit === 'month') {
+                return this.startOfMonth(m);
+            }
+            if (unit === 'week') {
+                return this.startOfWeek(m);
+            }
+            if (unit === 'day') {
+                return startOfDay(m);
+            }
+            if (unit === 'hour') {
+                return startOfHour(m);
+            }
+            if (unit === 'minute') {
+                return startOfMinute(m);
+            }
+            if (unit === 'second') {
+                return startOfSecond(m);
+            }
+            return null;
         }
-        getScrollTop() {
-            return this.el.scrollTop;
+        startOfYear(m) {
+            return this.calendarSystem.arrayToMarker([
+                this.calendarSystem.getMarkerYear(m),
+            ]);
         }
-        getScrollLeft() {
-            return this.el.scrollLeft;
+        startOfMonth(m) {
+            return this.calendarSystem.arrayToMarker([
+                this.calendarSystem.getMarkerYear(m),
+                this.calendarSystem.getMarkerMonth(m),
+            ]);
         }
-        setScrollTop(top) {
-            this.el.scrollTop = top;
+        startOfWeek(m) {
+            return this.calendarSystem.arrayToMarker([
+                this.calendarSystem.getMarkerYear(m),
+                this.calendarSystem.getMarkerMonth(m),
+                m.getUTCDate() - ((m.getUTCDay() - this.weekDow + 7) % 7),
+            ]);
         }
-        setScrollLeft(left) {
-            this.el.scrollLeft = left;
+        // Week Number
+        computeWeekNumber(marker) {
+            if (this.weekNumberFunc) {
+                return this.weekNumberFunc(this.toDate(marker));
+            }
+            return weekOfYear(marker, this.weekDow, this.weekDoy);
         }
-        getScrollWidth() {
-            return this.el.scrollWidth;
+        // TODO: choke on timeZoneName: long
+        format(marker, formatter, dateOptions = {}) {
+            return formatter.format({
+                marker,
+                timeZoneOffset: dateOptions.forcedTzo != null ?
+                    dateOptions.forcedTzo :
+                    this.offsetForMarker(marker),
+            }, this);
         }
-        getScrollHeight() {
-            return this.el.scrollHeight;
+        formatRange(start, end, formatter, dateOptions = {}) {
+            if (dateOptions.isEndExclusive) {
+                end = addMs(end, -1);
+            }
+            return formatter.formatRange({
+                marker: start,
+                timeZoneOffset: dateOptions.forcedStartTzo != null ?
+                    dateOptions.forcedStartTzo :
+                    this.offsetForMarker(start),
+            }, {
+                marker: end,
+                timeZoneOffset: dateOptions.forcedEndTzo != null ?
+                    dateOptions.forcedEndTzo :
+                    this.offsetForMarker(end),
+            }, this, dateOptions.defaultSeparator);
         }
-        getClientHeight() {
-            return this.el.clientHeight;
+        /*
+        DUMB: the omitTime arg is dumb. if we omit the time, we want to omit the timezone offset. and if we do that,
+        might as well use buildIsoString or some other util directly
+        */
+        formatIso(marker, extraOptions = {}) {
+            let timeZoneOffset = null;
+            if (!extraOptions.omitTimeZoneOffset) {
+                if (extraOptions.forcedTzo != null) {
+                    timeZoneOffset = extraOptions.forcedTzo;
+                }
+                else {
+                    timeZoneOffset = this.offsetForMarker(marker);
+                }
+            }
+            return buildIsoString(marker, timeZoneOffset, extraOptions.omitTime);
         }
-        getClientWidth() {
-            return this.el.clientWidth;
+        // TimeZone
+        timestampToMarker(ms) {
+            if (this.timeZone === 'local') {
+                return arrayToUtcDate(dateToLocalArray(new Date(ms)));
+            }
+            if (this.timeZone === 'UTC' || !this.namedTimeZoneImpl) {
+                return new Date(ms);
+            }
+            return arrayToUtcDate(this.namedTimeZoneImpl.timestampToArray(ms));
         }
-    }
-    class WindowScrollController extends ScrollController {
-        getScrollTop() {
-            return window.pageYOffset;
+        offsetForMarker(m) {
+            if (this.timeZone === 'local') {
+                return -arrayToLocalDate(dateToUtcArray(m)).getTimezoneOffset(); // convert "inverse" offset to "normal" offset
+            }
+            if (this.timeZone === 'UTC') {
+                return 0;
+            }
+            if (this.namedTimeZoneImpl) {
+                return this.namedTimeZoneImpl.offsetForArray(dateToUtcArray(m));
+            }
+            return null;
         }
-        getScrollLeft() {
-            return window.pageXOffset;
-        }
-        setScrollTop(n) {
-            window.scroll(window.pageXOffset, n);
-        }
-        setScrollLeft(n) {
-            window.scroll(n, window.pageYOffset);
-        }
-        getScrollWidth() {
-            return document.documentElement.scrollWidth;
-        }
-        getScrollHeight() {
-            return document.documentElement.scrollHeight;
-        }
-        getClientHeight() {
-            return document.documentElement.clientHeight;
-        }
-        getClientWidth() {
-            return document.documentElement.clientWidth;
-        }
-    }
-
-    /*
-    an INTERACTABLE date component
-
-    PURPOSES:
-    - hook up to fg, fill, and mirror renderers
-    - interface for dragging and hits
-    */
-    class DateComponent extends BaseComponent {
-        constructor() {
-            super(...arguments);
-            this.uid = guid();
-        }
-        // Hit System
-        // -----------------------------------------------------------------------------------------------------------------
-        prepareHits() {
-        }
-        queryHit(positionLeft, positionTop, elWidth, elHeight) {
-            return null; // this should be abstract
-        }
-        // Pointer Interaction Utils
-        // -----------------------------------------------------------------------------------------------------------------
-        isValidSegDownEl(el) {
-            return !this.props.eventDrag && // HACK
-                !this.props.eventResize && // HACK
-                !elementClosest(el, '.fc-event-mirror');
-        }
-        isValidDateDownEl(el) {
-            return !elementClosest(el, '.fc-event:not(.fc-bg-event)') &&
-                !elementClosest(el, '.fc-more-link') && // a "more.." link
-                !elementClosest(el, 'a[data-navlink]') && // a clickable nav link
-                !elementClosest(el, '.fc-popover'); // hack
+        // Conversion
+        toDate(m, forcedTzo) {
+            if (this.timeZone === 'local') {
+                return arrayToLocalDate(dateToUtcArray(m));
+            }
+            if (this.timeZone === 'UTC') {
+                return new Date(m.valueOf()); // make sure it's a copy
+            }
+            if (!this.namedTimeZoneImpl) {
+                return new Date(m.valueOf() - (forcedTzo || 0));
+            }
+            return new Date(m.valueOf() -
+                this.namedTimeZoneImpl.offsetForArray(dateToUtcArray(m)) * 1000 * 60);
         }
     }
 
@@ -5808,6 +4924,30 @@ var FullCalendar = (function (exports) {
         return [startIndex, 0];
     }
 
+    class Interaction {
+        constructor(settings) {
+            this.component = settings.component;
+            this.isHitComboAllowed = settings.isHitComboAllowed || null;
+        }
+        destroy() {
+        }
+    }
+    function parseInteractionSettings(component, input) {
+        return {
+            component,
+            el: input.el,
+            useEventCenter: input.useEventCenter != null ? input.useEventCenter : true,
+            isHitComboAllowed: input.isHitComboAllowed || null,
+        };
+    }
+    function interactionSettingsToStore(settings) {
+        return {
+            [settings.component.uid]: settings,
+        };
+    }
+    // global state
+    const interactionSettingsStore = {};
+
     /*
     An abstraction for a dragging interaction originating on an event.
     Does higher-level things than PointerDragger, such as possibly:
@@ -5863,6 +5003,48 @@ var FullCalendar = (function (exports) {
         };
     }
 
+    class CalendarRoot extends BaseComponent {
+        constructor() {
+            super(...arguments);
+            this.state = {
+                forPrint: false,
+            };
+            this.handleBeforePrint = () => {
+                this.setState({ forPrint: true });
+            };
+            this.handleAfterPrint = () => {
+                this.setState({ forPrint: false });
+            };
+        }
+        render() {
+            let { props } = this;
+            let { options } = props;
+            let { forPrint } = this.state;
+            let isHeightAuto = forPrint || options.height === 'auto' || options.contentHeight === 'auto';
+            let height = (!isHeightAuto && options.height != null) ? options.height : '';
+            let classNames = [
+                'fc',
+                forPrint ? 'fc-media-print' : 'fc-media-screen',
+                `fc-direction-${options.direction}`,
+                props.theme.getClass('root'),
+            ];
+            if (!getCanVGrowWithinCell()) {
+                classNames.push('fc-liquid-hack');
+            }
+            return props.children(classNames, height, isHeightAuto, forPrint);
+        }
+        componentDidMount() {
+            let { emitter } = this.props;
+            emitter.on('_beforeprint', this.handleBeforePrint);
+            emitter.on('_afterprint', this.handleAfterPrint);
+        }
+        componentWillUnmount() {
+            let { emitter } = this.props;
+            emitter.off('_beforeprint', this.handleBeforePrint);
+            emitter.off('_afterprint', this.handleAfterPrint);
+        }
+    }
+
     // Computes a default column header formatting string if `colFormat` is not explicitly defined
     function computeFallbackHeaderFormat(datesRepDistinctDays, dayCnt) {
         // if more than one week row, or if there are a lot of columns with not much space,
@@ -5879,6 +5061,158 @@ var FullCalendar = (function (exports) {
     const CLASS_NAME = 'fc-col-header-cell'; // do the cushion too? no
     function renderInner$1(renderProps) {
         return renderProps.text;
+    }
+
+    class ContentInjector extends BaseComponent {
+        constructor() {
+            super(...arguments);
+            this.id = guid();
+            this.currentDomNodes = [];
+            this.queuedDomNodes = [];
+            this.handleEl = (el) => {
+                if (this.props.elRef) {
+                    setRef(this.props.elRef, el);
+                }
+            };
+        }
+        render() {
+            const { props, context } = this;
+            const { options } = context;
+            const { generator, renderProps } = props;
+            const attrs = buildElAttrs(props);
+            let innerContent;
+            let queuedDomNodes = [];
+            if (hasCustomRenderingHandler(props.generatorName, options)) {
+                if (options.customRenderingReplacesEl) {
+                    delete attrs.elRef; // because handleEl will be used
+                }
+            }
+            else {
+                const customContent = typeof generator === 'function' ?
+                    generator(renderProps, h) :
+                    generator;
+                if (typeof customContent === 'string' ||
+                    i$1(customContent) ||
+                    Array.isArray(customContent)) {
+                    innerContent = customContent;
+                }
+                else if (typeof customContent === 'object') {
+                    if ('html' in customContent) {
+                        attrs.dangerouslySetInnerHTML = { __html: customContent.html };
+                    }
+                    else if ('domNodes' in customContent) {
+                        queuedDomNodes = Array.prototype.slice.call(customContent.domNodes);
+                    }
+                }
+            }
+            this.queuedDomNodes = queuedDomNodes;
+            return h(props.elTag, attrs, innerContent);
+        }
+        componentDidMount() {
+            this.applyQueueudDomNodes();
+            this.triggerCustomRendering(true);
+        }
+        componentDidUpdate() {
+            this.applyQueueudDomNodes();
+            this.triggerCustomRendering(true);
+        }
+        componentWillUnmount() {
+            this.triggerCustomRendering(false); // TODO: different API for removal?
+        }
+        triggerCustomRendering(isActive) {
+            const { props, context } = this;
+            const { handleCustomRendering, customRenderingMetaMap } = context.options;
+            if (handleCustomRendering) {
+                const customRenderingMeta = customRenderingMetaMap === null || customRenderingMetaMap === void 0 ? void 0 : customRenderingMetaMap[props.generatorName];
+                if (customRenderingMeta) {
+                    handleCustomRendering(Object.assign({ id: this.id, isActive, containerEl: this.base, reportNewContainerEl: this.handleEl, generatorMeta: customRenderingMeta }, props));
+                }
+            }
+        }
+        applyQueueudDomNodes() {
+            const { queuedDomNodes, currentDomNodes } = this;
+            const el = this.base;
+            if (!isArraysEqual(queuedDomNodes, currentDomNodes)) {
+                currentDomNodes.forEach(removeElement);
+                for (let newNode of queuedDomNodes) {
+                    el.appendChild(newNode);
+                }
+                this.currentDomNodes = queuedDomNodes;
+            }
+        }
+    }
+    ContentInjector.addPropsEquality({
+        elClasses: isArraysEqual,
+        elStyle: isPropsEqual,
+        elAttrs: isNonHandlerPropsEqual,
+        renderProps: isPropsEqual,
+    });
+    // Util
+    function hasCustomRenderingHandler(generatorName, options) {
+        var _a;
+        return Boolean(options.handleCustomRendering &&
+            generatorName &&
+            ((_a = options.customRenderingMetaMap) === null || _a === void 0 ? void 0 : _a[generatorName]));
+    }
+    function buildElAttrs(props, extraClassNames) {
+        const attrs = Object.assign(Object.assign({}, props.elAttrs), { ref: props.elRef });
+        if (props.elClasses || extraClassNames) {
+            attrs.className = (props.elClasses || [])
+                .concat(extraClassNames || [])
+                .concat(attrs.className || [])
+                .filter(Boolean)
+                .join(' ');
+        }
+        if (props.elStyle) {
+            attrs.style = props.elStyle;
+        }
+        return attrs;
+    }
+
+    const RenderId = createContext(0);
+
+    class ContentContainer extends d {
+        constructor() {
+            super(...arguments);
+            this.InnerContent = InnerContentInjector.bind(undefined, this);
+        }
+        render() {
+            const { props } = this;
+            const generatedClassNames = generateClassNames(props.classNameGenerator, props.renderProps);
+            if (props.children) {
+                const elAttrs = buildElAttrs(props, generatedClassNames);
+                const children = props.children(this.InnerContent, props.renderProps, elAttrs);
+                if (props.elTag) {
+                    return h(props.elTag, elAttrs, children);
+                }
+                else {
+                    return children;
+                }
+            }
+            else {
+                return h((ContentInjector), Object.assign(Object.assign({}, props), { elTag: props.elTag || 'div', elClasses: (props.elClasses || []).concat(generatedClassNames), renderId: this.context }));
+            }
+        }
+        componentDidMount() {
+            var _a, _b;
+            (_b = (_a = this.props).didMount) === null || _b === void 0 ? void 0 : _b.call(_a, Object.assign(Object.assign({}, this.props.renderProps), { el: this.base }));
+        }
+        componentWillUnmount() {
+            var _a, _b;
+            (_b = (_a = this.props).willUnmount) === null || _b === void 0 ? void 0 : _b.call(_a, Object.assign(Object.assign({}, this.props.renderProps), { el: this.base }));
+        }
+    }
+    ContentContainer.contextType = RenderId;
+    function InnerContentInjector(containerComponent, props) {
+        const parentProps = containerComponent.props;
+        return h((ContentInjector), Object.assign({ renderProps: parentProps.renderProps, generatorName: parentProps.generatorName, generator: parentProps.generator, renderId: containerComponent.context }, props));
+    }
+    // Utils
+    function generateClassNames(classNameGenerator, renderProps) {
+        const classNames = typeof classNameGenerator === 'function' ?
+            classNameGenerator(renderProps) :
+            classNameGenerator || [];
+        return typeof classNames === 'string' ? [classNames] : classNames;
     }
 
     // BAD name for this class now. used in the Header
@@ -6255,6 +5589,111 @@ var FullCalendar = (function (exports) {
         };
     }
 
+    function reduceEventStore(eventStore, action, eventSources, dateProfile, context) {
+        switch (action.type) {
+            case 'RECEIVE_EVENTS': // raw
+                return receiveRawEvents(eventStore, eventSources[action.sourceId], action.fetchId, action.fetchRange, action.rawEvents, context);
+            case 'ADD_EVENTS': // already parsed, but not expanded
+                return addEvent(eventStore, action.eventStore, // new ones
+                dateProfile ? dateProfile.activeRange : null, context);
+            case 'RESET_EVENTS':
+                return action.eventStore;
+            case 'MERGE_EVENTS': // already parsed and expanded
+                return mergeEventStores(eventStore, action.eventStore);
+            case 'PREV': // TODO: how do we track all actions that affect dateProfile :(
+            case 'NEXT':
+            case 'CHANGE_DATE':
+            case 'CHANGE_VIEW_TYPE':
+                if (dateProfile) {
+                    return expandRecurring(eventStore, dateProfile.activeRange, context);
+                }
+                return eventStore;
+            case 'REMOVE_EVENTS':
+                return excludeSubEventStore(eventStore, action.eventStore);
+            case 'REMOVE_EVENT_SOURCE':
+                return excludeEventsBySourceId(eventStore, action.sourceId);
+            case 'REMOVE_ALL_EVENT_SOURCES':
+                return filterEventStoreDefs(eventStore, (eventDef) => (!eventDef.sourceId // only keep events with no source id
+                ));
+            case 'REMOVE_ALL_EVENTS':
+                return createEmptyEventStore();
+            default:
+                return eventStore;
+        }
+    }
+    function receiveRawEvents(eventStore, eventSource, fetchId, fetchRange, rawEvents, context) {
+        if (eventSource && // not already removed
+            fetchId === eventSource.latestFetchId // TODO: wish this logic was always in event-sources
+        ) {
+            let subset = parseEvents(transformRawEvents(rawEvents, eventSource, context), eventSource, context);
+            if (fetchRange) {
+                subset = expandRecurring(subset, fetchRange, context);
+            }
+            return mergeEventStores(excludeEventsBySourceId(eventStore, eventSource.sourceId), subset);
+        }
+        return eventStore;
+    }
+    function transformRawEvents(rawEvents, eventSource, context) {
+        let calEachTransform = context.options.eventDataTransform;
+        let sourceEachTransform = eventSource ? eventSource.eventDataTransform : null;
+        if (sourceEachTransform) {
+            rawEvents = transformEachRawEvent(rawEvents, sourceEachTransform);
+        }
+        if (calEachTransform) {
+            rawEvents = transformEachRawEvent(rawEvents, calEachTransform);
+        }
+        return rawEvents;
+    }
+    function transformEachRawEvent(rawEvents, func) {
+        let refinedEvents;
+        if (!func) {
+            refinedEvents = rawEvents;
+        }
+        else {
+            refinedEvents = [];
+            for (let rawEvent of rawEvents) {
+                let refinedEvent = func(rawEvent);
+                if (refinedEvent) {
+                    refinedEvents.push(refinedEvent);
+                }
+                else if (refinedEvent == null) {
+                    refinedEvents.push(rawEvent);
+                } // if a different falsy value, do nothing
+            }
+        }
+        return refinedEvents;
+    }
+    function addEvent(eventStore, subset, expandRange, context) {
+        if (expandRange) {
+            subset = expandRecurring(subset, expandRange, context);
+        }
+        return mergeEventStores(eventStore, subset);
+    }
+    function rezoneEventStoreDates(eventStore, oldDateEnv, newDateEnv) {
+        let { defs } = eventStore;
+        let instances = mapHash(eventStore.instances, (instance) => {
+            let def = defs[instance.defId];
+            if (def.allDay || def.recurringDef) {
+                return instance; // isn't dependent on timezone
+            }
+            return Object.assign(Object.assign({}, instance), { range: {
+                    start: newDateEnv.createMarker(oldDateEnv.toDate(instance.range.start, instance.forcedStartTzo)),
+                    end: newDateEnv.createMarker(oldDateEnv.toDate(instance.range.end, instance.forcedEndTzo)),
+                }, forcedStartTzo: newDateEnv.canComputeOffset ? null : instance.forcedStartTzo, forcedEndTzo: newDateEnv.canComputeOffset ? null : instance.forcedEndTzo });
+        });
+        return { defs, instances };
+    }
+    function excludeEventsBySourceId(eventStore, sourceId) {
+        return filterEventStoreDefs(eventStore, (eventDef) => eventDef.sourceId !== sourceId);
+    }
+    // QUESTION: why not just return instances? do a general object-property-exclusion util
+    function excludeInstances(eventStore, removals) {
+        return {
+            defs: eventStore.defs,
+            instances: filterHash(eventStore.instances, (instance) => !removals[instance.instanceId]),
+        };
+    }
+
     // high-level segmenting-aware tester functions
     // ------------------------------------------------------------------------------------------------------------------------
     function isInteractionValid(interaction, dateProfile, context) {
@@ -6437,6 +5876,114 @@ var FullCalendar = (function (exports) {
             }
         }
         return false;
+    }
+
+    class JsonRequestError extends Error {
+        constructor(message, response) {
+            super(message);
+            this.response = response;
+        }
+    }
+    function requestJson(method, url, params) {
+        method = method.toUpperCase();
+        const fetchOptions = {
+            method,
+        };
+        if (method === 'GET') {
+            url += (url.indexOf('?') === -1 ? '?' : '&') +
+                new URLSearchParams(params);
+        }
+        else {
+            fetchOptions.body = new URLSearchParams(params);
+            fetchOptions.headers = {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            };
+        }
+        return fetch(url, fetchOptions).then((fetchRes) => {
+            if (fetchRes.ok) {
+                return fetchRes.json().then((parsedResponse) => {
+                    return [parsedResponse, fetchRes];
+                }, () => {
+                    throw new JsonRequestError('Failure parsing JSON', fetchRes);
+                });
+            }
+            else {
+                throw new JsonRequestError('Request failed', fetchRes);
+            }
+        });
+    }
+
+    class DelayedRunner {
+        constructor(drainedOption) {
+            this.drainedOption = drainedOption;
+            this.isRunning = false;
+            this.isDirty = false;
+            this.pauseDepths = {};
+            this.timeoutId = 0;
+        }
+        request(delay) {
+            this.isDirty = true;
+            if (!this.isPaused()) {
+                this.clearTimeout();
+                if (delay == null) {
+                    this.tryDrain();
+                }
+                else {
+                    this.timeoutId = setTimeout(// NOT OPTIMAL! TODO: look at debounce
+                    this.tryDrain.bind(this), delay);
+                }
+            }
+        }
+        pause(scope = '') {
+            let { pauseDepths } = this;
+            pauseDepths[scope] = (pauseDepths[scope] || 0) + 1;
+            this.clearTimeout();
+        }
+        resume(scope = '', force) {
+            let { pauseDepths } = this;
+            if (scope in pauseDepths) {
+                if (force) {
+                    delete pauseDepths[scope];
+                }
+                else {
+                    pauseDepths[scope] -= 1;
+                    let depth = pauseDepths[scope];
+                    if (depth <= 0) {
+                        delete pauseDepths[scope];
+                    }
+                }
+                this.tryDrain();
+            }
+        }
+        isPaused() {
+            return Object.keys(this.pauseDepths).length;
+        }
+        tryDrain() {
+            if (!this.isRunning && !this.isPaused()) {
+                this.isRunning = true;
+                while (this.isDirty) {
+                    this.isDirty = false;
+                    this.drained(); // might set isDirty to true again
+                }
+                this.isRunning = false;
+            }
+        }
+        clear() {
+            this.clearTimeout();
+            this.isDirty = false;
+            this.pauseDepths = {};
+        }
+        clearTimeout() {
+            if (this.timeoutId) {
+                clearTimeout(this.timeoutId);
+                this.timeoutId = 0;
+            }
+        }
+        drained() {
+            if (this.drainedOption) {
+                this.drainedOption();
+            }
+        }
     }
 
     const VISIBLE_HIDDEN_RE = /^(visible|hidden)$/;
@@ -7138,10 +6685,15 @@ var FullCalendar = (function (exports) {
     class MoreLinkContainer extends BaseComponent {
         constructor() {
             super(...arguments);
-            this.linkElRef = y();
             this.state = {
                 isPopoverOpen: false,
                 popoverId: getUniqueDomId(),
+            };
+            this.handleLinkEl = (linkEl) => {
+                this.linkEl = linkEl;
+                if (this.props.elRef) {
+                    setRef(this.props.elRef, linkEl);
+                }
             };
             this.handleClick = (ev) => {
                 let { props, context } = this;
@@ -7196,13 +6748,13 @@ var FullCalendar = (function (exports) {
                     view: viewApi,
                 };
                 return (h(p, null,
-                    Boolean(props.moreCnt) && (h(ContentContainer, { elTag: props.elTag || 'a', elRef: this.linkElRef, elClasses: [
+                    Boolean(props.moreCnt) && (h(ContentContainer, { elTag: props.elTag || 'a', elRef: this.handleLinkEl, elClasses: [
                             ...(props.elClasses || []),
                             'fc-more-link',
-                        ], elAttrs: Object.assign(Object.assign(Object.assign({}, props.elAttrs), createAriaClickAttrs(this.handleClick)), { title: hint, 'aria-expanded': state.isPopoverOpen, 'aria-controls': state.isPopoverOpen ? state.popoverId : '' }), renderProps: renderProps, generatorName: "moreLinkContent", generator: options.moreLinkContent || props.defaultGenerator || renderMoreLinkInner$1, classNameGenerator: options.moreLinkClassNames, didMount: options.moreLinkDidMount, willUnmount: options.moreLinkWillUnmount }, props.children)),
+                        ], elStyle: props.elStyle, elAttrs: Object.assign(Object.assign(Object.assign({}, props.elAttrs), createAriaClickAttrs(this.handleClick)), { title: hint, 'aria-expanded': state.isPopoverOpen, 'aria-controls': state.isPopoverOpen ? state.popoverId : '' }), renderProps: renderProps, generatorName: "moreLinkContent", generator: options.moreLinkContent || props.defaultGenerator || renderMoreLinkInner$1, classNameGenerator: options.moreLinkClassNames, didMount: options.moreLinkDidMount, willUnmount: options.moreLinkWillUnmount }, props.children)),
                     state.isPopoverOpen && (h(MorePopover, { id: state.popoverId, startDate: range.start, endDate: range.end, dateProfile: props.dateProfile, todayRange: props.todayRange, extraDateSpan: props.extraDateSpan, parentEl: this.parentEl, alignmentEl: props.alignmentElRef ?
                             props.alignmentElRef.current :
-                            this.linkElRef.current, alignGridTop: props.alignGridTop, onClose: this.handlePopoverClose }, props.popoverContent()))));
+                            this.linkEl, alignGridTop: props.alignGridTop, onClose: this.handlePopoverClose }, props.popoverContent()))));
             }));
         }
         componentDidMount() {
@@ -7212,8 +6764,8 @@ var FullCalendar = (function (exports) {
             this.updateParentEl();
         }
         updateParentEl() {
-            if (this.linkElRef.current) {
-                this.parentEl = elementClosest(this.linkElRef.current, '.fc-view-harness');
+            if (this.linkEl) {
+                this.parentEl = elementClosest(this.linkEl, '.fc-view-harness');
             }
         }
     }
@@ -7244,6 +6796,477 @@ var FullCalendar = (function (exports) {
     }
     function pickLatestEnd(seg0, seg1) {
         return seg0.eventRange.range.end > seg1.eventRange.range.end ? seg0 : seg1;
+    }
+
+    class ViewContainer$1 extends BaseComponent {
+        render() {
+            let { props, context } = this;
+            let { options } = context;
+            let renderProps = { view: context.viewApi };
+            return (h(ContentContainer, Object.assign({}, props, { elTag: props.elTag || 'div', elClasses: [
+                    ...buildViewClassNames(props.viewSpec),
+                    ...(props.elClasses || []),
+                ], renderProps: renderProps, classNameGenerator: options.viewClassNames, generatorName: undefined, generator: undefined, didMount: options.viewDidMount, willUnmount: options.viewWillUnmount }), () => props.children));
+        }
+    }
+    function buildViewClassNames(viewSpec) {
+        return [
+            `fc-${viewSpec.type}-view`,
+            'fc-view',
+        ];
+    }
+
+    function injectStyles(css) {
+        if (!css || typeof document === 'undefined') {
+            return;
+        }
+        const head = document.head || document.getElementsByTagName('head')[0];
+        const style = document.createElement('style');
+        style.type = 'text/css';
+        head.appendChild(style);
+        if (style.styleSheet) {
+            style.styleSheet.cssText = css;
+        }
+        else {
+            style.appendChild(document.createTextNode(css));
+        }
+    }
+
+    const EVENT_SOURCE_REFINERS = {
+        id: String,
+        defaultAllDay: Boolean,
+        url: String,
+        format: String,
+        events: identity,
+        eventDataTransform: identity,
+        // for any network-related sources
+        success: identity,
+        failure: identity,
+    };
+    function parseEventSource(raw, context, refiners = buildEventSourceRefiners(context)) {
+        let rawObj;
+        if (typeof raw === 'string') {
+            rawObj = { url: raw };
+        }
+        else if (typeof raw === 'function' || Array.isArray(raw)) {
+            rawObj = { events: raw };
+        }
+        else if (typeof raw === 'object' && raw) { // not null
+            rawObj = raw;
+        }
+        if (rawObj) {
+            let { refined, extra } = refineProps(rawObj, refiners);
+            let metaRes = buildEventSourceMeta(refined, context);
+            if (metaRes) {
+                return {
+                    _raw: raw,
+                    isFetching: false,
+                    latestFetchId: '',
+                    fetchRange: null,
+                    defaultAllDay: refined.defaultAllDay,
+                    eventDataTransform: refined.eventDataTransform,
+                    success: refined.success,
+                    failure: refined.failure,
+                    publicId: refined.id || '',
+                    sourceId: guid(),
+                    sourceDefId: metaRes.sourceDefId,
+                    meta: metaRes.meta,
+                    ui: createEventUi(refined, context),
+                    extendedProps: extra,
+                };
+            }
+        }
+        return null;
+    }
+    function buildEventSourceRefiners(context) {
+        return Object.assign(Object.assign(Object.assign({}, EVENT_UI_REFINERS), EVENT_SOURCE_REFINERS), context.pluginHooks.eventSourceRefiners);
+    }
+    function buildEventSourceMeta(raw, context) {
+        let defs = context.pluginHooks.eventSourceDefs;
+        for (let i = defs.length - 1; i >= 0; i -= 1) { // later-added plugins take precedence
+            let def = defs[i];
+            let meta = def.parseMeta(raw);
+            if (meta) {
+                return { sourceDefId: i, meta };
+            }
+        }
+        return null;
+    }
+
+    class CalendarImpl {
+        getCurrentData() {
+            return this.currentDataManager.getCurrentData();
+        }
+        dispatch(action) {
+            this.currentDataManager.dispatch(action);
+        }
+        get view() { return this.getCurrentData().viewApi; }
+        batchRendering(callback) {
+            callback();
+        }
+        updateSize() {
+            this.trigger('_resize', true);
+        }
+        // Options
+        // -----------------------------------------------------------------------------------------------------------------
+        setOption(name, val) {
+            this.dispatch({
+                type: 'SET_OPTION',
+                optionName: name,
+                rawOptionValue: val,
+            });
+        }
+        getOption(name) {
+            return this.currentDataManager.currentCalendarOptionsInput[name];
+        }
+        getAvailableLocaleCodes() {
+            return Object.keys(this.getCurrentData().availableRawLocales);
+        }
+        // Trigger
+        // -----------------------------------------------------------------------------------------------------------------
+        on(handlerName, handler) {
+            let { currentDataManager } = this;
+            if (currentDataManager.currentCalendarOptionsRefiners[handlerName]) {
+                currentDataManager.emitter.on(handlerName, handler);
+            }
+            else {
+                console.warn(`Unknown listener name '${handlerName}'`);
+            }
+        }
+        off(handlerName, handler) {
+            this.currentDataManager.emitter.off(handlerName, handler);
+        }
+        // not meant for public use
+        trigger(handlerName, ...args) {
+            this.currentDataManager.emitter.trigger(handlerName, ...args);
+        }
+        // View
+        // -----------------------------------------------------------------------------------------------------------------
+        changeView(viewType, dateOrRange) {
+            this.batchRendering(() => {
+                this.unselect();
+                if (dateOrRange) {
+                    if (dateOrRange.start && dateOrRange.end) { // a range
+                        this.dispatch({
+                            type: 'CHANGE_VIEW_TYPE',
+                            viewType,
+                        });
+                        this.dispatch({
+                            type: 'SET_OPTION',
+                            optionName: 'visibleRange',
+                            rawOptionValue: dateOrRange,
+                        });
+                    }
+                    else {
+                        let { dateEnv } = this.getCurrentData();
+                        this.dispatch({
+                            type: 'CHANGE_VIEW_TYPE',
+                            viewType,
+                            dateMarker: dateEnv.createMarker(dateOrRange),
+                        });
+                    }
+                }
+                else {
+                    this.dispatch({
+                        type: 'CHANGE_VIEW_TYPE',
+                        viewType,
+                    });
+                }
+            });
+        }
+        // Forces navigation to a view for the given date.
+        // `viewType` can be a specific view name or a generic one like "week" or "day".
+        // needs to change
+        zoomTo(dateMarker, viewType) {
+            let state = this.getCurrentData();
+            let spec;
+            viewType = viewType || 'day'; // day is default zoom
+            spec = state.viewSpecs[viewType] || this.getUnitViewSpec(viewType);
+            this.unselect();
+            if (spec) {
+                this.dispatch({
+                    type: 'CHANGE_VIEW_TYPE',
+                    viewType: spec.type,
+                    dateMarker,
+                });
+            }
+            else {
+                this.dispatch({
+                    type: 'CHANGE_DATE',
+                    dateMarker,
+                });
+            }
+        }
+        // Given a duration singular unit, like "week" or "day", finds a matching view spec.
+        // Preference is given to views that have corresponding buttons.
+        getUnitViewSpec(unit) {
+            let { viewSpecs, toolbarConfig } = this.getCurrentData();
+            let viewTypes = [].concat(toolbarConfig.header ? toolbarConfig.header.viewsWithButtons : [], toolbarConfig.footer ? toolbarConfig.footer.viewsWithButtons : []);
+            let i;
+            let spec;
+            for (let viewType in viewSpecs) {
+                viewTypes.push(viewType);
+            }
+            for (i = 0; i < viewTypes.length; i += 1) {
+                spec = viewSpecs[viewTypes[i]];
+                if (spec) {
+                    if (spec.singleUnit === unit) {
+                        return spec;
+                    }
+                }
+            }
+            return null;
+        }
+        // Current Date
+        // -----------------------------------------------------------------------------------------------------------------
+        prev() {
+            this.unselect();
+            this.dispatch({ type: 'PREV' });
+        }
+        next() {
+            this.unselect();
+            this.dispatch({ type: 'NEXT' });
+        }
+        prevYear() {
+            let state = this.getCurrentData();
+            this.unselect();
+            this.dispatch({
+                type: 'CHANGE_DATE',
+                dateMarker: state.dateEnv.addYears(state.currentDate, -1),
+            });
+        }
+        nextYear() {
+            let state = this.getCurrentData();
+            this.unselect();
+            this.dispatch({
+                type: 'CHANGE_DATE',
+                dateMarker: state.dateEnv.addYears(state.currentDate, 1),
+            });
+        }
+        today() {
+            let state = this.getCurrentData();
+            this.unselect();
+            this.dispatch({
+                type: 'CHANGE_DATE',
+                dateMarker: getNow(state.calendarOptions.now, state.dateEnv),
+            });
+        }
+        gotoDate(zonedDateInput) {
+            let state = this.getCurrentData();
+            this.unselect();
+            this.dispatch({
+                type: 'CHANGE_DATE',
+                dateMarker: state.dateEnv.createMarker(zonedDateInput),
+            });
+        }
+        incrementDate(deltaInput) {
+            let state = this.getCurrentData();
+            let delta = createDuration(deltaInput);
+            if (delta) { // else, warn about invalid input?
+                this.unselect();
+                this.dispatch({
+                    type: 'CHANGE_DATE',
+                    dateMarker: state.dateEnv.add(state.currentDate, delta),
+                });
+            }
+        }
+        getDate() {
+            let state = this.getCurrentData();
+            return state.dateEnv.toDate(state.currentDate);
+        }
+        // Date Formatting Utils
+        // -----------------------------------------------------------------------------------------------------------------
+        formatDate(d, formatter) {
+            let { dateEnv } = this.getCurrentData();
+            return dateEnv.format(dateEnv.createMarker(d), createFormatter(formatter));
+        }
+        // `settings` is for formatter AND isEndExclusive
+        formatRange(d0, d1, settings) {
+            let { dateEnv } = this.getCurrentData();
+            return dateEnv.formatRange(dateEnv.createMarker(d0), dateEnv.createMarker(d1), createFormatter(settings), settings);
+        }
+        formatIso(d, omitTime) {
+            let { dateEnv } = this.getCurrentData();
+            return dateEnv.formatIso(dateEnv.createMarker(d), { omitTime });
+        }
+        // Date Selection / Event Selection / DayClick
+        // -----------------------------------------------------------------------------------------------------------------
+        select(dateOrObj, endDate) {
+            let selectionInput;
+            if (endDate == null) {
+                if (dateOrObj.start != null) {
+                    selectionInput = dateOrObj;
+                }
+                else {
+                    selectionInput = {
+                        start: dateOrObj,
+                        end: null,
+                    };
+                }
+            }
+            else {
+                selectionInput = {
+                    start: dateOrObj,
+                    end: endDate,
+                };
+            }
+            let state = this.getCurrentData();
+            let selection = parseDateSpan(selectionInput, state.dateEnv, createDuration({ days: 1 }));
+            if (selection) { // throw parse error otherwise?
+                this.dispatch({ type: 'SELECT_DATES', selection });
+                triggerDateSelect(selection, null, state);
+            }
+        }
+        unselect(pev) {
+            let state = this.getCurrentData();
+            if (state.dateSelection) {
+                this.dispatch({ type: 'UNSELECT_DATES' });
+                triggerDateUnselect(pev, state);
+            }
+        }
+        // Public Events API
+        // -----------------------------------------------------------------------------------------------------------------
+        addEvent(eventInput, sourceInput) {
+            if (eventInput instanceof EventImpl) {
+                let def = eventInput._def;
+                let instance = eventInput._instance;
+                let currentData = this.getCurrentData();
+                // not already present? don't want to add an old snapshot
+                if (!currentData.eventStore.defs[def.defId]) {
+                    this.dispatch({
+                        type: 'ADD_EVENTS',
+                        eventStore: eventTupleToStore({ def, instance }), // TODO: better util for two args?
+                    });
+                    this.triggerEventAdd(eventInput);
+                }
+                return eventInput;
+            }
+            let state = this.getCurrentData();
+            let eventSource;
+            if (sourceInput instanceof EventSourceImpl) {
+                eventSource = sourceInput.internalEventSource;
+            }
+            else if (typeof sourceInput === 'boolean') {
+                if (sourceInput) { // true. part of the first event source
+                    [eventSource] = hashValuesToArray(state.eventSources);
+                }
+            }
+            else if (sourceInput != null) { // an ID. accepts a number too
+                let sourceApi = this.getEventSourceById(sourceInput); // TODO: use an internal function
+                if (!sourceApi) {
+                    console.warn(`Could not find an event source with ID "${sourceInput}"`); // TODO: test
+                    return null;
+                }
+                eventSource = sourceApi.internalEventSource;
+            }
+            let tuple = parseEvent(eventInput, eventSource, state, false);
+            if (tuple) {
+                let newEventApi = new EventImpl(state, tuple.def, tuple.def.recurringDef ? null : tuple.instance);
+                this.dispatch({
+                    type: 'ADD_EVENTS',
+                    eventStore: eventTupleToStore(tuple),
+                });
+                this.triggerEventAdd(newEventApi);
+                return newEventApi;
+            }
+            return null;
+        }
+        triggerEventAdd(eventApi) {
+            let { emitter } = this.getCurrentData();
+            emitter.trigger('eventAdd', {
+                event: eventApi,
+                relatedEvents: [],
+                revert: () => {
+                    this.dispatch({
+                        type: 'REMOVE_EVENTS',
+                        eventStore: eventApiToStore(eventApi),
+                    });
+                },
+            });
+        }
+        // TODO: optimize
+        getEventById(id) {
+            let state = this.getCurrentData();
+            let { defs, instances } = state.eventStore;
+            id = String(id);
+            for (let defId in defs) {
+                let def = defs[defId];
+                if (def.publicId === id) {
+                    if (def.recurringDef) {
+                        return new EventImpl(state, def, null);
+                    }
+                    for (let instanceId in instances) {
+                        let instance = instances[instanceId];
+                        if (instance.defId === def.defId) {
+                            return new EventImpl(state, def, instance);
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+        getEvents() {
+            let currentData = this.getCurrentData();
+            return buildEventApis(currentData.eventStore, currentData);
+        }
+        removeAllEvents() {
+            this.dispatch({ type: 'REMOVE_ALL_EVENTS' });
+        }
+        // Public Event Sources API
+        // -----------------------------------------------------------------------------------------------------------------
+        getEventSources() {
+            let state = this.getCurrentData();
+            let sourceHash = state.eventSources;
+            let sourceApis = [];
+            for (let internalId in sourceHash) {
+                sourceApis.push(new EventSourceImpl(state, sourceHash[internalId]));
+            }
+            return sourceApis;
+        }
+        getEventSourceById(id) {
+            let state = this.getCurrentData();
+            let sourceHash = state.eventSources;
+            id = String(id);
+            for (let sourceId in sourceHash) {
+                if (sourceHash[sourceId].publicId === id) {
+                    return new EventSourceImpl(state, sourceHash[sourceId]);
+                }
+            }
+            return null;
+        }
+        addEventSource(sourceInput) {
+            let state = this.getCurrentData();
+            if (sourceInput instanceof EventSourceImpl) {
+                // not already present? don't want to add an old snapshot
+                if (!state.eventSources[sourceInput.internalEventSource.sourceId]) {
+                    this.dispatch({
+                        type: 'ADD_EVENT_SOURCES',
+                        sources: [sourceInput.internalEventSource],
+                    });
+                }
+                return sourceInput;
+            }
+            let eventSource = parseEventSource(sourceInput, state);
+            if (eventSource) { // TODO: error otherwise?
+                this.dispatch({ type: 'ADD_EVENT_SOURCES', sources: [eventSource] });
+                return new EventSourceImpl(state, eventSource);
+            }
+            return null;
+        }
+        removeAllEventSources() {
+            this.dispatch({ type: 'REMOVE_ALL_EVENT_SOURCES' });
+        }
+        refetchEvents() {
+            this.dispatch({ type: 'FETCH_EVENT_SOURCES', isRefetch: true });
+        }
+        // Scroll
+        // -----------------------------------------------------------------------------------------------------------------
+        scrollToTime(timeInput) {
+            let time = createDuration(timeInput);
+            if (time) {
+                this.trigger('_scrollRequest', { time });
+            }
+        }
     }
 
     class Store {
@@ -7290,7 +7313,7 @@ var FullCalendar = (function (exports) {
         }
     }
 
-    var internal = {
+    var internal_esm = {
         __proto__: null,
         BASE_OPTION_DEFAULTS: BASE_OPTION_DEFAULTS,
         BaseComponent: BaseComponent,
@@ -9584,7 +9607,7 @@ var FullCalendar = (function (exports) {
         return sliceEventStore(props.eventStore, props.eventUiBases, props.dateProfile.activeRange, allDay ? props.nextDayThreshold : null).fg;
     }
 
-    const version = '6.0.2';
+    const version = '6.0.3';
 
     config.touchMouseIgnoreWait = 500;
     let ignoreMouseDepth = 0;
@@ -12276,7 +12299,7 @@ var FullCalendar = (function (exports) {
             return h(p, {}, ...nodes);
         }
         updateSizing(isExternalSizingChange) {
-            let { props, frameElRefs } = this;
+            let { props, state, frameElRefs } = this;
             if (!props.forPrint &&
                 props.clientWidth !== null // positioning ready?
             ) {
@@ -12284,10 +12307,14 @@ var FullCalendar = (function (exports) {
                     let frameEls = props.cells.map((cell) => frameElRefs.currentMap[cell.key]);
                     if (frameEls.length) {
                         let originEl = this.rootElRef.current;
-                        this.setState({
-                            framePositions: new PositionCache(originEl, frameEls, true, // isHorizontal
-                            false),
-                        });
+                        let newPositionCache = new PositionCache(originEl, frameEls, true, // isHorizontal
+                        false);
+                        if (!state.framePositions || !state.framePositions.similarTo(newPositionCache)) {
+                            this.setState({
+                                framePositions: new PositionCache(originEl, frameEls, true, // isHorizontal
+                                false),
+                            });
+                        }
                     }
                 }
                 const oldInstanceHeights = this.state.eventInstanceHeights;
@@ -14038,7 +14065,7 @@ var FullCalendar = (function (exports) {
 
     exports.Calendar = Calendar;
     exports.Draggable = ExternalDraggable;
-    exports.Internal = internal;
+    exports.Internal = internal_esm;
     exports.JsonRequestError = JsonRequestError;
     exports.ThirdPartyDraggable = ThirdPartyDraggable;
     exports.createPlugin = createPlugin;
@@ -14054,4 +14081,3 @@ var FullCalendar = (function (exports) {
     return exports;
 
 })({});
-//# sourceMappingURL=index.global.js.map

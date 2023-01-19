@@ -1,5 +1,5 @@
 /*!
-FullCalendar Moment Timezone Plugin v6.0.2
+FullCalendar Moment Timezone Plugin v6.0.3
 Docs & License: https://fullcalendar.io/docs/moment-timezone-plugin
 (c) 2022 Adam Shaw
 */

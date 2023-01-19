@@ -11,7 +11,7 @@ function fullcalendar_lib_library_info() {
   $libraries['fullcalendar'] = array(
     'title' => 'Fullcalendar recent',
     'website' => 'https://fullcalendar.io',
-    'version' => '6.0.2',
+    'version' => '6.0.3',
     'js' => array(
       $path . '/dist/index.global.min.js' => array(),
       $path . '/packages/core/locales-all.global.min.js' => array(),
