@@ -1,7 +1,7 @@
 /*!
-FullCalendar Google Calendar Plugin v6.0.3
+FullCalendar Google Calendar Plugin v6.1.1
 Docs & License: https://fullcalendar.io/docs/google-calendar
-(c) 2022 Adam Shaw
+(c) 2023 Adam Shaw
 */
 FullCalendar.GoogleCalendar = (function (exports, core, internal) {
     'use strict';

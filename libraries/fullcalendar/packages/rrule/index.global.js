@@ -1,7 +1,7 @@
 /*!
-FullCalendar RRule Plugin v6.0.3
+FullCalendar RRule Plugin v6.1.1
 Docs & License: https://fullcalendar.io/docs/rrule-plugin
-(c) 2022 Adam Shaw
+(c) 2023 Adam Shaw
 */
 FullCalendar.RRule = (function (exports, core, rrule, internal) {
     'use strict';

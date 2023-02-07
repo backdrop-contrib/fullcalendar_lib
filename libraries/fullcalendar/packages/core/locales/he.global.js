@@ -1,7 +1,7 @@
 /*!
-FullCalendar Core v6.0.3
+FullCalendar Core v6.1.1
 Docs & License: https://fullcalendar.io
-(c) 2022 Adam Shaw
+(c) 2023 Adam Shaw
 */
 (function (index_js) {
     'use strict';
@@ -13,6 +13,7 @@ Docs & License: https://fullcalendar.io
             prev: 'הקודם',
             next: 'הבא',
             today: 'היום',
+            year: 'שנה',
             month: 'חודש',
             week: 'שבוע',
             day: 'יום',

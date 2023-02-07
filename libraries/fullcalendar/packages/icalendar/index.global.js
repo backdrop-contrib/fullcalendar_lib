@@ -1,7 +1,7 @@
 /*!
-FullCalendar iCalendar Plugin v6.0.3
+FullCalendar iCalendar Plugin v6.1.1
 Docs & License: https://fullcalendar.io/docs/icalendar
-(c) 2022 Adam Shaw
+(c) 2023 Adam Shaw
 */
 FullCalendar.ICalendar = (function (exports, core, internal, ICAL) {
     'use strict';

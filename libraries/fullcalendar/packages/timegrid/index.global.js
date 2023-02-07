@@ -1,7 +1,7 @@
 /*!
-FullCalendar Time Grid Plugin v6.0.3
+FullCalendar Time Grid Plugin v6.1.1
 Docs & License: https://fullcalendar.io/docs/timegrid-view
-(c) 2022 Adam Shaw
+(c) 2023 Adam Shaw
 */
 FullCalendar.TimeGrid = (function (exports, core, internal$1, preact, internal$2) {
     'use strict';
@@ -60,7 +60,7 @@ FullCalendar.TimeGrid = (function (exports, core, internal$1, preact, internal$2
             };
             return (preact.createElement(internal$1.ContentContainer, { elTag: "td", elClasses: classNames, elAttrs: {
                     'data-time': props.isoTimeStr,
-                }, renderProps: renderProps, generatorName: "slotLabelContent", generator: options.slotLabelContent || renderInnerContent, classNameGenerator: options.slotLabelClassNames, didMount: options.slotLabelDidMount, willUnmount: options.slotLabelWillUnmount }, (InnerContent) => (preact.createElement("div", { className: "fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame" },
+                }, renderProps: renderProps, generatorName: "slotLabelContent", customGenerator: options.slotLabelContent, defaultGenerator: renderInnerContent, classNameGenerator: options.slotLabelClassNames, didMount: options.slotLabelDidMount, willUnmount: options.slotLabelWillUnmount }, (InnerContent) => (preact.createElement("div", { className: "fc-timegrid-slot-label-frame fc-scrollgrid-shrink-frame" },
                 preact.createElement(InnerContent, { elTag: "div", elClasses: [
                         'fc-timegrid-slot-label-cushion',
                         'fc-scrollgrid-shrink-cushion',
@@ -144,7 +144,7 @@ FullCalendar.TimeGrid = (function (exports, core, internal$1, preact, internal$2
                         'fc-scrollgrid-shrink',
                     ], elAttrs: {
                         'aria-hidden': true,
-                    }, renderProps: renderProps, generatorName: "allDayContent", generator: options.allDayContent || renderAllDayInner, classNameGenerator: options.allDayClassNames, didMount: options.allDayDidMount, willUnmount: options.allDayWillUnmount }, (InnerContent) => (preact.createElement("div", { className: [
+                    }, renderProps: renderProps, generatorName: "allDayContent", customGenerator: options.allDayContent, defaultGenerator: renderAllDayInner, classNameGenerator: options.allDayClassNames, didMount: options.allDayDidMount, willUnmount: options.allDayWillUnmount }, (InnerContent) => (preact.createElement("div", { className: [
                         'fc-timegrid-axis-frame',
                         'fc-scrollgrid-shrink-frame',
                         rowHeight == null ? ' fc-timegrid-axis-frame-liquid' : '',
@@ -401,7 +401,7 @@ FullCalendar.TimeGrid = (function (exports, core, internal$1, preact, internal$2
                             !slatMeta.isLabeled && 'fc-timegrid-slot-minor',
                         ], elAttrs: {
                             'data-time': slatMeta.isoTimeStr,
-                        }, renderProps: renderProps, generatorName: "slotLaneContent", generator: options.slotLaneContent, classNameGenerator: options.slotLaneClassNames, didMount: options.slotLaneDidMount, willUnmount: options.slotLaneWillUnmount })));
+                        }, renderProps: renderProps, generatorName: "slotLaneContent", customGenerator: options.slotLaneContent, classNameGenerator: options.slotLaneClassNames, didMount: options.slotLaneDidMount, willUnmount: options.slotLaneWillUnmount })));
             })));
         }
     }
@@ -1050,11 +1050,11 @@ FullCalendar.TimeGrid = (function (exports, core, internal$1, preact, internal$2
         render() {
             let { props, context } = this;
             let { dateProfile, dayTableModel } = props;
-            let isNowIndicator = context.options.nowIndicator;
+            let { nowIndicator, nextDayThreshold } = context.options;
             let dayRanges = this.buildDayRanges(dayTableModel, dateProfile, context.dateEnv);
             // give it the first row of cells
             // TODO: would move this further down hierarchy, but sliceNowDate needs it
-            return (preact.createElement(internal$1.NowTimer, { unit: isNowIndicator ? 'minute' : 'day' }, (nowDate, todayRange) => (preact.createElement(TimeCols, Object.assign({ ref: this.timeColsRef }, this.slicer.sliceProps(props, dateProfile, null, context, dayRanges), { forPrint: props.forPrint, axis: props.axis, dateProfile: dateProfile, slatMetas: props.slatMetas, slotDuration: props.slotDuration, cells: dayTableModel.cells[0], tableColGroupNode: props.tableColGroupNode, tableMinWidth: props.tableMinWidth, clientWidth: props.clientWidth, clientHeight: props.clientHeight, expandRows: props.expandRows, nowDate: nowDate, nowIndicatorSegs: isNowIndicator && this.slicer.sliceNowDate(nowDate, context, dayRanges), todayRange: todayRange, onScrollTopRequest: props.onScrollTopRequest, onSlatCoords: props.onSlatCoords })))));
+            return (preact.createElement(internal$1.NowTimer, { unit: nowIndicator ? 'minute' : 'day' }, (nowDate, todayRange) => (preact.createElement(TimeCols, Object.assign({ ref: this.timeColsRef }, this.slicer.sliceProps(props, dateProfile, null, context, dayRanges), { forPrint: props.forPrint, axis: props.axis, dateProfile: dateProfile, slatMetas: props.slatMetas, slotDuration: props.slotDuration, cells: dayTableModel.cells[0], tableColGroupNode: props.tableColGroupNode, tableMinWidth: props.tableMinWidth, clientWidth: props.clientWidth, clientHeight: props.clientHeight, expandRows: props.expandRows, nowDate: nowDate, nowIndicatorSegs: nowIndicator && this.slicer.sliceNowDate(nowDate, dateProfile, nextDayThreshold, context, dayRanges), todayRange: todayRange, onScrollTopRequest: props.onScrollTopRequest, onSlatCoords: props.onSlatCoords })))));
         }
     }
     function buildDayRanges(dayTableModel, dateProfile, dateEnv) {
