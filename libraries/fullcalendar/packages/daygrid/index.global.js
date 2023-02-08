@@ -1,5 +1,5 @@
 /*!
-FullCalendar Day Grid Plugin v6.1.1
+FullCalendar Day Grid Plugin v6.1.4
 Docs & License: https://fullcalendar.io/docs/month-view
 (c) 2023 Adam Shaw
 */
@@ -217,12 +217,11 @@ FullCalendar.DayGrid = (function (exports, core, internal$1, preact) {
         }
         render() {
             let { context, props, state, rootElRef } = this;
-            let { options } = context;
+            let { options, dateEnv } = context;
             let { date, dateProfile } = props;
             // TODO: memoize this?
-            let isMonthStart = props.showDayNumber &&
-                dateProfile.currentRangeUnit !== 'month' && (dateProfile.currentRange.start.valueOf() === date.valueOf() ||
-                date.getUTCDate() === 1);
+            const isMonthStart = props.showDayNumber &&
+                shouldDisplayMonthStart(date, dateProfile.currentRange, dateEnv);
             return (preact.createElement(internal$1.DayCellContainer, { elTag: "td", elRef: this.handleRootEl, elClasses: [
                     'fc-daygrid-day',
                     ...(props.extraClassNames || []),
@@ -246,6 +245,21 @@ FullCalendar.DayGrid = (function (exports, core, internal$1, preact) {
     }
     function renderTopInner(props) {
         return props.dayNumberText || preact.createElement(preact.Fragment, null, "\u00A0");
+    }
+    function shouldDisplayMonthStart(date, currentRange, dateEnv) {
+        const { start: currentStart, end: currentEnd } = currentRange;
+        const currentEndIncl = internal$1.addMs(currentEnd, -1);
+        const currentFirstYear = dateEnv.getYear(currentStart);
+        const currentFirstMonth = dateEnv.getMonth(currentStart);
+        const currentLastYear = dateEnv.getYear(currentEndIncl);
+        const currentLastMonth = dateEnv.getMonth(currentEndIncl);
+        // spans more than one month?
+        return !(currentFirstYear === currentLastYear && currentFirstMonth === currentLastMonth) &&
+            Boolean(
+            // first date in current view?
+            date.valueOf() === currentStart.valueOf() ||
+                // a month-start that's within the current range?
+                (dateEnv.getDay(date) === 1 && date.valueOf() < currentEnd.valueOf()));
     }
 
     function computeFgSegPlacement(segs, // assumed already sorted

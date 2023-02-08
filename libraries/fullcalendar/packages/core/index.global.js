@@ -1,5 +1,5 @@
 /*!
-FullCalendar Core v6.1.1
+FullCalendar Core v6.1.4
 Docs & License: https://fullcalendar.io
 (c) 2023 Adam Shaw
 */
@@ -4493,6 +4493,9 @@ var FullCalendar = (function (exports) {
         getMonth(marker) {
             return this.calendarSystem.getMarkerMonth(marker);
         }
+        getDay(marker) {
+            return this.calendarSystem.getMarkerDay(marker);
+        }
         // Adding / Subtracting
         add(marker, dur) {
             let a = this.calendarSystem.markerToArray(marker);
@@ -5131,20 +5134,20 @@ var FullCalendar = (function (exports) {
                     useDefault = true;
                 }
                 else {
-                    if (options.handleCustomRendering) { // non-Preact (likely React)
-                        currentGeneratorMeta = customGeneratorRes;
+                    const isObject = customGeneratorRes && typeof customGeneratorRes === 'object'; // non-null
+                    if (isObject && ('html' in customGeneratorRes)) {
+                        attrs.dangerouslySetInnerHTML = { __html: customGeneratorRes.html };
                     }
-                    else { // preact or { html, domNodes }
-                        const isObject = typeof customGeneratorRes === 'object';
-                        if (isObject && ('html' in customGeneratorRes)) {
-                            attrs.dangerouslySetInnerHTML = { __html: customGeneratorRes.html };
-                        }
-                        else if (isObject && ('domNodes' in customGeneratorRes)) {
-                            queuedDomNodes = Array.prototype.slice.call(customGeneratorRes.domNodes);
-                        }
-                        else {
-                            innerContent = customGeneratorRes;
-                        }
+                    else if (isObject && ('domNodes' in customGeneratorRes)) {
+                        queuedDomNodes = Array.prototype.slice.call(customGeneratorRes.domNodes);
+                    }
+                    else if (!isObject && typeof customGeneratorRes !== 'function') {
+                        // primitive value (like string or number)
+                        innerContent = customGeneratorRes;
+                    }
+                    else {
+                        // an exotic object for handleCustomRendering
+                        currentGeneratorMeta = customGeneratorRes;
                     }
                 }
             }
@@ -5176,8 +5179,8 @@ var FullCalendar = (function (exports) {
             if (handleCustomRendering) {
                 const generatorMeta = (_a = this.currentGeneratorMeta) !== null && _a !== void 0 ? _a : customRenderingMetaMap === null || customRenderingMetaMap === void 0 ? void 0 : customRenderingMetaMap[props.generatorName];
                 if (generatorMeta) {
-                    handleCustomRendering(Object.assign({ id: this.id, isActive, containerEl: this.base, reportNewContainerEl: this.handleEl, // for customRenderingReplacesEl
-                        generatorMeta }, props));
+                    handleCustomRendering(Object.assign(Object.assign({ id: this.id, isActive, containerEl: this.base, reportNewContainerEl: this.handleEl, // for customRenderingReplacesEl
+                        generatorMeta }, props), { elClasses: props.elClasses.filter(isTruthy) }));
                 }
             }
         }
@@ -5222,6 +5225,9 @@ var FullCalendar = (function (exports) {
             attrs.style = props.elStyle;
         }
         return attrs;
+    }
+    function isTruthy(val) {
+        return Boolean(val);
     }
 
     const RenderId = createContext(0);
@@ -8676,6 +8682,7 @@ var FullCalendar = (function (exports) {
                 sourceId: unfoundSources[0].sourceId,
                 rawEvents: inputs[0],
             });
+            return;
         }
         let newInputs = [];
         for (let input of inputs) {
@@ -9768,7 +9775,7 @@ var FullCalendar = (function (exports) {
         return sliceEventStore(props.eventStore, props.eventUiBases, props.dateProfile.activeRange, allDay ? props.nextDayThreshold : null).fg;
     }
 
-    const version = '6.1.1';
+    const version = '6.1.4';
 
     exports.Calendar = Calendar;
     exports.Internal = internal;
