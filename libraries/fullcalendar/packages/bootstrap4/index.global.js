@@ -1,7 +1,7 @@
 /*!
-FullCalendar Bootstrap 4 Plugin v6.0.3
+FullCalendar Bootstrap 4 Plugin v6.1.4
 Docs & License: https://fullcalendar.io/docs/bootstrap4
-(c) 2022 Adam Shaw
+(c) 2023 Adam Shaw
 */
 FullCalendar.Bootstrap = (function (exports, core, internal$1) {
     'use strict';
@@ -37,7 +37,7 @@ FullCalendar.Bootstrap = (function (exports, core, internal$1) {
     BootstrapTheme.prototype.iconOverrideCustomButtonOption = 'bootstrapFontAwesome';
     BootstrapTheme.prototype.iconOverridePrefix = 'fa-';
 
-    var css_248z = ".fc-theme-bootstrap a:not([href]){color:inherit}";
+    var css_248z = ".fc-theme-bootstrap a:not([href]){color:inherit}.fc-theme-bootstrap .fc-more-link:hover{text-decoration:none}";
     internal$1.injectStyles(css_248z);
 
     var plugin = core.createPlugin({

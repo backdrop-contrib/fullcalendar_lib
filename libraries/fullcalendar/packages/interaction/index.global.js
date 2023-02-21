@@ -1,7 +1,7 @@
 /*!
-FullCalendar Interaction Plugin v6.0.3
+FullCalendar Interaction Plugin v6.1.4
 Docs & License: https://fullcalendar.io/docs/editable
-(c) 2022 Adam Shaw
+(c) 2023 Adam Shaw
 */
 FullCalendar.Interaction = (function (exports, core, internal) {
     'use strict';
@@ -670,7 +670,7 @@ FullCalendar.Interaction = (function (exports, core, internal) {
                     els.push(query);
                 }
                 else {
-                    els.push(...Array.prototype.slice.call(internal.getElRoot(scrollStartEl).querySelectorAll(query)));
+                    els.push(...Array.prototype.slice.call(scrollStartEl.getRootNode().querySelectorAll(query)));
                 }
             }
             return els;
@@ -1330,7 +1330,7 @@ FullCalendar.Interaction = (function (exports, core, internal) {
                     this.dragging.setMirrorNeedsRevert(!mutation);
                     // render the mirror if no already-rendered mirror
                     // TODO: wish we could somehow wait for dispatch to guarantee render
-                    this.dragging.setMirrorIsVisible(!hit || !internal.getElRoot(this.subjectEl).querySelector('.fc-event-mirror'));
+                    this.dragging.setMirrorIsVisible(!hit || !this.subjectEl.getRootNode().querySelector('.fc-event-mirror'));
                     // assign states based on new hit
                     this.receivingContext = receivingContext;
                     this.validMutation = mutation;

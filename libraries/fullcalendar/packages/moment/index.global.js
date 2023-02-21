@@ -1,7 +1,7 @@
 /*!
-FullCalendar Moment Plugin v6.0.3
+FullCalendar Moment Plugin v6.1.4
 Docs & License: https://fullcalendar.io/docs/moment-plugin
-(c) 2022 Adam Shaw
+(c) 2023 Adam Shaw
 */
 FullCalendar.Moment = (function (exports, core, moment, internal) {
     'use strict';
