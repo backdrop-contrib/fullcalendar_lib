@@ -1,6 +1,6 @@
 /*!
-FullCalendar Web Component v6.1.4
-Docs & License: https://fullcalendar.io
+FullCalendar Web Component v6.1.5
+Docs & License: https://fullcalendar.io/docs/web-component
 (c) 2023 Adam Shaw
 */
 (function (core) {

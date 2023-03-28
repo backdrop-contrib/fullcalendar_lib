@@ -1,5 +1,5 @@
 /*!
-FullCalendar Interaction Plugin v6.1.4
+FullCalendar Interaction Plugin v6.1.5
 Docs & License: https://fullcalendar.io/docs/editable
 (c) 2023 Adam Shaw
 */
@@ -380,7 +380,7 @@ FullCalendar.Interaction = (function (exports, core, internal) {
                 mirrorEl = this.mirrorEl = this.sourceEl.cloneNode(true); // cloneChildren=true
                 // we don't want long taps or any mouse interaction causing selection/menus.
                 // would use preventSelection(), but that prevents selectstart, causing problems.
-                mirrorEl.classList.add('fc-unselectable');
+                mirrorEl.style.userSelect = 'none';
                 mirrorEl.classList.add('fc-event-dragging');
                 internal.applyStyle(mirrorEl, {
                     position: 'fixed',

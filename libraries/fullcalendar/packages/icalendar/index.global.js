@@ -1,5 +1,5 @@
 /*!
-FullCalendar iCalendar Plugin v6.1.4
+FullCalendar iCalendar Plugin v6.1.5
 Docs & License: https://fullcalendar.io/docs/icalendar
 (c) 2023 Adam Shaw
 */
