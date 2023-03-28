@@ -1,5 +1,5 @@
 /*!
-FullCalendar Day Grid Plugin v6.1.4
+FullCalendar Day Grid Plugin v6.1.5
 Docs & License: https://fullcalendar.io/docs/month-view
 (c) 2023 Adam Shaw
 */
@@ -83,7 +83,7 @@ FullCalendar.DayGrid = (function (exports, core, internal$1, preact) {
                 });
             }
             return (preact.createElement(internal$1.ViewContainer, { elClasses: ['fc-daygrid'], viewSpec: context.viewSpec },
-                preact.createElement(ScrollGrid, { liquid: !props.isHeightAuto && !props.forPrint, collapsibleWidth: props.forPrint, colGroups: [{ cols: [{ span: colCnt, minWidth: dayMinWidth }] }], sections: sections })));
+                preact.createElement(ScrollGrid, { liquid: !props.isHeightAuto && !props.forPrint, forPrint: props.forPrint, collapsibleWidth: props.forPrint, colGroups: [{ cols: [{ span: colCnt, minWidth: dayMinWidth }] }], sections: sections })));
         }
     }
 

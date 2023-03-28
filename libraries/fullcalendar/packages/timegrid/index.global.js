@@ -1,5 +1,5 @@
 /*!
-FullCalendar Time Grid Plugin v6.1.4
+FullCalendar Time Grid Plugin v6.1.5
 Docs & License: https://fullcalendar.io/docs/timegrid-view
 (c) 2023 Adam Shaw
 */
@@ -309,7 +309,7 @@ FullCalendar.TimeGrid = (function (exports, core, internal$1, preact, internal$2
                 });
             }
             return (preact.createElement(internal$1.ViewContainer, { elRef: this.rootElRef, elClasses: ['fc-timegrid'], viewSpec: context.viewSpec },
-                preact.createElement(ScrollGrid, { liquid: !props.isHeightAuto && !props.forPrint, collapsibleWidth: false, colGroups: [
+                preact.createElement(ScrollGrid, { liquid: !props.isHeightAuto && !props.forPrint, forPrint: props.forPrint, collapsibleWidth: false, colGroups: [
                         { width: 'shrink', cols: [{ width: 'shrink' }] },
                         { cols: [{ span: colCnt, minWidth: dayMinWidth }] },
                     ], sections: sections })));
@@ -494,7 +494,7 @@ FullCalendar.TimeGrid = (function (exports, core, internal$1, preact, internal$2
             return (preact.createElement(internal$1.MoreLinkContainer, { elClasses: ['fc-timegrid-more-link'], elStyle: {
                     top: props.top,
                     bottom: props.bottom,
-                }, allDayDate: null, moreCnt: props.hiddenSegs.length, allSegs: props.hiddenSegs, hiddenSegs: props.hiddenSegs, extraDateSpan: props.extraDateSpan, dateProfile: props.dateProfile, todayRange: props.todayRange, popoverContent: () => renderPlainFgSegs(props.hiddenSegs, props), defaultGenerator: renderMoreLinkInner }, (InnerContent) => (preact.createElement(InnerContent, { elTag: "div", elClasses: ['fc-timegrid-more-link-inner', 'fc-sticky'] }))));
+                }, allDayDate: null, moreCnt: props.hiddenSegs.length, allSegs: props.hiddenSegs, hiddenSegs: props.hiddenSegs, extraDateSpan: props.extraDateSpan, dateProfile: props.dateProfile, todayRange: props.todayRange, popoverContent: () => renderPlainFgSegs(props.hiddenSegs, props), defaultGenerator: renderMoreLinkInner, forceTimed: true }, (InnerContent) => (preact.createElement(InnerContent, { elTag: "div", elClasses: ['fc-timegrid-more-link-inner', 'fc-sticky'] }))));
         }
     }
     function renderMoreLinkInner(props) {
