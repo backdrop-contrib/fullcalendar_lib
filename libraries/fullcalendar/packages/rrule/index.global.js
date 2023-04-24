@@ -1,10 +1,30 @@
 /*!
-FullCalendar RRule Plugin v6.1.5
+FullCalendar RRule Plugin v6.1.6
 Docs & License: https://fullcalendar.io/docs/rrule-plugin
 (c) 2023 Adam Shaw
 */
-FullCalendar.RRule = (function (exports, core, rrule, internal) {
+FullCalendar.RRule = (function (exports, core, rruleLib, internal) {
     'use strict';
+
+    function _interopNamespace(e) {
+        if (e && e.__esModule) return e;
+        var n = Object.create(null);
+        if (e) {
+            Object.keys(e).forEach(function (k) {
+                if (k !== 'default') {
+                    var d = Object.getOwnPropertyDescriptor(e, k);
+                    Object.defineProperty(n, k, d.get ? d : {
+                        enumerable: true,
+                        get: function () { return e[k]; }
+                    });
+                }
+            });
+        }
+        n["default"] = e;
+        return n;
+    }
+
+    var rruleLib__namespace = /*#__PURE__*/_interopNamespace(rruleLib);
 
     const recurringType = {
         parse(eventProps, dateEnv) {
@@ -47,7 +67,7 @@ FullCalendar.RRule = (function (exports, core, rrule, internal) {
         }
         if (typeof eventProps.rrule === 'object' && eventProps.rrule) { // non-null object
             let res = parseRRuleObject(eventProps.rrule, dateEnv);
-            rruleSet = new rrule.RRuleSet();
+            rruleSet = new rruleLib__namespace.RRuleSet();
             rruleSet.rrule(res.rrule);
             isTimeSpecified = res.isTimeSpecified;
             isTimeZoneSpecified = res.isTimeZoneSpecified;
@@ -88,10 +108,10 @@ FullCalendar.RRule = (function (exports, core, rrule, internal) {
         let rruleOptions = Object.assign(Object.assign({}, rruleInput), { dtstart: processDateInput(rruleInput.dtstart), until: processDateInput(rruleInput.until), freq: convertConstant(rruleInput.freq), wkst: rruleInput.wkst == null
                 ? (dateEnv.weekDow - 1 + 7) % 7 // convert Sunday-first to Monday-first
                 : convertConstant(rruleInput.wkst), byweekday: convertConstants(rruleInput.byweekday) });
-        return { rrule: new rrule.RRule(rruleOptions), isTimeSpecified, isTimeZoneSpecified };
+        return { rrule: new rruleLib__namespace.RRule(rruleOptions), isTimeSpecified, isTimeZoneSpecified };
     }
     function parseRRuleString(str) {
-        let rruleSet = rrule.rrulestr(str, { forceset: true });
+        let rruleSet = rruleLib__namespace.rrulestr(str, { forceset: true });
         let analysis = analyzeRRuleString(str);
         return Object.assign({ rruleSet }, analysis);
     }
@@ -116,7 +136,7 @@ FullCalendar.RRule = (function (exports, core, rrule, internal) {
     }
     function convertConstant(input) {
         if (typeof input === 'string') {
-            return rrule.RRule[input.toUpperCase()];
+            return rruleLib__namespace.RRule[input.toUpperCase()];
         }
         return input;
     }
