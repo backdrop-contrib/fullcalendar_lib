@@ -1,5 +1,5 @@
 /*!
-FullCalendar Time Grid Plugin v6.1.6
+FullCalendar Time Grid Plugin v6.1.7
 Docs & License: https://fullcalendar.io/docs/timegrid-view
 (c) 2023 Adam Shaw
 */
@@ -730,19 +730,19 @@ FullCalendar.TimeGrid = (function (exports, core, internal$1, preact, internal$2
                     this.renderFillSegs(props.bgEventSegs, 'bg-event'),
                     this.renderFillSegs(props.dateSelectionSegs, 'highlight')),
                 preact.createElement("div", { className: "fc-timegrid-col-events" }, this.renderFgSegs(sortedFgSegs, interactionAffectedInstances, false, false, false)),
-                preact.createElement("div", { className: "fc-timegrid-col-events" }, this.renderFgSegs(mirrorSegs, {}, Boolean(props.eventDrag), Boolean(props.eventResize), Boolean(isSelectMirror))),
+                preact.createElement("div", { className: "fc-timegrid-col-events" }, this.renderFgSegs(mirrorSegs, {}, Boolean(props.eventDrag), Boolean(props.eventResize), Boolean(isSelectMirror), 'mirror')),
                 preact.createElement("div", { className: "fc-timegrid-now-indicator-container" }, this.renderNowIndicator(props.nowIndicatorSegs)),
                 internal$1.hasCustomDayCellContent(options) && (preact.createElement(InnerContent, { elTag: "div", elClasses: ['fc-timegrid-col-misc'] }))))));
         }
-        renderFgSegs(sortedFgSegs, segIsInvisible, isDragging, isResizing, isDateSelecting) {
+        renderFgSegs(sortedFgSegs, segIsInvisible, isDragging, isResizing, isDateSelecting, forcedKey) {
             let { props } = this;
             if (props.forPrint) {
                 return renderPlainFgSegs(sortedFgSegs, props);
             }
-            return this.renderPositionedFgSegs(sortedFgSegs, segIsInvisible, isDragging, isResizing, isDateSelecting);
+            return this.renderPositionedFgSegs(sortedFgSegs, segIsInvisible, isDragging, isResizing, isDateSelecting, forcedKey);
         }
         renderPositionedFgSegs(segs, // if not mirror, needs to be sorted
-        segIsInvisible, isDragging, isResizing, isDateSelecting) {
+        segIsInvisible, isDragging, isResizing, isDateSelecting, forcedKey) {
             let { eventMaxStack, eventShortHeight, eventOrderStrict, eventMinHeight } = this.context.options;
             let { date, slatCoords, eventSelection, todayRange, nowDate } = this.props;
             let isMirror = isDragging || isResizing || isDateSelecting;
@@ -759,7 +759,7 @@ FullCalendar.TimeGrid = (function (exports, core, internal$1, preact, internal$2
                     let isInset = Boolean(rect) && rect.stackForward > 0;
                     let isShort = Boolean(rect) && (rect.span.end - rect.span.start) < eventShortHeight; // look at other places for this problem
                     return (preact.createElement("div", { className: 'fc-timegrid-event-harness' +
-                            (isInset ? ' fc-timegrid-event-harness-inset' : ''), key: instanceId, style: Object.assign(Object.assign({ visibility: isVisible ? '' : 'hidden' }, vStyle), hStyle) },
+                            (isInset ? ' fc-timegrid-event-harness-inset' : ''), key: forcedKey || instanceId, style: Object.assign(Object.assign({ visibility: isVisible ? '' : 'hidden' }, vStyle), hStyle) },
                         preact.createElement(TimeColEvent, Object.assign({ seg: seg, isDragging: isDragging, isResizing: isResizing, isDateSelecting: isDateSelecting, isSelected: instanceId === eventSelection, isShort: isShort }, internal$1.getSegMeta(seg, todayRange, nowDate)))));
                 })));
         }
