@@ -1,5 +1,5 @@
 /*!
-FullCalendar Standard Bundle v6.1.5
+FullCalendar Standard Bundle v6.1.7
 Docs & License: https://fullcalendar.io/docs/initialize-globals
 (c) 2023 Adam Shaw
 */
@@ -3581,7 +3581,7 @@ var FullCalendar = (function (exports) {
         let { defs } = eventStore;
         let instances = mapHash(eventStore.instances, (instance) => {
             let def = defs[instance.defId];
-            if (def.allDay || def.recurringDef) {
+            if (def.allDay) {
                 return instance; // isn't dependent on timezone
             }
             return Object.assign(Object.assign({}, instance), { range: {
@@ -9017,6 +9017,7 @@ var FullCalendar = (function (exports) {
                     // hack
                     state.eventSources = data.eventSources = reduceEventSourcesNewTimeZone(data.eventSources, state.dateProfile, data);
                     state.eventStore = data.eventStore = rezoneEventStoreDates(data.eventStore, oldData.dateEnv, data.dateEnv);
+                    state.renderableEventStore = data.renderableEventStore = rezoneEventStoreDates(data.renderableEventStore, oldData.dateEnv, data.dateEnv);
                 }
                 for (let optionName in changeHandlers) {
                     if (this.optionsForHandling.indexOf(optionName) !== -1 ||
@@ -9782,7 +9783,7 @@ var FullCalendar = (function (exports) {
         return sliceEventStore(props.eventStore, props.eventUiBases, props.dateProfile.activeRange, allDay ? props.nextDayThreshold : null).fg;
     }
 
-    const version = '6.1.5';
+    const version = '6.1.7';
 
     config.touchMouseIgnoreWait = 500;
     let ignoreMouseDepth = 0;
@@ -11879,86 +11880,8 @@ var FullCalendar = (function (exports) {
         listenerRefiners: LISTENER_REFINERS,
     });
 
-    /* An abstract class for the daygrid views, as well as month view. Renders one or more rows of day cells.
-    ----------------------------------------------------------------------------------------------------------------------*/
-    // It is a manager for a Table subcomponent, which does most of the heavy lifting.
-    // It is responsible for managing width/height.
-    class TableView extends DateComponent {
-        constructor() {
-            super(...arguments);
-            this.headerElRef = d();
-        }
-        renderSimpleLayout(headerRowContent, bodyContent) {
-            let { props, context } = this;
-            let sections = [];
-            let stickyHeaderDates = getStickyHeaderDates(context.options);
-            if (headerRowContent) {
-                sections.push({
-                    type: 'header',
-                    key: 'header',
-                    isSticky: stickyHeaderDates,
-                    chunk: {
-                        elRef: this.headerElRef,
-                        tableClassName: 'fc-col-header',
-                        rowContent: headerRowContent,
-                    },
-                });
-            }
-            sections.push({
-                type: 'body',
-                key: 'body',
-                liquid: true,
-                chunk: { content: bodyContent },
-            });
-            return (y(ViewContainer, { elClasses: ['fc-daygrid'], viewSpec: context.viewSpec },
-                y(SimpleScrollGrid, { liquid: !props.isHeightAuto && !props.forPrint, collapsibleWidth: props.forPrint, cols: [] /* TODO: make optional? */, sections: sections })));
-        }
-        renderHScrollLayout(headerRowContent, bodyContent, colCnt, dayMinWidth) {
-            let ScrollGrid = this.context.pluginHooks.scrollGridImpl;
-            if (!ScrollGrid) {
-                throw new Error('No ScrollGrid implementation');
-            }
-            let { props, context } = this;
-            let stickyHeaderDates = !props.forPrint && getStickyHeaderDates(context.options);
-            let stickyFooterScrollbar = !props.forPrint && getStickyFooterScrollbar(context.options);
-            let sections = [];
-            if (headerRowContent) {
-                sections.push({
-                    type: 'header',
-                    key: 'header',
-                    isSticky: stickyHeaderDates,
-                    chunks: [{
-                            key: 'main',
-                            elRef: this.headerElRef,
-                            tableClassName: 'fc-col-header',
-                            rowContent: headerRowContent,
-                        }],
-                });
-            }
-            sections.push({
-                type: 'body',
-                key: 'body',
-                liquid: true,
-                chunks: [{
-                        key: 'main',
-                        content: bodyContent,
-                    }],
-            });
-            if (stickyFooterScrollbar) {
-                sections.push({
-                    type: 'footer',
-                    key: 'footer',
-                    isSticky: true,
-                    chunks: [{
-                            key: 'main',
-                            content: renderScrollShim,
-                        }],
-                });
-            }
-            return (y(ViewContainer, { elClasses: ['fc-daygrid'], viewSpec: context.viewSpec },
-                y(ScrollGrid, { liquid: !props.isHeightAuto && !props.forPrint, forPrint: props.forPrint, collapsibleWidth: props.forPrint, colGroups: [{ cols: [{ span: colCnt, minWidth: dayMinWidth }] }], sections: sections })));
-        }
-    }
+    var css_248z$3 = ":root{--fc-daygrid-event-dot-width:8px}.fc-daygrid-day-events:after,.fc-daygrid-day-events:before,.fc-daygrid-day-frame:after,.fc-daygrid-day-frame:before,.fc-daygrid-event-harness:after,.fc-daygrid-event-harness:before{clear:both;content:\"\";display:table}.fc .fc-daygrid-body{position:relative;z-index:1}.fc .fc-daygrid-day.fc-day-today{background-color:var(--fc-today-bg-color)}.fc .fc-daygrid-day-frame{min-height:100%;position:relative}.fc .fc-daygrid-day-top{display:flex;flex-direction:row-reverse}.fc .fc-day-other .fc-daygrid-day-top{opacity:.3}.fc .fc-daygrid-day-number{padding:4px;position:relative;z-index:4}.fc .fc-daygrid-month-start{font-size:1.1em;font-weight:700}.fc .fc-daygrid-day-events{margin-top:1px}.fc .fc-daygrid-body-balanced .fc-daygrid-day-events{left:0;position:absolute;right:0}.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events{min-height:2em;position:relative}.fc .fc-daygrid-body-natural .fc-daygrid-day-events{margin-bottom:1em}.fc .fc-daygrid-event-harness{position:relative}.fc .fc-daygrid-event-harness-abs{left:0;position:absolute;right:0;top:0}.fc .fc-daygrid-bg-harness{bottom:0;position:absolute;top:0}.fc .fc-daygrid-day-bg .fc-non-business{z-index:1}.fc .fc-daygrid-day-bg .fc-bg-event{z-index:2}.fc .fc-daygrid-day-bg .fc-highlight{z-index:3}.fc .fc-daygrid-event{margin-top:1px;z-index:6}.fc .fc-daygrid-event.fc-event-mirror{z-index:7}.fc .fc-daygrid-day-bottom{font-size:.85em;margin:0 2px}.fc .fc-daygrid-day-bottom:after,.fc .fc-daygrid-day-bottom:before{clear:both;content:\"\";display:table}.fc .fc-daygrid-more-link{border-radius:3px;cursor:pointer;line-height:1;margin-top:1px;max-width:100%;overflow:hidden;padding:2px;position:relative;white-space:nowrap;z-index:4}.fc .fc-daygrid-more-link:hover{background-color:rgba(0,0,0,.1)}.fc .fc-daygrid-week-number{background-color:var(--fc-neutral-bg-color);color:var(--fc-neutral-text-color);min-width:1.5em;padding:2px;position:absolute;text-align:center;top:0;z-index:5}.fc .fc-more-popover .fc-popover-body{min-width:220px;padding:10px}.fc-direction-ltr .fc-daygrid-event.fc-event-start,.fc-direction-rtl .fc-daygrid-event.fc-event-end{margin-left:2px}.fc-direction-ltr .fc-daygrid-event.fc-event-end,.fc-direction-rtl .fc-daygrid-event.fc-event-start{margin-right:2px}.fc-direction-ltr .fc-daygrid-more-link{float:left}.fc-direction-ltr .fc-daygrid-week-number{border-radius:0 0 3px 0;left:0}.fc-direction-rtl .fc-daygrid-more-link{float:right}.fc-direction-rtl .fc-daygrid-week-number{border-radius:0 0 0 3px;right:0}.fc-liquid-hack .fc-daygrid-day-frame{position:static}.fc-daygrid-event{border-radius:3px;font-size:var(--fc-small-font-size);position:relative;white-space:nowrap}.fc-daygrid-block-event .fc-event-time{font-weight:700}.fc-daygrid-block-event .fc-event-time,.fc-daygrid-block-event .fc-event-title{padding:1px}.fc-daygrid-dot-event{align-items:center;display:flex;padding:2px 0}.fc-daygrid-dot-event .fc-event-title{flex-grow:1;flex-shrink:1;font-weight:700;min-width:0;overflow:hidden}.fc-daygrid-dot-event.fc-event-mirror,.fc-daygrid-dot-event:hover{background:rgba(0,0,0,.1)}.fc-daygrid-dot-event.fc-event-selected:before{bottom:-10px;top:-10px}.fc-daygrid-event-dot{border:calc(var(--fc-daygrid-event-dot-width)/2) solid var(--fc-event-border-color);border-radius:calc(var(--fc-daygrid-event-dot-width)/2);box-sizing:content-box;height:0;margin:0 4px;width:0}.fc-direction-ltr .fc-daygrid-event .fc-event-time{margin-right:3px}.fc-direction-rtl .fc-daygrid-event .fc-event-time{margin-left:3px}";
+    injectStyles(css_248z$3);
 
     function splitSegsByRow(segs, rowCnt) {
         let byRow = [];
@@ -12770,30 +12693,6 @@ var FullCalendar = (function (exports) {
         }
     }
 
-    class DayTableView extends TableView {
-        constructor() {
-            super(...arguments);
-            this.buildDayTableModel = memoize(buildDayTableModel);
-            this.headerRef = d();
-            this.tableRef = d();
-            // can't override any lifecycle methods from parent
-        }
-        render() {
-            let { options, dateProfileGenerator } = this.context;
-            let { props } = this;
-            let dayTableModel = this.buildDayTableModel(props.dateProfile, dateProfileGenerator);
-            let headerContent = options.dayHeaders && (y(DayHeader, { ref: this.headerRef, dateProfile: props.dateProfile, dates: dayTableModel.headerDates, datesRepDistinctDays: dayTableModel.rowCnt === 1 }));
-            let bodyContent = (contentArg) => (y(DayTable, { ref: this.tableRef, dateProfile: props.dateProfile, dayTableModel: dayTableModel, businessHours: props.businessHours, dateSelection: props.dateSelection, eventStore: props.eventStore, eventUiBases: props.eventUiBases, eventSelection: props.eventSelection, eventDrag: props.eventDrag, eventResize: props.eventResize, nextDayThreshold: options.nextDayThreshold, colGroupNode: contentArg.tableColGroupNode, tableMinWidth: contentArg.tableMinWidth, dayMaxEvents: options.dayMaxEvents, dayMaxEventRows: options.dayMaxEventRows, showWeekNumbers: options.weekNumbers, expandRows: !props.isHeightAuto, headerAlignElRef: this.headerElRef, clientWidth: contentArg.clientWidth, clientHeight: contentArg.clientHeight, forPrint: props.forPrint }));
-            return options.dayMinWidth
-                ? this.renderHScrollLayout(headerContent, bodyContent, dayTableModel.colCnt, options.dayMinWidth)
-                : this.renderSimpleLayout(headerContent, bodyContent);
-        }
-    }
-    function buildDayTableModel(dateProfile, dateProfileGenerator) {
-        let daySeries = new DaySeriesModel(dateProfile.renderRange, dateProfileGenerator);
-        return new DayTableModel(daySeries, /year|month|week/.test(dateProfile.currentRangeUnit));
-    }
-
     class TableDateProfileGenerator extends DateProfileGenerator {
         // Computes the date range that will be rendered
         buildRenderRange(currentRange, currentRangeUnit, isRangeAllDay) {
@@ -12832,8 +12731,110 @@ var FullCalendar = (function (exports) {
         return { start, end };
     }
 
-    var css_248z$3 = ":root{--fc-daygrid-event-dot-width:8px}.fc-daygrid-day-events:after,.fc-daygrid-day-events:before,.fc-daygrid-day-frame:after,.fc-daygrid-day-frame:before,.fc-daygrid-event-harness:after,.fc-daygrid-event-harness:before{clear:both;content:\"\";display:table}.fc .fc-daygrid-body{position:relative;z-index:1}.fc .fc-daygrid-day.fc-day-today{background-color:var(--fc-today-bg-color)}.fc .fc-daygrid-day-frame{min-height:100%;position:relative}.fc .fc-daygrid-day-top{display:flex;flex-direction:row-reverse}.fc .fc-day-other .fc-daygrid-day-top{opacity:.3}.fc .fc-daygrid-day-number{padding:4px;position:relative;z-index:4}.fc .fc-daygrid-month-start{font-size:1.1em;font-weight:700}.fc .fc-daygrid-day-events{margin-top:1px}.fc .fc-daygrid-body-balanced .fc-daygrid-day-events{left:0;position:absolute;right:0}.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events{min-height:2em;position:relative}.fc .fc-daygrid-body-natural .fc-daygrid-day-events{margin-bottom:1em}.fc .fc-daygrid-event-harness{position:relative}.fc .fc-daygrid-event-harness-abs{left:0;position:absolute;right:0;top:0}.fc .fc-daygrid-bg-harness{bottom:0;position:absolute;top:0}.fc .fc-daygrid-day-bg .fc-non-business{z-index:1}.fc .fc-daygrid-day-bg .fc-bg-event{z-index:2}.fc .fc-daygrid-day-bg .fc-highlight{z-index:3}.fc .fc-daygrid-event{margin-top:1px;z-index:6}.fc .fc-daygrid-event.fc-event-mirror{z-index:7}.fc .fc-daygrid-day-bottom{font-size:.85em;margin:0 2px}.fc .fc-daygrid-day-bottom:after,.fc .fc-daygrid-day-bottom:before{clear:both;content:\"\";display:table}.fc .fc-daygrid-more-link{border-radius:3px;cursor:pointer;line-height:1;margin-top:1px;max-width:100%;overflow:hidden;padding:2px;position:relative;white-space:nowrap;z-index:4}.fc .fc-daygrid-more-link:hover{background-color:rgba(0,0,0,.1)}.fc .fc-daygrid-week-number{background-color:var(--fc-neutral-bg-color);color:var(--fc-neutral-text-color);min-width:1.5em;padding:2px;position:absolute;text-align:center;top:0;z-index:5}.fc .fc-more-popover .fc-popover-body{min-width:220px;padding:10px}.fc-direction-ltr .fc-daygrid-event.fc-event-start,.fc-direction-rtl .fc-daygrid-event.fc-event-end{margin-left:2px}.fc-direction-ltr .fc-daygrid-event.fc-event-end,.fc-direction-rtl .fc-daygrid-event.fc-event-start{margin-right:2px}.fc-direction-ltr .fc-daygrid-more-link{float:left}.fc-direction-ltr .fc-daygrid-week-number{border-radius:0 0 3px 0;left:0}.fc-direction-rtl .fc-daygrid-more-link{float:right}.fc-direction-rtl .fc-daygrid-week-number{border-radius:0 0 0 3px;right:0}.fc-liquid-hack .fc-daygrid-day-frame{position:static}.fc-daygrid-event{border-radius:3px;font-size:var(--fc-small-font-size);position:relative;white-space:nowrap}.fc-daygrid-block-event .fc-event-time{font-weight:700}.fc-daygrid-block-event .fc-event-time,.fc-daygrid-block-event .fc-event-title{padding:1px}.fc-daygrid-dot-event{align-items:center;display:flex;padding:2px 0}.fc-daygrid-dot-event .fc-event-title{flex-grow:1;flex-shrink:1;font-weight:700;min-width:0;overflow:hidden}.fc-daygrid-dot-event.fc-event-mirror,.fc-daygrid-dot-event:hover{background:rgba(0,0,0,.1)}.fc-daygrid-dot-event.fc-event-selected:before{bottom:-10px;top:-10px}.fc-daygrid-event-dot{border:calc(var(--fc-daygrid-event-dot-width)/2) solid var(--fc-event-border-color);border-radius:calc(var(--fc-daygrid-event-dot-width)/2);box-sizing:content-box;height:0;margin:0 4px;width:0}.fc-direction-ltr .fc-daygrid-event .fc-event-time{margin-right:3px}.fc-direction-rtl .fc-daygrid-event .fc-event-time{margin-left:3px}";
-    injectStyles(css_248z$3);
+    /* An abstract class for the daygrid views, as well as month view. Renders one or more rows of day cells.
+    ----------------------------------------------------------------------------------------------------------------------*/
+    // It is a manager for a Table subcomponent, which does most of the heavy lifting.
+    // It is responsible for managing width/height.
+    class TableView extends DateComponent {
+        constructor() {
+            super(...arguments);
+            this.headerElRef = d();
+        }
+        renderSimpleLayout(headerRowContent, bodyContent) {
+            let { props, context } = this;
+            let sections = [];
+            let stickyHeaderDates = getStickyHeaderDates(context.options);
+            if (headerRowContent) {
+                sections.push({
+                    type: 'header',
+                    key: 'header',
+                    isSticky: stickyHeaderDates,
+                    chunk: {
+                        elRef: this.headerElRef,
+                        tableClassName: 'fc-col-header',
+                        rowContent: headerRowContent,
+                    },
+                });
+            }
+            sections.push({
+                type: 'body',
+                key: 'body',
+                liquid: true,
+                chunk: { content: bodyContent },
+            });
+            return (y(ViewContainer, { elClasses: ['fc-daygrid'], viewSpec: context.viewSpec },
+                y(SimpleScrollGrid, { liquid: !props.isHeightAuto && !props.forPrint, collapsibleWidth: props.forPrint, cols: [] /* TODO: make optional? */, sections: sections })));
+        }
+        renderHScrollLayout(headerRowContent, bodyContent, colCnt, dayMinWidth) {
+            let ScrollGrid = this.context.pluginHooks.scrollGridImpl;
+            if (!ScrollGrid) {
+                throw new Error('No ScrollGrid implementation');
+            }
+            let { props, context } = this;
+            let stickyHeaderDates = !props.forPrint && getStickyHeaderDates(context.options);
+            let stickyFooterScrollbar = !props.forPrint && getStickyFooterScrollbar(context.options);
+            let sections = [];
+            if (headerRowContent) {
+                sections.push({
+                    type: 'header',
+                    key: 'header',
+                    isSticky: stickyHeaderDates,
+                    chunks: [{
+                            key: 'main',
+                            elRef: this.headerElRef,
+                            tableClassName: 'fc-col-header',
+                            rowContent: headerRowContent,
+                        }],
+                });
+            }
+            sections.push({
+                type: 'body',
+                key: 'body',
+                liquid: true,
+                chunks: [{
+                        key: 'main',
+                        content: bodyContent,
+                    }],
+            });
+            if (stickyFooterScrollbar) {
+                sections.push({
+                    type: 'footer',
+                    key: 'footer',
+                    isSticky: true,
+                    chunks: [{
+                            key: 'main',
+                            content: renderScrollShim,
+                        }],
+                });
+            }
+            return (y(ViewContainer, { elClasses: ['fc-daygrid'], viewSpec: context.viewSpec },
+                y(ScrollGrid, { liquid: !props.isHeightAuto && !props.forPrint, forPrint: props.forPrint, collapsibleWidth: props.forPrint, colGroups: [{ cols: [{ span: colCnt, minWidth: dayMinWidth }] }], sections: sections })));
+        }
+    }
+
+    class DayTableView extends TableView {
+        constructor() {
+            super(...arguments);
+            this.buildDayTableModel = memoize(buildDayTableModel);
+            this.headerRef = d();
+            this.tableRef = d();
+            // can't override any lifecycle methods from parent
+        }
+        render() {
+            let { options, dateProfileGenerator } = this.context;
+            let { props } = this;
+            let dayTableModel = this.buildDayTableModel(props.dateProfile, dateProfileGenerator);
+            let headerContent = options.dayHeaders && (y(DayHeader, { ref: this.headerRef, dateProfile: props.dateProfile, dates: dayTableModel.headerDates, datesRepDistinctDays: dayTableModel.rowCnt === 1 }));
+            let bodyContent = (contentArg) => (y(DayTable, { ref: this.tableRef, dateProfile: props.dateProfile, dayTableModel: dayTableModel, businessHours: props.businessHours, dateSelection: props.dateSelection, eventStore: props.eventStore, eventUiBases: props.eventUiBases, eventSelection: props.eventSelection, eventDrag: props.eventDrag, eventResize: props.eventResize, nextDayThreshold: options.nextDayThreshold, colGroupNode: contentArg.tableColGroupNode, tableMinWidth: contentArg.tableMinWidth, dayMaxEvents: options.dayMaxEvents, dayMaxEventRows: options.dayMaxEventRows, showWeekNumbers: options.weekNumbers, expandRows: !props.isHeightAuto, headerAlignElRef: this.headerElRef, clientWidth: contentArg.clientWidth, clientHeight: contentArg.clientHeight, forPrint: props.forPrint }));
+            return options.dayMinWidth
+                ? this.renderHScrollLayout(headerContent, bodyContent, dayTableModel.colCnt, options.dayMinWidth)
+                : this.renderSimpleLayout(headerContent, bodyContent);
+        }
+    }
+    function buildDayTableModel(dateProfile, dateProfileGenerator) {
+        let daySeries = new DaySeriesModel(dateProfile.renderRange, dateProfileGenerator);
+        return new DayTableModel(daySeries, /year|month|week/.test(dateProfile.currentRangeUnit));
+    }
 
     var index$3 = createPlugin({
         name: '@fullcalendar/daygrid',
@@ -13587,19 +13588,19 @@ var FullCalendar = (function (exports) {
                     this.renderFillSegs(props.bgEventSegs, 'bg-event'),
                     this.renderFillSegs(props.dateSelectionSegs, 'highlight')),
                 y("div", { className: "fc-timegrid-col-events" }, this.renderFgSegs(sortedFgSegs, interactionAffectedInstances, false, false, false)),
-                y("div", { className: "fc-timegrid-col-events" }, this.renderFgSegs(mirrorSegs, {}, Boolean(props.eventDrag), Boolean(props.eventResize), Boolean(isSelectMirror))),
+                y("div", { className: "fc-timegrid-col-events" }, this.renderFgSegs(mirrorSegs, {}, Boolean(props.eventDrag), Boolean(props.eventResize), Boolean(isSelectMirror), 'mirror')),
                 y("div", { className: "fc-timegrid-now-indicator-container" }, this.renderNowIndicator(props.nowIndicatorSegs)),
                 hasCustomDayCellContent(options) && (y(InnerContent, { elTag: "div", elClasses: ['fc-timegrid-col-misc'] }))))));
         }
-        renderFgSegs(sortedFgSegs, segIsInvisible, isDragging, isResizing, isDateSelecting) {
+        renderFgSegs(sortedFgSegs, segIsInvisible, isDragging, isResizing, isDateSelecting, forcedKey) {
             let { props } = this;
             if (props.forPrint) {
                 return renderPlainFgSegs(sortedFgSegs, props);
             }
-            return this.renderPositionedFgSegs(sortedFgSegs, segIsInvisible, isDragging, isResizing, isDateSelecting);
+            return this.renderPositionedFgSegs(sortedFgSegs, segIsInvisible, isDragging, isResizing, isDateSelecting, forcedKey);
         }
         renderPositionedFgSegs(segs, // if not mirror, needs to be sorted
-        segIsInvisible, isDragging, isResizing, isDateSelecting) {
+        segIsInvisible, isDragging, isResizing, isDateSelecting, forcedKey) {
             let { eventMaxStack, eventShortHeight, eventOrderStrict, eventMinHeight } = this.context.options;
             let { date, slatCoords, eventSelection, todayRange, nowDate } = this.props;
             let isMirror = isDragging || isResizing || isDateSelecting;
@@ -13616,7 +13617,7 @@ var FullCalendar = (function (exports) {
                     let isInset = Boolean(rect) && rect.stackForward > 0;
                     let isShort = Boolean(rect) && (rect.span.end - rect.span.start) < eventShortHeight; // look at other places for this problem
                     return (y("div", { className: 'fc-timegrid-event-harness' +
-                            (isInset ? ' fc-timegrid-event-harness-inset' : ''), key: instanceId, style: Object.assign(Object.assign({ visibility: isVisible ? '' : 'hidden' }, vStyle), hStyle) },
+                            (isInset ? ' fc-timegrid-event-harness-inset' : ''), key: forcedKey || instanceId, style: Object.assign(Object.assign({ visibility: isVisible ? '' : 'hidden' }, vStyle), hStyle) },
                         y(TimeColEvent, Object.assign({ seg: seg, isDragging: isDragging, isResizing: isResizing, isDateSelecting: isDateSelecting, isSelected: instanceId === eventSelection, isShort: isShort }, getSegMeta(seg, todayRange, nowDate)))));
                 })));
         }
@@ -14030,9 +14031,6 @@ var FullCalendar = (function (exports) {
         },
     });
 
-    var css_248z$1 = ":root{--fc-list-event-dot-width:10px;--fc-list-event-hover-bg-color:#f5f5f5}.fc-theme-standard .fc-list{border:1px solid var(--fc-border-color)}.fc .fc-list-empty{align-items:center;background-color:var(--fc-neutral-bg-color);display:flex;height:100%;justify-content:center}.fc .fc-list-empty-cushion{margin:5em 0}.fc .fc-list-table{border-style:hidden;width:100%}.fc .fc-list-table tr>*{border-left:0;border-right:0}.fc .fc-list-sticky .fc-list-day>*{background:var(--fc-page-bg-color);position:sticky;top:0}.fc .fc-list-table thead{left:-10000px;position:absolute}.fc .fc-list-table tbody>tr:first-child th{border-top:0}.fc .fc-list-table th{padding:0}.fc .fc-list-day-cushion,.fc .fc-list-table td{padding:8px 14px}.fc .fc-list-day-cushion:after{clear:both;content:\"\";display:table}.fc-theme-standard .fc-list-day-cushion{background-color:var(--fc-neutral-bg-color)}.fc-direction-ltr .fc-list-day-text,.fc-direction-rtl .fc-list-day-side-text{float:left}.fc-direction-ltr .fc-list-day-side-text,.fc-direction-rtl .fc-list-day-text{float:right}.fc-direction-ltr .fc-list-table .fc-list-event-graphic{padding-right:0}.fc-direction-rtl .fc-list-table .fc-list-event-graphic{padding-left:0}.fc .fc-list-event.fc-event-forced-url{cursor:pointer}.fc .fc-list-event:hover td{background-color:var(--fc-list-event-hover-bg-color)}.fc .fc-list-event-graphic,.fc .fc-list-event-time{white-space:nowrap;width:1px}.fc .fc-list-event-dot{border:calc(var(--fc-list-event-dot-width)/2) solid var(--fc-event-border-color);border-radius:calc(var(--fc-list-event-dot-width)/2);box-sizing:content-box;display:inline-block;height:0;width:0}.fc .fc-list-event-title a{color:inherit;text-decoration:none}.fc .fc-list-event.fc-event-forced-url:hover a{text-decoration:underline}";
-    injectStyles(css_248z$1);
-
     class ListViewHeaderRow extends BaseComponent {
         constructor() {
             super(...arguments);
@@ -14292,6 +14290,9 @@ var FullCalendar = (function (exports) {
         }
         return segsByDay;
     }
+
+    var css_248z$1 = ":root{--fc-list-event-dot-width:10px;--fc-list-event-hover-bg-color:#f5f5f5}.fc-theme-standard .fc-list{border:1px solid var(--fc-border-color)}.fc .fc-list-empty{align-items:center;background-color:var(--fc-neutral-bg-color);display:flex;height:100%;justify-content:center}.fc .fc-list-empty-cushion{margin:5em 0}.fc .fc-list-table{border-style:hidden;width:100%}.fc .fc-list-table tr>*{border-left:0;border-right:0}.fc .fc-list-sticky .fc-list-day>*{background:var(--fc-page-bg-color);position:sticky;top:0}.fc .fc-list-table thead{left:-10000px;position:absolute}.fc .fc-list-table tbody>tr:first-child th{border-top:0}.fc .fc-list-table th{padding:0}.fc .fc-list-day-cushion,.fc .fc-list-table td{padding:8px 14px}.fc .fc-list-day-cushion:after{clear:both;content:\"\";display:table}.fc-theme-standard .fc-list-day-cushion{background-color:var(--fc-neutral-bg-color)}.fc-direction-ltr .fc-list-day-text,.fc-direction-rtl .fc-list-day-side-text{float:left}.fc-direction-ltr .fc-list-day-side-text,.fc-direction-rtl .fc-list-day-text{float:right}.fc-direction-ltr .fc-list-table .fc-list-event-graphic{padding-right:0}.fc-direction-rtl .fc-list-table .fc-list-event-graphic{padding-left:0}.fc .fc-list-event.fc-event-forced-url{cursor:pointer}.fc .fc-list-event:hover td{background-color:var(--fc-list-event-hover-bg-color)}.fc .fc-list-event-graphic,.fc .fc-list-event-time{white-space:nowrap;width:1px}.fc .fc-list-event-dot{border:calc(var(--fc-list-event-dot-width)/2) solid var(--fc-event-border-color);border-radius:calc(var(--fc-list-event-dot-width)/2);box-sizing:content-box;display:inline-block;height:0;width:0}.fc .fc-list-event-title a{color:inherit;text-decoration:none}.fc .fc-list-event.fc-event-forced-url:hover a{text-decoration:underline}";
+    injectStyles(css_248z$1);
 
     const OPTION_REFINERS$1 = {
         listDayFormat: createFalsableFormatter,
