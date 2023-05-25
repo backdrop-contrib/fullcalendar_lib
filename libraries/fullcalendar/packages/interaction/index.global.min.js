@@ -1,5 +1,5 @@
 /*!
-FullCalendar Interaction Plugin v6.1.7
+FullCalendar Interaction Plugin v6.1.8
 Docs & License: https://fullcalendar.io/docs/editable
 (c) 2023 Adam Shaw
 */

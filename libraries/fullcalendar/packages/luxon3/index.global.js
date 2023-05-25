@@ -1,9 +1,9 @@
 /*!
-FullCalendar Luxon 2 Plugin v6.1.8
-Docs & License: https://fullcalendar.io/docs/luxon2
+FullCalendar Luxon 3 Plugin v6.1.8
+Docs & License: https://fullcalendar.io/docs/luxon
 (c) 2023 Adam Shaw
 */
-FullCalendar.Luxon2 = (function (exports, core, luxon, internal) {
+FullCalendar.Luxon3 = (function (exports, core, luxon, internal) {
     'use strict';
 
     function toLuxonDateTime(date, calendar) {
@@ -113,7 +113,7 @@ FullCalendar.Luxon2 = (function (exports, core, luxon, internal) {
     }
 
     var plugin = core.createPlugin({
-        name: '@fullcalendar/luxon2',
+        name: '@fullcalendar/luxon3',
         cmdFormatter: formatWithCmdStr,
         namedTimeZonedImpl: LuxonNamedTimeZone,
     });
