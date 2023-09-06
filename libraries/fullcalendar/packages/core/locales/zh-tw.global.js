@@ -1,5 +1,5 @@
 /*!
-FullCalendar Core v6.1.7
+FullCalendar Core v6.1.8
 Docs & License: https://fullcalendar.io
 (c) 2023 Adam Shaw
 */
@@ -9,8 +9,8 @@ Docs & License: https://fullcalendar.io
     var locale = {
         code: 'zh-tw',
         buttonText: {
-            prev: '上月',
-            next: '下月',
+            prev: '上個',
+            next: '下個',
             today: '今天',
             year: '年',
             month: '月',
@@ -18,10 +18,10 @@ Docs & License: https://fullcalendar.io
             day: '天',
             list: '活動列表',
         },
-        weekText: '周',
+        weekText: '週',
         allDayText: '整天',
         moreLinkText: '顯示更多',
-        noEventsText: '没有任何活動',
+        noEventsText: '沒有任何活動',
     };
 
     index_js.globalLocales.push(locale);

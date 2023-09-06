@@ -1,5 +1,5 @@
 /*!
-FullCalendar Core v6.1.7
+FullCalendar Core v6.1.8
 Docs & License: https://fullcalendar.io
 (c) 2023 Adam Shaw
 */
@@ -20,7 +20,7 @@ Docs & License: https://fullcalendar.io
             list: 'סדר יום',
         },
         allDayText: 'כל היום',
-        moreLinkText: 'אחר',
+        moreLinkText: 'נוספים',
         noEventsText: 'אין אירועים להצגה',
         weekText: 'שבוע',
     };
