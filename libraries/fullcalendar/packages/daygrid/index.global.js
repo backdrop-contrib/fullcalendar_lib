@@ -1,5 +1,5 @@
 /*!
-FullCalendar Day Grid Plugin v6.1.8
+FullCalendar Day Grid Plugin v6.1.9
 Docs & License: https://fullcalendar.io/docs/month-view
 (c) 2023 Adam Shaw
 */
@@ -262,9 +262,21 @@ FullCalendar.DayGrid = (function (exports, core, internal$1, preact) {
                 (dateEnv.getDay(date) === 1 && date.valueOf() < currentEnd.valueOf()));
     }
 
+    function generateSegKey(seg) {
+        return seg.eventRange.instance.instanceId + ':' + seg.firstCol;
+    }
+    function generateSegUid(seg) {
+        return generateSegKey(seg) + ':' + seg.lastCol;
+    }
     function computeFgSegPlacement(segs, // assumed already sorted
-    dayMaxEvents, dayMaxEventRows, strictOrder, eventInstanceHeights, maxContentHeight, cells) {
-        let hierarchy = new DayGridSegHierarchy();
+    dayMaxEvents, dayMaxEventRows, strictOrder, segHeights, maxContentHeight, cells) {
+        let hierarchy = new DayGridSegHierarchy((segEntry) => {
+            // TODO: more DRY with generateSegUid
+            let segUid = segs[segEntry.index].eventRange.instance.instanceId +
+                ':' + segEntry.span.start +
+                ':' + (segEntry.span.end - 1);
+            return segHeights[segUid];
+        });
         hierarchy.allowReslicing = true;
         hierarchy.strictOrder = strictOrder;
         if (dayMaxEvents === true || dayMaxEventRows === true) {
@@ -283,12 +295,11 @@ FullCalendar.DayGrid = (function (exports, core, internal$1, preact) {
         let unknownHeightSegs = [];
         for (let i = 0; i < segs.length; i += 1) {
             let seg = segs[i];
-            let { instanceId } = seg.eventRange.instance;
-            let eventHeight = eventInstanceHeights[instanceId];
+            let segUid = generateSegUid(seg);
+            let eventHeight = segHeights[segUid];
             if (eventHeight != null) {
                 segInputs.push({
                     index: i,
-                    thickness: eventHeight,
                     span: {
                         start: seg.firstCol,
                         end: seg.lastCol + 1,
@@ -498,7 +509,7 @@ FullCalendar.DayGrid = (function (exports, core, internal$1, preact) {
             this.state = {
                 framePositions: null,
                 maxContentHeight: null,
-                eventInstanceHeights: {},
+                segHeights: {},
             };
             this.handleResize = (isForced) => {
                 if (isForced) {
@@ -514,7 +525,7 @@ FullCalendar.DayGrid = (function (exports, core, internal$1, preact) {
             let bgEventSegsByCol = splitSegsByFirstCol(props.bgEventSegs, colCnt);
             let highlightSegsByCol = splitSegsByFirstCol(this.getHighlightSegs(), colCnt);
             let mirrorSegsByCol = splitSegsByFirstCol(this.getMirrorSegs(), colCnt);
-            let { singleColPlacements, multiColPlacements, moreCnts, moreMarginTops } = computeFgSegPlacement(internal$1.sortEventSegs(props.fgEventSegs, options.eventOrder), props.dayMaxEvents, props.dayMaxEventRows, options.eventOrderStrict, state.eventInstanceHeights, state.maxContentHeight, props.cells);
+            let { singleColPlacements, multiColPlacements, moreCnts, moreMarginTops } = computeFgSegPlacement(internal$1.sortEventSegs(props.fgEventSegs, options.eventOrder), props.dayMaxEvents, props.dayMaxEventRows, options.eventOrderStrict, state.segHeights, state.maxContentHeight, props.cells);
             let isForcedInvisible = // TODO: messy way to compute this
              (props.eventDrag && props.eventDrag.affectedInstances) ||
                 (props.eventResize && props.eventResize.affectedInstances) ||
@@ -573,7 +584,6 @@ FullCalendar.DayGrid = (function (exports, core, internal$1, preact) {
                 for (let placement of segPlacements) {
                     let { seg } = placement;
                     let { instanceId } = seg.eventRange.instance;
-                    let key = instanceId + ':' + col;
                     let isVisible = placement.isVisible && !isForcedInvisible[instanceId];
                     let isAbsolute = placement.isAbsolute;
                     let left = '';
@@ -592,7 +602,7 @@ FullCalendar.DayGrid = (function (exports, core, internal$1, preact) {
                     known bug: events that are force to be list-item but span multiple days still take up space in later columns
                     todo: in print view, for multi-day events, don't display title within non-start/end segs
                     */
-                    nodes.push(preact.createElement("div", { className: 'fc-daygrid-event-harness' + (isAbsolute ? ' fc-daygrid-event-harness-abs' : ''), key: key, ref: isMirror ? null : this.segHarnessRefs.createRef(key), style: {
+                    nodes.push(preact.createElement("div", { className: 'fc-daygrid-event-harness' + (isAbsolute ? ' fc-daygrid-event-harness-abs' : ''), key: generateSegKey(seg), ref: isMirror ? null : this.segHarnessRefs.createRef(generateSegUid(seg)), style: {
                             visibility: isVisible ? '' : 'hidden',
                             marginTop: isAbsolute ? '' : placement.marginTop,
                             top: isAbsolute ? placement.absoluteTop : '',
@@ -643,28 +653,27 @@ FullCalendar.DayGrid = (function (exports, core, internal$1, preact) {
                         }
                     }
                 }
-                const oldInstanceHeights = this.state.eventInstanceHeights;
-                const newInstanceHeights = this.queryEventInstanceHeights();
+                const oldSegHeights = this.state.segHeights;
+                const newSegHeights = this.querySegHeights();
                 const limitByContentHeight = props.dayMaxEvents === true || props.dayMaxEventRows === true;
                 this.safeSetState({
                     // HACK to prevent oscillations of events being shown/hidden from max-event-rows
                     // Essentially, once you compute an element's height, never null-out.
                     // TODO: always display all events, as visibility:hidden?
-                    eventInstanceHeights: Object.assign(Object.assign({}, oldInstanceHeights), newInstanceHeights),
+                    segHeights: Object.assign(Object.assign({}, oldSegHeights), newSegHeights),
                     maxContentHeight: limitByContentHeight ? this.computeMaxContentHeight() : null,
                 });
             }
         }
-        queryEventInstanceHeights() {
+        querySegHeights() {
             let segElMap = this.segHarnessRefs.currentMap;
-            let eventInstanceHeights = {};
+            let segHeights = {};
             // get the max height amongst instance segs
-            for (let key in segElMap) {
-                let height = Math.round(segElMap[key].getBoundingClientRect().height);
-                let instanceId = key.split(':')[0]; // deconstruct how renderFgSegs makes the key
-                eventInstanceHeights[instanceId] = Math.max(eventInstanceHeights[instanceId] || 0, height);
+            for (let segUid in segElMap) {
+                let height = Math.round(segElMap[segUid].getBoundingClientRect().height);
+                segHeights[segUid] = Math.max(segHeights[segUid] || 0, height);
             }
-            return eventInstanceHeights;
+            return segHeights;
         }
         computeMaxContentHeight() {
             let firstKey = this.props.cells[0].key;
@@ -678,7 +687,7 @@ FullCalendar.DayGrid = (function (exports, core, internal$1, preact) {
         }
     }
     TableRow.addStateEquality({
-        eventInstanceHeights: internal$1.isPropsEqual,
+        segHeights: internal$1.isPropsEqual,
     });
     function buildMirrorPlacements(mirrorSegs, colPlacements) {
         if (!mirrorSegs.length) {
@@ -734,15 +743,25 @@ FullCalendar.DayGrid = (function (exports, core, internal$1, preact) {
                 , showDayNumbers: rowCnt > 1, showWeekNumbers: props.showWeekNumbers, todayRange: todayRange, dateProfile: props.dateProfile, cells: cells, renderIntro: props.renderRowIntro, businessHourSegs: businessHourSegsByRow[row], eventSelection: props.eventSelection, bgEventSegs: bgEventSegsByRow[row].filter(isSegAllDay) /* hack */, fgEventSegs: fgEventSegsByRow[row], dateSelectionSegs: dateSelectionSegsByRow[row], eventDrag: eventDragByRow[row], eventResize: eventResizeByRow[row], dayMaxEvents: props.dayMaxEvents, dayMaxEventRows: props.dayMaxEventRows, clientWidth: props.clientWidth, clientHeight: props.clientHeight, cellMinHeight: cellMinHeight, forPrint: props.forPrint })))))));
         }
         componentDidMount() {
-            // HACK: need a daygrid wrapper parent to do positioning
-            // NOTE: a daygrid resource view w/o resources can have zero cells
-            const firstCellEl = this.rowRefs.currentMap[0].getCellEls()[0];
-            this.rootEl = firstCellEl ? firstCellEl.closest('.fc-daygrid-body') : null;
-            if (this.rootEl) {
-                this.context.registerInteractiveComponent(this, {
-                    el: this.rootEl,
-                    isHitComboAllowed: this.props.isHitComboAllowed,
-                });
+            this.registerInteractiveComponent();
+        }
+        componentDidUpdate() {
+            // for if started with zero cells
+            this.registerInteractiveComponent();
+        }
+        registerInteractiveComponent() {
+            if (!this.rootEl) {
+                // HACK: need a daygrid wrapper parent to do positioning
+                // NOTE: a daygrid resource view w/o resources can have zero cells
+                const firstCellEl = this.rowRefs.currentMap[0].getCellEls()[0];
+                const rootEl = firstCellEl ? firstCellEl.closest('.fc-daygrid-body') : null;
+                if (rootEl) {
+                    this.rootEl = rootEl;
+                    this.context.registerInteractiveComponent(this, {
+                        el: rootEl,
+                        isHitComboAllowed: this.props.isHitComboAllowed,
+                    });
+                }
             }
         }
         componentWillUnmount() {

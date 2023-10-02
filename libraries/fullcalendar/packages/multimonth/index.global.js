@@ -1,5 +1,5 @@
 /*!
-FullCalendar Multi-Month Plugin v6.1.8
+FullCalendar Multi-Month Plugin v6.1.9
 Docs & License: https://fullcalendar.io/docs/multimonth-grid
 (c) 2023 Adam Shaw
 */

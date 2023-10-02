@@ -1,5 +1,5 @@
 /*!
-FullCalendar Interaction Plugin v6.1.8
+FullCalendar Interaction Plugin v6.1.9
 Docs & License: https://fullcalendar.io/docs/editable
 (c) 2023 Adam Shaw
 */
@@ -381,6 +381,7 @@ FullCalendar.Interaction = (function (exports, core, internal) {
                 // we don't want long taps or any mouse interaction causing selection/menus.
                 // would use preventSelection(), but that prevents selectstart, causing problems.
                 mirrorEl.style.userSelect = 'none';
+                mirrorEl.style.webkitUserSelect = 'none';
                 mirrorEl.classList.add('fc-event-dragging');
                 internal.applyStyle(mirrorEl, {
                     position: 'fixed',

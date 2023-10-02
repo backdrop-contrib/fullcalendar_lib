@@ -1,5 +1,5 @@
 /*!
-FullCalendar RRule Plugin v6.1.8
+FullCalendar RRule Plugin v6.1.9
 Docs & License: https://fullcalendar.io/docs/rrule-plugin
 (c) 2023 Adam Shaw
 */

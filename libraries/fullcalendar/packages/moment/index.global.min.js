@@ -1,5 +1,5 @@
 /*!
-FullCalendar Moment Plugin v6.1.8
+FullCalendar Moment Plugin v6.1.9
 Docs & License: https://fullcalendar.io/docs/moment-plugin
 (c) 2023 Adam Shaw
 */
