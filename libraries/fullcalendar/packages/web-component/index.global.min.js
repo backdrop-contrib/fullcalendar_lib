@@ -1,5 +1,5 @@
 /*!
-FullCalendar Web Component v6.1.9
+FullCalendar Web Component v6.1.10
 Docs & License: https://fullcalendar.io/docs/web-component
 (c) 2023 Adam Shaw
 */
