@@ -1,7 +1,7 @@
 /*!
-FullCalendar Bootstrap 5 Plugin v6.1.11
+FullCalendar Bootstrap 5 Plugin v6.1.13
 Docs & License: https://fullcalendar.io/docs/bootstrap5
-(c) 2023 Adam Shaw
+(c) 2024 Adam Shaw
 */
 FullCalendar.Bootstrap5 = (function (exports, core, internal$1) {
     'use strict';
