@@ -1,5 +1,5 @@
 /*!
-FullCalendar Multi-Month Plugin v6.1.14
+FullCalendar Multi-Month Plugin v6.1.15
 Docs & License: https://fullcalendar.io/docs/multimonth-grid
 (c) 2024 Adam Shaw
 */
@@ -87,6 +87,9 @@ FullCalendar.MultiMonth = (function (exports, core, internal$1, internal, preact
                 (monthTableWidth != null && monthTableWidth < 400) ?
                     'fc-multimonth-compact' :
                     '',
+                props.isHeightAuto ?
+                    '' :
+                    'fc-scroller', // for AutoScroller
             ];
             return (preact.createElement(internal.ViewContainer, { elRef: this.scrollElRef, elClasses: rootClassNames, viewSpec: context.viewSpec }, monthDateProfiles.map((monthDateProfile, i) => {
                 const monthStr = internal.formatIsoMonthStr(monthDateProfile.currentRange.start);
