@@ -1,5 +1,5 @@
 /*!
-FullCalendar Luxon 2 Plugin v6.1.14
+FullCalendar Luxon 2 Plugin v6.1.15
 Docs & License: https://fullcalendar.io/docs/luxon2
 (c) 2024 Adam Shaw
 */
