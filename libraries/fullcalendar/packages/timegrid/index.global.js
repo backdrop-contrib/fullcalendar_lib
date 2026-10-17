@@ -1,5 +1,5 @@
 /*!
-FullCalendar Time Grid Plugin v6.1.19
+FullCalendar Time Grid Plugin v6.1.22
 Docs & License: https://fullcalendar.io/docs/timegrid-view
 (c) 2024 Adam Shaw
 */
@@ -335,14 +335,21 @@ FullCalendar.TimeGrid = (function (exports, core, internal$1, preact, internal$2
             this.dateProfile = dateProfile;
             this.slotDuration = slotDuration;
         }
+        /*
+        Tries the date's own day first. When slotMaxTime extends past midnight, or slotMinTime is negative,
+        the date might only be visible within the previous or next day's column (#6394)
+        */
         safeComputeTop(date) {
             let { dateProfile } = this;
-            if (internal$1.rangeContainsMarker(dateProfile.currentRange, date)) {
-                let startOfDayDate = internal$1.startOfDay(date);
-                let timeMs = date.valueOf() - startOfDayDate.valueOf();
-                if (timeMs >= internal$1.asRoughMs(dateProfile.slotMinTime) &&
-                    timeMs < internal$1.asRoughMs(dateProfile.slotMaxTime)) {
-                    return this.computeTimeTop(internal$1.createDuration(timeMs));
+            let ownDayDate = internal$1.startOfDay(date);
+            let dayDates = [ownDayDate, internal$1.addDays(ownDayDate, -1), internal$1.addDays(ownDayDate, 1)];
+            for (let dayDate of dayDates) {
+                if (internal$1.rangeContainsMarker(dateProfile.currentRange, dayDate)) {
+                    let timeMs = date.valueOf() - dayDate.valueOf();
+                    if (timeMs >= internal$1.asRoughMs(dateProfile.slotMinTime) &&
+                        timeMs < internal$1.asRoughMs(dateProfile.slotMaxTime)) {
+                        return this.computeTimeTop(internal$1.createDuration(timeMs));
+                    }
                 }
             }
             return null;
