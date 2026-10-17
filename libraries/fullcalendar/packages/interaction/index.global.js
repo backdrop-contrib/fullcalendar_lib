@@ -1,5 +1,5 @@
 /*!
-FullCalendar Interaction Plugin v6.1.19
+FullCalendar Interaction Plugin v6.1.22
 Docs & License: https://fullcalendar.io/docs/editable
 (c) 2024 Adam Shaw
 */
@@ -1400,7 +1400,7 @@ FullCalendar.Interaction = (function (exports, core, internal) {
                             };
                             let transformed = {};
                             for (let transformer of initialContext.getCurrentData().pluginHooks.eventDropTransformers) {
-                                Object.assign(transformed, transformer(validMutation, initialContext));
+                                Object.assign(transformed, transformer(validMutation, initialContext, eventDef));
                             }
                             initialContext.emitter.trigger('eventDrop', Object.assign(Object.assign(Object.assign({}, eventChangeArg), transformed), { el: ev.subjectEl, delta: validMutation.datesDelta, jsEvent: ev.origEvent, view: initialView }));
                             initialContext.emitter.trigger('eventChange', eventChangeArg);
